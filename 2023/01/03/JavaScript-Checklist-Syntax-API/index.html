@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="1. ECMAScript 和 JavaScript 关系JavaScript 是脚本语言，ECMAScript 是规范。JavaScript 是基于 ECMAScript 规范的脚本语言。  JavaScript 包含 3 部分: ECMAScript，由 ECMA-262 定义，提供核心语言功能； 文档对象模型 DOM，提供访问和操作网页内容的方法和接口； 浏览器对象模型 BOM，提供与浏览器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript Checklist: Syntax &amp; API">
+<meta property="og:url" content="http://example.com/2023/01/03/JavaScript-Checklist-Syntax-API/index.html">
+<meta property="og:site_name" content="Gloria&#39;s Notebook">
+<meta property="og:description" content="1. ECMAScript 和 JavaScript 关系JavaScript 是脚本语言，ECMAScript 是规范。JavaScript 是基于 ECMAScript 规范的脚本语言。  JavaScript 包含 3 部分: ECMAScript，由 ECMA-262 定义，提供核心语言功能； 文档对象模型 DOM，提供访问和操作网页内容的方法和接口； 浏览器对象模型 BOM，提供与浏览器">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-01-03T19:59:48.000Z">
+<meta property="article:modified_time" content="2023-01-06T17:08:53.906Z">
+<meta property="article:author" content="Gloria Su">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/iconmonstr-cat-1-240.png">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>JavaScript Checklist: Syntax &amp; API</title><meta name="robots" content="noindex">
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Gloria's Notebook" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/categories/">categories</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/Beking0912">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2023/01/03/JavaScript-Checklist-Syntax-API/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2023/01/03/JavaScript-Checklist-Syntax-API/&text=JavaScript Checklist: Syntax &amp; API"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2023/01/03/JavaScript-Checklist-Syntax-API/&title=JavaScript Checklist: Syntax &amp; API"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2023/01/03/JavaScript-Checklist-Syntax-API/&is_video=false&description=JavaScript Checklist: Syntax &amp; API"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=JavaScript Checklist: Syntax &amp; API&body=Check out this article: http://example.com/2023/01/03/JavaScript-Checklist-Syntax-API/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2023/01/03/JavaScript-Checklist-Syntax-API/&title=JavaScript Checklist: Syntax &amp; API"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2023/01/03/JavaScript-Checklist-Syntax-API/&title=JavaScript Checklist: Syntax &amp; API"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2023/01/03/JavaScript-Checklist-Syntax-API/&title=JavaScript Checklist: Syntax &amp; API"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2023/01/03/JavaScript-Checklist-Syntax-API/&title=JavaScript Checklist: Syntax &amp; API"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2023/01/03/JavaScript-Checklist-Syntax-API/&name=JavaScript Checklist: Syntax &amp; API&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2023/01/03/JavaScript-Checklist-Syntax-API/&t=JavaScript Checklist: Syntax &amp; API"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-ECMAScript-%E5%92%8C-JavaScript-%E5%85%B3%E7%B3%BB"><span class="toc-number">1.</span> <span class="toc-text">1. ECMAScript 和 JavaScript 关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-es5%E3%80%81es6-%E8%AF%AD%E6%B3%95%E8%A7%84%E8%8C%83"><span class="toc-number">2.</span> <span class="toc-text">2. es5、es6 语法规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%85%A8%E5%B1%80%E5%AF%B9%E8%B1%A1-%E5%85%A8%E5%B1%80%E5%87%BD%E6%95%B0-%E5%85%A8%E5%B1%80%E5%B1%9E%E6%80%A7"><span class="toc-number">3.</span> <span class="toc-text">3. 全局对象 全局函数 全局属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-map%E3%80%81reduce%E3%80%81filter"><span class="toc-number">4.</span> <span class="toc-text">4. map、reduce、filter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-setInterval-setTimeout"><span class="toc-number">5.</span> <span class="toc-text">5. setInterval setTimeout</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">6.</span> <span class="toc-text">6. 正则表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="toc-number">7.</span> <span class="toc-text">7. 异常处理</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        JavaScript Checklist: Syntax &amp; API
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Gloria Su</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2023-01-03T19:59:48.000Z" itemprop="datePublished">2023-01-03</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="1-ECMAScript-和-JavaScript-关系"><a href="#1-ECMAScript-和-JavaScript-关系" class="headerlink" title="1. ECMAScript 和 JavaScript 关系"></a>1. ECMAScript 和 JavaScript 关系</h2><p>JavaScript 是脚本语言，ECMAScript 是规范。<br>JavaScript 是基于 ECMAScript 规范的脚本语言。</p>
+<ul>
+<li>JavaScript 包含 3 部分:<ol>
+<li><strong>ECMAScript</strong>，由 ECMA-262 定义，提供核心语言功能；</li>
+<li><strong>文档对象模型 DOM</strong>，提供访问和操作网页内容的方法和接口；</li>
+<li><strong>浏览器对象模型 BOM</strong>，提供与浏览器交互的方法和接口。</li>
+</ol>
+</li>
+</ul>
+<h2 id="2-es5、es6-语法规范"><a href="#2-es5、es6-语法规范" class="headerlink" title="2. es5、es6 语法规范"></a>2. es5、es6 语法规范</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/531959101">https://zhuanlan.zhihu.com/p/531959101</a></p>
+<h2 id="3-全局对象-全局函数-全局属性"><a href="#3-全局对象-全局函数-全局属性" class="headerlink" title="3. 全局对象 全局函数 全局属性"></a>3. 全局对象 全局函数 全局属性</h2><ul>
+<li><strong>全局的对象</strong><br>全局的对象（global objects）或称标准内置对象，是指在全局作用域里的对象。<br>全局对象（global object）可以在 es5 的非严格模式下在全局作用域里通过 this 访问。<br>例如 Date、Math。<ol>
+<li><strong>Date</strong>：Date 对象则基于 Unix Time Stamp，即自1970年1月1日（UTC）起经过的毫秒数。</li>
+<li><strong>Math</strong>：Math 是一个内置对象，具有数学常数和函数的属性和方法。不是一个函数对象，所有属性与方法都是静态的。Math 适用于 Number 类型，不支持 BigInt。</li>
+</ol>
+</li>
+<li><strong>全局函数</strong><ol>
+<li><strong>decodeURI</strong>：解码一个由 encodeURI 先前创建的统一资源标识符（URI）或类似的例程。但不能解码那些不会被 encodeURI 编码的内容（例如 “#”）。</li>
+<li><strong>isNaN</strong>：NaN &#x3D;&#x3D; NaN 和 NaN &#x3D;&#x3D;&#x3D; NaN 都返回 false，可以用 Number.isNaN() 来判断。</li>
+</ol>
+</li>
+<li><strong>全局属性</strong><ol>
+<li><strong>Infinity</strong>：Infinity 是一个数值，表示无穷大。在 es5 的规范中，Infinity 是只读的。</li>
+<li><strong>undefined</strong>：原始数据类型。一个没有被赋值的变量的类型是 undefined。</li>
+</ol>
+</li>
+</ul>
+<h2 id="4-map、reduce、filter"><a href="#4-map、reduce、filter" class="headerlink" title="4. map、reduce、filter"></a>4. map、reduce、filter</h2><p><a href="https://link.juejin.cn/?target=https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/map">Map</a>  <a href="https://link.juejin.cn/?target=https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce">reduce</a>  <a href="https://link.juejin.cn/?target=https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">Filter</a></p>
+<h2 id="5-setInterval-setTimeout"><a href="#5-setInterval-setTimeout" class="headerlink" title="5. setInterval setTimeout"></a>5. setInterval setTimeout</h2><ul>
+<li><p><strong>setInterval 需要注意的点</strong>：</p>
+<ol>
+<li>不能传递带参数的函数<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">setInterval</span>(<span class="keyword">function</span>(<span class="params">args</span>)&#123;&#125;, <span class="number">600</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> intervalID = <span class="variable language_">window</span>.<span class="built_in">setInterval</span>(myCallback, <span class="number">500</span>, <span class="string">&#x27;Parameter1&#x27;</span>, <span class="string">&#x27;Parameter2&#x27;</span>);</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">myCallback</span>(<span class="params">a, b</span>)&#123;</span><br><span class="line"> <span class="comment">// Your code here</span></span><br><span class="line"> <span class="comment">// Parameters are purely optional.</span></span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>clearInterval 清除定时器<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> timer = <span class="literal">null</span></span><br><span class="line"><span class="keyword">if</span> (timer) &#123;</span><br><span class="line">    <span class="built_in">clearInterval</span>(timer)</span><br><span class="line">    timer = <span class="literal">null</span></span><br><span class="line">&#125;</span><br><span class="line">timer = <span class="built_in">setInterval</span>(callback, <span class="number">500</span>);</span><br></pre></td></tr></table></figure></li>
+<li>this 指向问题<br>由 setInterval() 调用的代码运行在与所在函数完全分离的执行环境上。这些代码中的 this 在非严格模式会指向 window(或全局)对象，严格模式下为 undefined。</li>
+</ol>
+</li>
+<li><p><strong>使用 setTimeout 实现 setInterval</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用递归不断地执行 setTimeout</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">mySetInterval</span>(<span class="params">fn, ms</span>)&#123;</span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">interval</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(interval, ms);</span><br><span class="line">    <span class="title function_">fn</span>();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">setTimeout</span>(interval, ms)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="6-正则表达式"><a href="#6-正则表达式" class="headerlink" title="6. 正则表达式"></a>6. 正则表达式</h2><ol>
+<li>&#x2F;\d&#x2F;.test(str); 返回是否包含正则 true&#x2F;false。</li>
+<li>str.match(&#x2F;\d&#x2F;g); 一般正则表达式加g，会返回包含所有匹配项的数组。</li>
+<li>str.search(&#x2F;\d&#x2F;); 返回第一条匹配的索引位置。</li>
+<li>str.replace(str&#x2F;reg, replacement); 不改变原字符串，返回新字符串。</li>
+<li>exec() 返回一个数组，其中存放匹配的结果。如果未找到匹配，则返回值为 null。</li>
+</ol>
+<ul>
+<li><strong>常用的正则校验表达式</strong>：<ol>
+<li>Email正则<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> reg = <span class="regexp">/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]&#123;2,4&#125;)$/</span>;</span><br><span class="line">reg.<span class="title function_">test</span>(<span class="string">&quot; abcd@pp.com&quot;</span>)</span><br></pre></td></tr></table></figure></li>
+<li>URL正则<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> reg= <span class="regexp">/^((https?|ftp|file):\/\/)?([\da-z\.-]+)\.([a-z\.]&#123;2,6&#125;)([\/\w \.-]*)*\/?$/</span>;</span><br><span class="line">reg.<span class="title function_">test</span>(<span class="string">&quot;http://abcd.cn&quot;</span>)</span><br></pre></td></tr></table></figure></li>
+<li>字符串滤重 “abbacbc” &#x3D;&gt; “abc”<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">distinct</span>(<span class="params">string</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> string.<span class="title function_">replace</span>(<span class="regexp">/(.)(?=.*?\1)/g</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">distinct</span>(<span class="string">&quot;abbacbc&quot;</span>)</span><br></pre></td></tr></table></figure></li>
+<li>数组滤重<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">distinct</span>(<span class="params">arr</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> string = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(arr)</span><br><span class="line">  string = string.<span class="title function_">replace</span>(<span class="regexp">/,([^,]+)(?&lt;=\1.*?\1)(?=,|])/g</span>, <span class="function">(<span class="params">m, $<span class="number">1</span></span>) =&gt;</span> $<span class="number">1</span> == <span class="string">&#x27;&quot;&#x27;</span> ? m : <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">JSON</span>.<span class="title function_">parse</span>(string)</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">distinct</span>([<span class="string">&quot;aa&quot;</span>,<span class="number">1</span>,<span class="string">&quot;ab&quot;</span>,<span class="literal">true</span>,<span class="number">1</span>,<span class="literal">true</span>,<span class="string">&quot;aa&quot;</span>]) <span class="comment">// =&gt; [&quot;aa&quot;, 1, &quot;ab&quot;, true]</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ul>
+<h2 id="7-异常处理"><a href="#7-异常处理" class="headerlink" title="7. 异常处理"></a>7. 异常处理</h2><ul>
+<li>try-catch-finally 只能捕获同步错误。如果我们尝试将其用于异步代码，那么在异步代码完成其执行之前，try-catch-finally 可能已经执行了。</li>
+<li>throw 语句用于生成用户定义的异常。在运行时，当 throw 遇到语句时，当前函数的执行将停止，控制权将传递给 catch 调用堆栈中的第一个子句。如果没有 catch 子句，程序将终止。</li>
+<li>JavaScript 有一些内置的异常类型，最值得注意的是 Error，它返回 Error 中的两个重要属性：stack 和 message。</li>
+<li>try 子句将包含可能产生异常的代码，catch 子句会在发生异常时执行。</li>
+<li>对于异步代码，最好使用 async&#x2F;await 配合 try-catch 语句。</li>
+<li>可以捕获未处理的异常，这可以防止应用程序崩溃。</li>
+</ul>
+<hr>
+<p>References:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904083640287246#heading-0">https://juejin.cn/post/6844904083640287246#heading-0</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/531959101">https://zhuanlan.zhihu.com/p/531959101</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903752428683271">https://juejin.cn/post/6844903752428683271</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6996315680651870244#heading-0">https://juejin.cn/post/6996315680651870244#heading-0</a></li>
+</ul>
+<!-- flag of hidden posts -->
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/categories/">categories</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/Beking0912">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-ECMAScript-%E5%92%8C-JavaScript-%E5%85%B3%E7%B3%BB"><span class="toc-number">1.</span> <span class="toc-text">1. ECMAScript 和 JavaScript 关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-es5%E3%80%81es6-%E8%AF%AD%E6%B3%95%E8%A7%84%E8%8C%83"><span class="toc-number">2.</span> <span class="toc-text">2. es5、es6 语法规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%85%A8%E5%B1%80%E5%AF%B9%E8%B1%A1-%E5%85%A8%E5%B1%80%E5%87%BD%E6%95%B0-%E5%85%A8%E5%B1%80%E5%B1%9E%E6%80%A7"><span class="toc-number">3.</span> <span class="toc-text">3. 全局对象 全局函数 全局属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-map%E3%80%81reduce%E3%80%81filter"><span class="toc-number">4.</span> <span class="toc-text">4. map、reduce、filter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-setInterval-setTimeout"><span class="toc-number">5.</span> <span class="toc-text">5. setInterval setTimeout</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">6.</span> <span class="toc-text">6. 正则表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="toc-number">7.</span> <span class="toc-text">7. 异常处理</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2023/01/03/JavaScript-Checklist-Syntax-API/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2023/01/03/JavaScript-Checklist-Syntax-API/&text=JavaScript Checklist: Syntax &amp; API"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2023/01/03/JavaScript-Checklist-Syntax-API/&title=JavaScript Checklist: Syntax &amp; API"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2023/01/03/JavaScript-Checklist-Syntax-API/&is_video=false&description=JavaScript Checklist: Syntax &amp; API"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=JavaScript Checklist: Syntax &amp; API&body=Check out this article: http://example.com/2023/01/03/JavaScript-Checklist-Syntax-API/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2023/01/03/JavaScript-Checklist-Syntax-API/&title=JavaScript Checklist: Syntax &amp; API"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2023/01/03/JavaScript-Checklist-Syntax-API/&title=JavaScript Checklist: Syntax &amp; API"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2023/01/03/JavaScript-Checklist-Syntax-API/&title=JavaScript Checklist: Syntax &amp; API"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2023/01/03/JavaScript-Checklist-Syntax-API/&title=JavaScript Checklist: Syntax &amp; API"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2023/01/03/JavaScript-Checklist-Syntax-API/&name=JavaScript Checklist: Syntax &amp; API&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2023/01/03/JavaScript-Checklist-Syntax-API/&t=JavaScript Checklist: Syntax &amp; API"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2022-2023
+    Gloria Su
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/categories/">categories</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/Beking0912">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

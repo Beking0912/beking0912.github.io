@@ -6,16 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta property="og:type" content="article">
-<meta property="og:title" content="Frontend Checklist: JavaScript">
+    <meta name="description" content="1. 语言类型Undefined, Null, Boolean, Number, String, Object, Symbol, BigInt. 2. 变量在内存中的存储形式 堆（heap）堆内存，动态分配内存，内存大小不一，不是自动释放。队列优先, 先进先出，方便存储和开辟内存空间。如果存储在栈中，将会影响程序运行的性能；  栈（stack）栈内存，自动分配相对固定大小的内存空间，并由系统自动释">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript Checklist: Variables &amp; Types">
 <meta property="og:url" content="http://example.com/2022/12/24/Frontend-Checklist-JavaScript/index.html">
 <meta property="og:site_name" content="Gloria&#39;s Notebook">
+<meta property="og:description" content="1. 语言类型Undefined, Null, Boolean, Number, String, Object, Symbol, BigInt. 2. 变量在内存中的存储形式 堆（heap）堆内存，动态分配内存，内存大小不一，不是自动释放。队列优先, 先进先出，方便存储和开辟内存空间。如果存储在栈中，将会影响程序运行的性能；  栈（stack）栈内存，自动分配相对固定大小的内存空间，并由系统自动释">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s2.loli.net/2022/12/29/plCqNEiV47BatWf.png">
+<meta property="og:image" content="https://s2.loli.net/2022/12/29/IWHfcbEvFd34LYZ.png">
 <meta property="article:published_time" content="2022-12-24T21:41:15.000Z">
-<meta property="article:modified_time" content="2022-12-24T21:50:26.994Z">
+<meta property="article:modified_time" content="2023-01-06T17:08:53.910Z">
 <meta property="article:author" content="Gloria Su">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/12/29/plCqNEiV47BatWf.png">
     
     
       
@@ -35,7 +40,7 @@
       
     
     <!-- title -->
-    <title>Frontend Checklist: JavaScript</title>
+    <title>JavaScript Checklist: Variables &amp; Types</title><meta name="robots" content="noindex">
     <!-- styles -->
     
 <link rel="stylesheet" href="/css/style.css">
@@ -77,8 +82,6 @@
       <ul>
         
         
-        <li><a class="icon" aria-label="Next post" href="/2022/12/13/3D-Breakout-with-react-three-fiber/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
-        
         <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" aria-label="Share post" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
       </ul>
@@ -91,21 +94,21 @@
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&text=Frontend Checklist: JavaScript"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&title=Frontend Checklist: JavaScript"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&is_video=false&description=Frontend Checklist: JavaScript"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Frontend Checklist: JavaScript&body=Check out this article: http://example.com/2022/12/24/Frontend-Checklist-JavaScript/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&title=Frontend Checklist: JavaScript"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&title=Frontend Checklist: JavaScript"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&title=Frontend Checklist: JavaScript"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&title=Frontend Checklist: JavaScript"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&name=Frontend Checklist: JavaScript&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&t=Frontend Checklist: JavaScript"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&text=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&title=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&is_video=false&description=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=JavaScript Checklist: Variables &amp; Types&body=Check out this article: http://example.com/2022/12/24/Frontend-Checklist-JavaScript/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&title=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&title=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&title=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&title=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&name=JavaScript Checklist: Variables &amp; Types&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&t=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
     <div id="toc">
-      
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%AF%AD%E8%A8%80%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">1. 语言类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%8F%98%E9%87%8F%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%AD%98%E5%82%A8%E5%BD%A2%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">2. 变量在内存中的存储形式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Symbol-%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">3. Symbol 类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-BigInt-%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.</span> <span class="toc-text">4. BigInt 类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B-%E8%A3%85%E7%AE%B1%E6%8B%86%E7%AE%B1"><span class="toc-number">5.</span> <span class="toc-text">5. 基本类型 装箱拆箱</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E6%B5%85%E6%8B%B7%E8%B4%9D-%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="toc-number">6.</span> <span class="toc-text">6. 浅拷贝 深拷贝</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-null-%E5%92%8C-undefined-%E5%8C%BA%E5%88%AB"><span class="toc-number">7.</span> <span class="toc-text">7. null 和 undefined 区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="toc-number">8.</span> <span class="toc-text">8. 判断数据类型的方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">9.</span> <span class="toc-text">9. 隐式类型转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E5%B0%8F%E6%95%B0%E7%B2%BE%E5%BA%A6%E4%B8%A2%E5%A4%B1"><span class="toc-number">10.</span> <span class="toc-text">10. 小数精度丢失</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -117,7 +120,7 @@
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        Frontend Checklist: JavaScript
+        JavaScript Checklist: Variables &amp; Types
     </h1>
 
 
@@ -138,14 +141,14 @@
       
     <div class="article-category">
         <i class="fas fa-archive"></i>
-        <a class="category-link" href="/categories/Interview/">Interview</a>
+        
     </div>
 
 
       
     <div class="article-tag">
         <i class="fas fa-tag"></i>
-        <a class="tag-link-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>
+        
     </div>
 
 
@@ -154,7 +157,103 @@
   
 
   <div class="content" itemprop="articleBody">
-    
+    <h2 id="1-语言类型"><a href="#1-语言类型" class="headerlink" title="1. 语言类型"></a>1. 语言类型</h2><p><strong>Undefined</strong>, <strong>Null</strong>, <strong>Boolean</strong>, <strong>Number</strong>, <strong>String</strong>, <strong>Object</strong>, <strong>Symbol</strong>, <strong>BigInt</strong>.</p>
+<h2 id="2-变量在内存中的存储形式"><a href="#2-变量在内存中的存储形式" class="headerlink" title="2. 变量在内存中的存储形式"></a>2. 变量在内存中的存储形式</h2><ul>
+<li><p><strong>堆（heap）</strong><br>堆内存，动态分配内存，内存大小不一，不是自动释放。<br>队列优先, 先进先出，方便存储和开辟内存空间。如果存储在栈中，将会影响程序运行的性能；</p>
+</li>
+<li><p><strong>栈（stack）</strong><br>栈内存，自动分配相对固定大小的内存空间，并由系统自动释放。基本类型存储在栈内存的好处就是，内存可以及时的得到回收。<br>线性结构，后进先出，便于管理。</p>
+</li>
+<li><p><strong>值类型</strong>：主要是指基本类型，即 number，string，boolean，undefined，null，symbol。保存在栈内存中的简单数据段，它们的值都有固定的大小，保存在栈空间，通过值复制的方式赋值和传递值。<br>值类型的赋值变动过程如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">let</span> b = a;</span><br><span class="line">a = <span class="number">200</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b); <span class="comment">// 100</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2022/12/29/plCqNEiV47BatWf.png" alt="Frame 1 _6_ _1_.png"></p>
+</li>
+<li><p><strong>引用类型</strong>：除上述值类型外的对象类型。保存在堆内存中的对象，值大小不固定，栈内存中存放的该对象的访问地址指向堆内存中的对象，JavaScript 不允许直接访问堆内存中的位置，总是通过引用复制的方式赋值和传递值。<br>引用类型的赋值变动过程如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123; <span class="attr">age</span>: <span class="number">20</span> &#125;;</span><br><span class="line"><span class="keyword">let</span> b = a;</span><br><span class="line">b.<span class="property">age</span> = <span class="number">30</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a.<span class="property">age</span>); <span class="comment">// 30</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2022/12/29/IWHfcbEvFd34LYZ.png" alt="Frame 2 _3_ _1_.png"></p>
+</li>
+</ul>
+<h2 id="3-Symbol-类型"><a href="#3-Symbol-类型" class="headerlink" title="3. Symbol 类型"></a>3. Symbol 类型</h2><p>es6 中新引入的类型，表示独一无二的值，最大的用法是用来定义对象的唯一属性名。不能使用 new 命令，否则会报错。这是因为生成的 Symbol 是一个原始类型的值，不是对象。<br><strong>应用场景</strong>：</p>
+<ol>
+<li>使用 Symbol 来作为对象属性名(key)；</li>
+<li>使用 Symbol 来替代常量；</li>
+<li>使用 Symbol 定义类的私有属性&#x2F;方法。</li>
+</ol>
+<ul>
+<li>symbol 作为属性名，是公有属性，无法被 Object.keys() 循环获取，可以通过 Reflect.ownKeys() 和 Object.getOwnPropertySymbols() 取到。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Object</span>.<span class="title function_">keys</span>(obj); <span class="comment">// []</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">getOwnPropertySymbols</span>(obj); <span class="comment">// [Symbol(a)]</span></span><br><span class="line"><span class="title class_">Reflect</span>.<span class="title function_">ownKeys</span>(obj); <span class="comment">// [Symbol(a)]</span></span><br></pre></td></tr></table></figure></li>
+<li>instanceof 的结果为 false，typeof 的结果为 “symbol”。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="title class_">Symbol</span>(<span class="string">&#x27;foo&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(s <span class="keyword">instanceof</span> <span class="title class_">Symbol</span>); <span class="comment">// false</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="4-BigInt-类型"><a href="#4-BigInt-类型" class="headerlink" title="4. BigInt 类型"></a>4. BigInt 类型</h2><p>es10 新增的基本类型，可以表示任意大小的整数。</p>
+<ul>
+<li>创建 BigInt，只需在整数的末尾追加 n 即可, 可以调用 BigInt() 构造函数。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">9007199254740995n</span>);    <span class="comment">// → 9007199254740995n</span></span><br><span class="line"><span class="title class_">BigInt</span>(<span class="string">&quot;9007199254740995&quot;</span>);    <span class="comment">// → 9007199254740995n</span></span><br><span class="line"><span class="title class_">BigInt</span>(<span class="number">10.2</span>);     <span class="comment">// → RangeError</span></span><br><span class="line"><span class="title class_">BigInt</span>(<span class="literal">null</span>);     <span class="comment">// → TypeError</span></span><br><span class="line"><span class="title class_">BigInt</span>(<span class="string">&quot;abc&quot;</span>);    <span class="comment">// → SyntaxError</span></span><br><span class="line"><span class="title class_">BigInt</span>(<span class="literal">true</span>);    <span class="comment">// → 1n</span></span><br><span class="line"><span class="title class_">BigInt</span>(<span class="string">&quot;10&quot;</span>);    <span class="comment">// → 10n</span></span><br></pre></td></tr></table></figure></li>
+<li>不能使用严格相等运算符将 BigInt 与常规数字进行比较，因为它们的类型不同。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">10n</span> === <span class="number">10</span>);    <span class="comment">// → false</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">10n</span> == <span class="number">10</span>);    <span class="comment">// → true</span></span><br></pre></td></tr></table></figure></li>
+<li>除一元加号(+)运算符外，所有算术运算符都可用于 BigInt。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+<span class="number">10n</span>;         <span class="comment">// → TypeError: Cannot convert a BigInt value to a number</span></span><br><span class="line">-<span class="number">10n</span>;         <span class="comment">// → -10n</span></span><br><span class="line"><span class="keyword">const</span> x = <span class="number">10n</span>;</span><br><span class="line">++x;          <span class="comment">// → 11n</span></span><br><span class="line">--x;          <span class="comment">// → 9n</span></span><br></pre></td></tr></table></figure></li>
+<li>除法(&#x2F;)运算符的结果会自动向下舍入到最接近的整数。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">25</span> / <span class="number">10</span>;      <span class="comment">// → 2.5</span></span><br><span class="line"><span class="number">25n</span> / <span class="number">10n</span>;    <span class="comment">// → 2n</span></span><br></pre></td></tr></table></figure></li>
+<li>隐式类型转换可能丢失信息，所以不允许在 BigInt 和 Number 之间进行混合操作。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span> + <span class="number">10n</span>;    <span class="comment">// → TypeError</span></span><br><span class="line"><span class="title class_">Math</span>.<span class="title function_">max</span>(<span class="number">2n</span>, <span class="number">4n</span>, <span class="number">6n</span>);    <span class="comment">// → TypeError</span></span><br><span class="line"><span class="number">90n</span> | <span class="number">115</span>;     <span class="comment">// → TypeError</span></span><br></pre></td></tr></table></figure></li>
+<li>关系运算符不遵循此规则。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10n</span> &gt; <span class="number">5</span>;    <span class="comment">// → true</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="5-基本类型-装箱拆箱"><a href="#5-基本类型-装箱拆箱" class="headerlink" title="5. 基本类型 装箱拆箱"></a>5. 基本类型 装箱拆箱</h2><p><strong>装箱：基本类型 &#x3D;&gt; 对象类型</strong></p>
+<ul>
+<li><strong>显示装箱</strong>：通过内置对象 String、Boolean、Number 等可以对基本类型进行显示装箱<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">Number</span>(<span class="number">123</span>);</span><br><span class="line"><span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&#x27;str&#x27;</span>);</span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Boolean</span>(<span class="literal">true</span>);</span><br></pre></td></tr></table></figure></li>
+<li><strong>隐式装箱</strong>：当读取一个基本类型值时，后台会为该基本类型创建一个对应的基本类型包装对象。在这个基本类型上调用方法，实际上是在这个基本类型包装对象上调用方法。这个基本类型包装对象是临时的，它只存在于方法调用那一行代码的的瞬间，一旦调用完毕就立即销毁。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">num.<span class="title function_">toFixed</span>(<span class="number">1</span>);</span><br><span class="line"><span class="comment">// 在后台的具体执行如下：</span></span><br><span class="line"><span class="keyword">const</span> c = <span class="keyword">new</span> <span class="title class_">Number</span>(<span class="number">12.345</span>);</span><br><span class="line">c.<span class="title function_">toFixed</span>(<span class="number">1</span>);</span><br><span class="line">c = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>拆箱：对象类型 &#x3D;&gt; 基本类型</strong><br>拆箱操作可以通过一些操作符来实现，但实际调用的是toString()和valueOf()。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> num = <span class="keyword">new</span> <span class="title class_">Number</span>(<span class="number">9</span>);</span><br><span class="line">num + <span class="string">&#x27;&#x27;</span>;<span class="comment">//&#x27;9&#x27;</span></span><br></pre></td></tr></table></figure>
+<h2 id="6-浅拷贝-深拷贝"><a href="#6-浅拷贝-深拷贝" class="headerlink" title="6. 浅拷贝 深拷贝"></a>6. 浅拷贝 深拷贝</h2><ul>
+<li><strong>浅拷贝</strong><br>Object.assign() 只复制了第一层属性，复制对象是基本类型。</li>
+<li><strong>深拷贝</strong><br>对属性中所有引用类型的值，遍历到是基本类型的值为止，利用递归来实现深拷贝。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">deepClone</span>(<span class="params">obj</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> obj !== <span class="string">&#x27;object&#x27;</span>) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">var</span> newObj = obj <span class="keyword">instanceof</span> <span class="title class_">Array</span> ? [] : &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">        <span class="keyword">if</span> (obj.<span class="title function_">hasOwnProperty</span>(key)) &#123;</span><br><span class="line">            newObj[key] = <span class="keyword">typeof</span> obj[key] === <span class="string">&#x27;object&#x27;</span> </span><br><span class="line">            ? <span class="title function_">deepClone</span>(obj[key]) </span><br><span class="line">            : obj[key];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newObj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="7-null-和-undefined-区别"><a href="#7-null-和-undefined-区别" class="headerlink" title="7. null 和 undefined 区别"></a>7. null 和 undefined 区别</h2><ol>
+<li>Number 转换的值不同，Number(null) &#x3D; 0, Number(undefined) &#x3D; NaN</li>
+<li>null 表示一个值被定义了，但是这个值是空值，typeof 得到 “object”。</li>
+<li>undefined 表示缺少值，即此处应该有值，但是还没有定义。</li>
+</ol>
+<h2 id="8-判断数据类型的方式"><a href="#8-判断数据类型的方式" class="headerlink" title="8. 判断数据类型的方式"></a>8. 判断数据类型的方式</h2><ol>
+<li><strong>typeof</strong>：返回的结果包括 number、boolean、string、object、undefined、function 6 种数据类型。typeof(null) 是 object，原因 JavaScript 中的数据在底层是以二进制存储，比如 null 所有存储值都是 0，但是底层的判断机制，只要前三位为 0，就会判定为 object。</li>
+</ol>
+<ul>
+<li><strong>优点</strong>：判断<strong>基本类型</strong>较为准确；</li>
+<li><strong>缺点</strong>：无法精准的判断<strong>引用类型</strong>，null error() date() array() 都返回 object<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;undefined&#x27;</span> —— <span class="title class_">Undefined</span></span><br><span class="line"><span class="string">&#x27;boolean&#x27;</span> —— <span class="title class_">Boolean</span></span><br><span class="line"><span class="string">&#x27;string&#x27;</span> —— <span class="title class_">String</span></span><br><span class="line"><span class="string">&#x27;number&#x27;</span> —— <span class="title class_">Number</span></span><br><span class="line"><span class="string">&#x27;symbol&#x27;</span> —— <span class="title class_">Symbol</span></span><br><span class="line"><span class="string">&#x27;object&#x27;</span> —— <span class="title class_">Object</span> / <span class="title class_">Null</span> (<span class="title class_">Null</span> 为空对象的引用)</span><br><span class="line"><span class="string">&#x27;function&#x27;</span> —— <span class="title class_">Function</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="2">
+<li><strong>instanceof</strong>：其内部运行机制是判断在其原型链中能否找到该类型的原型。检测 constructor.prototype 是否存在于参数 object 的原型链上，是则返回 true，不是则返回 false。instanceof 只能用来判断两个对象是否属于实例关系，而不能判断一个对象实例具体属于哪种类型。</li>
+</ol>
+<ul>
+<li><strong>优点</strong>：判断<strong>引用类型</strong>较为准确；</li>
+<li><strong>缺点</strong>：无法对<strong>基本类型</strong>作出精准的判断；它限定了我们的数据类型必须是用 new 出来的才能准确的判断。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">alert</span>([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] <span class="keyword">instanceof</span> <span class="title class_">Array</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title function_">alert</span>(<span class="keyword">new</span> <span class="title class_">Date</span>() <span class="keyword">instanceof</span> <span class="title class_">Date</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title function_">alert</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;<span class="variable language_">this</span>.<span class="property">name</span>=<span class="string">&quot;22&quot;</span>;&#125; <span class="keyword">instanceof</span> <span class="title class_">Function</span>) <span class="comment">//true</span></span><br><span class="line"><span class="title function_">alert</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;<span class="variable language_">this</span>.<span class="property">name</span>=<span class="string">&quot;22&quot;</span>;&#125; <span class="keyword">instanceof</span> <span class="keyword">function</span>) <span class="comment">//false</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="3">
+<li><strong>constructor</strong>：每个函数的定义，都会生成一个constructor。基本类型会执行隐时的执行装箱操作，创造一个构造函数的实例。</li>
+</ol>
+<ul>
+<li><strong>优点</strong>：对<strong>基本类型和引入类型</strong>都可以判断；</li>
+<li><strong>缺点</strong>：无法判断 null 和 undefined，而且 constructor 是可以修改的，会导致检查结果<strong>不准确</strong>。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">alert</span>(&#123;&#125;.<span class="property">constructor</span> === <span class="title class_">Object</span>);  <span class="comment">// true</span></span><br><span class="line"><span class="title function_">alert</span>([].<span class="property">constructor</span> === <span class="title class_">Array</span>);  <span class="comment">// true</span></span><br><span class="line"><span class="title function_">alert</span>(<span class="string">&#x27;abcde&#x27;</span>.<span class="property">constructor</span> === <span class="title class_">String</span>);  <span class="comment">// true</span></span><br><span class="line"><span class="title function_">alert</span>((<span class="number">1</span>).<span class="property">constructor</span> === <span class="title class_">Number</span>);  <span class="comment">// true</span></span><br><span class="line"><span class="title function_">alert</span>(<span class="keyword">function</span> <span class="title function_">s</span>(<span class="params"></span>)&#123;&#125;.<span class="property">constructor</span> === <span class="title class_">Function</span>);  <span class="comment">// true</span></span><br><span class="line"><span class="title function_">alert</span>(<span class="title class_">Symbol</span>().<span class="property">constructor</span>);    <span class="comment">//   undefined </span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="4">
+<li><strong>Object.prototype.toString.call()<strong>：</strong>所有原始数据类型都是能判断的</strong>。</li>
+</ol>
+<ul>
+<li><strong>缺点</strong>：Object.prototype.toString 本身也可能被修改，会导致检查结果<strong>不准确</strong>。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(<span class="number">2</span>); <span class="comment">// &quot;[object Number]&quot;</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(<span class="string">&quot;&quot;</span>); <span class="comment">// &quot;[object String]&quot;</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(<span class="literal">true</span>); <span class="comment">// &quot;[object Boolean]&quot;</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(<span class="literal">undefined</span>); <span class="comment">// &quot;[object Undefined]&quot;</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(<span class="literal">null</span>); <span class="comment">// &quot;[object Null]&quot;</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(<span class="title class_">Math</span>); <span class="comment">// &quot;[object Math]&quot;</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(&#123;&#125;); <span class="comment">// &quot;[object Object]&quot;</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>([]); <span class="comment">// &quot;[object Array]&quot;</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;&#125;); <span class="comment">// &quot;[object Function]&quot;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>如何判断变量是否为数组？</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Array</span>.<span class="title function_">isArray</span>(arr); <span class="comment">// true</span></span><br><span class="line">arr.<span class="property">__proto__</span> === <span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>; <span class="comment">// true</span></span><br><span class="line">arr <span class="keyword">instanceof</span> <span class="title class_">Array</span>; <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(arr); <span class="comment">// &quot;[object Array]&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="9-隐式类型转换"><a href="#9-隐式类型转换" class="headerlink" title="9. 隐式类型转换"></a>9. 隐式类型转换</h2><ul>
+<li><strong>发生场景</strong>：if、while、switch 判断语句中会隐式转化为布尔值；布尔操作符、相等操作符等。</li>
+<li><strong>如何避免</strong>：使用类型检查来防止转换导致的结果超出预知。</li>
+<li><strong>巧妙应用</strong>：布尔值的转换经常用在条件语句中。</li>
+</ul>
+<h2 id="10-小数精度丢失"><a href="#10-小数精度丢失" class="headerlink" title="10. 小数精度丢失"></a>10. 小数精度丢失</h2><ul>
+<li><strong>出现精度丢失的原因</strong>：在 JS 中采用双精度存储，占用 64bit。1 位用来表示符号位，11 位用来表示指数，52 位用来表示尾数。</li>
+<li>JS 中的 Number 类型只能安全地表示 Number.MAX_SAFE_INTEGER &#x3D; -(2^53-1) 和 Number.MIN_SAFE_INTEGER &#x3D; 2^53-1 之间的整数，任何超出此范围的整数值都可能失去精度。</li>
+<li>超出安全整数限制可以使用 BigInt。</li>
+<li>对于浮点数的处理，为了避免精度丢失，通常情会转化为整数处理，然后通过算数运算符转化为浮点数。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0.1</span> + <span class="number">0.2</span>  <span class="comment">// 0.30000000000000004 </span></span><br><span class="line"><span class="number">0.1</span> + <span class="number">0.22</span> <span class="comment">// 0.32</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<p>References:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903830887366670#heading-2">https://juejin.cn/post/6844903830887366670#heading-2</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/frontend9/fe9-library/issues/287">https://github.com/frontend9/fe9-library/issues/287</a></li>
+</ul>
+<!-- flag of hidden posts -->
   </div>
 </article>
 
@@ -181,22 +280,22 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%AF%AD%E8%A8%80%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">1. 语言类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%8F%98%E9%87%8F%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%AD%98%E5%82%A8%E5%BD%A2%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">2. 变量在内存中的存储形式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Symbol-%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">3. Symbol 类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-BigInt-%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.</span> <span class="toc-text">4. BigInt 类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B-%E8%A3%85%E7%AE%B1%E6%8B%86%E7%AE%B1"><span class="toc-number">5.</span> <span class="toc-text">5. 基本类型 装箱拆箱</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E6%B5%85%E6%8B%B7%E8%B4%9D-%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="toc-number">6.</span> <span class="toc-text">6. 浅拷贝 深拷贝</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-null-%E5%92%8C-undefined-%E5%8C%BA%E5%88%AB"><span class="toc-number">7.</span> <span class="toc-text">7. null 和 undefined 区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="toc-number">8.</span> <span class="toc-text">8. 判断数据类型的方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">9.</span> <span class="toc-text">9. 隐式类型转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E5%B0%8F%E6%95%B0%E7%B2%BE%E5%BA%A6%E4%B8%A2%E5%A4%B1"><span class="toc-number">10.</span> <span class="toc-text">10. 小数精度丢失</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&text=Frontend Checklist: JavaScript"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&title=Frontend Checklist: JavaScript"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&is_video=false&description=Frontend Checklist: JavaScript"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Frontend Checklist: JavaScript&body=Check out this article: http://example.com/2022/12/24/Frontend-Checklist-JavaScript/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&title=Frontend Checklist: JavaScript"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&title=Frontend Checklist: JavaScript"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&title=Frontend Checklist: JavaScript"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&title=Frontend Checklist: JavaScript"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&name=Frontend Checklist: JavaScript&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&t=Frontend Checklist: JavaScript"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&text=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&title=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&is_video=false&description=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=JavaScript Checklist: Variables &amp; Types&body=Check out this article: http://example.com/2022/12/24/Frontend-Checklist-JavaScript/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&title=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&title=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&title=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&title=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&name=JavaScript Checklist: Variables &amp; Types&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&t=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -217,7 +316,7 @@
     Copyright &copy;
     
     
-    2022
+    2022-2023
     Gloria Su
   </div>
   <div class="footer-right">
