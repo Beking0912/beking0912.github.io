@@ -9,7 +9,7 @@
     <meta name="description" content="In this tutorial, I’ll walk you through my own process of using Rollup, a popular bundler, to create a React component package, enabling others to easily integrate your components into their projects">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Publish React npm Package with Rollup">
-<meta property="og:url" content="https://beking0912.github.io/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/index.html">
+<meta property="og:url" content="https://beking0912.github.io/2023/02/06/Quickstart-with-Rollup/index.html">
 <meta property="og:site_name" content="Gloria&#39;s Notebook">
 <meta property="og:description" content="In this tutorial, I’ll walk you through my own process of using Rollup, a popular bundler, to create a React component package, enabling others to easily integrate your components into their projects">
 <meta property="og:locale" content="en_US">
@@ -27,17 +27,17 @@
     
       
         
-          <link rel="shortcut icon" href="/Beking0912.github.io/images/iconmonstr-cat-1-240.png">
+          <link rel="shortcut icon" href="/images/iconmonstr-cat-1-240.png">
         
       
       
         
-          <link rel="icon" type="image/png" href="/Beking0912.github.io/images/favicon-192x192.png" sizes="192x192">
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
         
       
       
         
-          <link rel="apple-touch-icon" sizes="180x180" href="/Beking0912.github.io/images/apple-touch-icon.png">
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
         
       
     
@@ -45,7 +45,7 @@
     <title>Publish React npm Package with Rollup</title>
     <!-- styles -->
     
-<link rel="stylesheet" href="/Beking0912.github.io/css/style.css">
+<link rel="stylesheet" href="/css/style.css">
 
     <!-- persian styles -->
     
@@ -54,7 +54,7 @@
     
 	<!-- mathjax -->
 	
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/Beking0912.github.io/atom.xml" title="Gloria's Notebook" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Gloria's Notebook" type="application/atom+xml">
 </head>
 
 <body class="max-width mx-auto px3 ltr">
@@ -67,15 +67,15 @@
     <span id="nav">
       <ul>
         <!--
-       --><li><a href="/Beking0912.github.io/">Home</a></li><!--
+       --><li><a href="/">Home</a></li><!--
      --><!--
-       --><li><a href="/Beking0912.github.io/archives/">Writing</a></li><!--
+       --><li><a href="/archives/">Writing</a></li><!--
      --><!--
-       --><li><a href="/Beking0912.github.io/categories/">categories</a></li><!--
+       --><li><a href="/categories/">categories</a></li><!--
      --><!--
        --><li><a target="_blank" rel="noopener" href="https://github.com/Beking0912">Projects</a></li><!--
      --><!--
-       --><li><a href="/Beking0912.github.io/about/">About</a></li><!--
+       --><li><a href="/about/">About</a></li><!--
      -->
       </ul>
     </span>
@@ -84,7 +84,7 @@
       <ul>
         
         
-        <li><a class="icon" aria-label="Next post" href="/Beking0912.github.io/2022/12/13/3D-Breakout-with-react-three-fiber/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Next post" href="/2022/12/13/3D-Breakout-with-react-three-fiber/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" aria-label="Share post" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -97,17 +97,17 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://beking0912.github.io/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://beking0912.github.io/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&text=Publish React npm Package with Rollup"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://beking0912.github.io/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&title=Publish React npm Package with Rollup"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://beking0912.github.io/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&is_video=false&description=Publish React npm Package with Rollup"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Publish React npm Package with Rollup&body=Check out this article: https://beking0912.github.io/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://beking0912.github.io/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&title=Publish React npm Package with Rollup"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://beking0912.github.io/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&title=Publish React npm Package with Rollup"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://beking0912.github.io/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&title=Publish React npm Package with Rollup"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://beking0912.github.io/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&title=Publish React npm Package with Rollup"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://beking0912.github.io/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&name=Publish React npm Package with Rollup&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://beking0912.github.io/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&t=Publish React npm Package with Rollup"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://beking0912.github.io/2023/02/06/Quickstart-with-Rollup/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&text=Publish React npm Package with Rollup"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&title=Publish React npm Package with Rollup"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&is_video=false&description=Publish React npm Package with Rollup"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Publish React npm Package with Rollup&body=Check out this article: https://beking0912.github.io/2023/02/06/Quickstart-with-Rollup/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&title=Publish React npm Package with Rollup"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&title=Publish React npm Package with Rollup"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&title=Publish React npm Package with Rollup"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&title=Publish React npm Package with Rollup"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&name=Publish React npm Package with Rollup&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&t=Publish React npm Package with Rollup"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -145,14 +145,14 @@
       
     <div class="article-category">
         <i class="fas fa-archive"></i>
-        <a class="category-link" href="/Beking0912.github.io/categories/Coding/">Coding</a>
+        <a class="category-link" href="/categories/Coding/">Coding</a>
     </div>
 
 
       
     <div class="article-tag">
         <i class="fas fa-tag"></i>
-        <a class="tag-link-link" href="/Beking0912.github.io/tags/React/" rel="tag">React</a>, <a class="tag-link-link" href="/Beking0912.github.io/tags/Rollup/" rel="tag">Rollup</a>, <a class="tag-link-link" href="/Beking0912.github.io/tags/TypeScript/" rel="tag">TypeScript</a>, <a class="tag-link-link" href="/Beking0912.github.io/tags/npm/" rel="tag">npm</a>
+        <a class="tag-link-link" href="/tags/React/" rel="tag">React</a>, <a class="tag-link-link" href="/tags/Rollup/" rel="tag">Rollup</a>, <a class="tag-link-link" href="/tags/TypeScript/" rel="tag">TypeScript</a>, <a class="tag-link-link" href="/tags/npm/" rel="tag">npm</a>
     </div>
 
 
@@ -265,7 +265,7 @@
 <li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6950557086916804645#heading-0">https://juejin.cn/post/6950557086916804645#heading-0</a></li>
 <li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6934507948911788045">https://juejin.cn/post/6934507948911788045</a></li>
 </ul>
-<p>🔍 Check out my code in <a target="_blank" rel="noopener" href="https://github.com/Beking0912/react-typescript-rollup-starter"><strong>github</strong></a>.<br>📮 If find any errors, please feel free to discuss and correct them: <a href="mailto:&#98;&#115;&#117;&#x35;&#64;&#x6e;&#99;&#115;&#x75;&#x2e;&#x65;&#100;&#x75;">&#98;&#115;&#117;&#x35;&#64;&#x6e;&#99;&#115;&#x75;&#x2e;&#x65;&#100;&#x75;</a>.</p>
+<p>🔍 Check out my code in <a target="_blank" rel="noopener" href="https://github.com/Beking0912/react-typescript-rollup-starter"><strong>github</strong></a>.<br>📮 If find any errors, please feel free to discuss and correct them: <a href="mailto:&#x62;&#115;&#x75;&#x35;&#x40;&#110;&#99;&#x73;&#x75;&#46;&#x65;&#x64;&#x75;">&#x62;&#115;&#x75;&#x35;&#x40;&#110;&#99;&#x73;&#x75;&#46;&#x65;&#x64;&#x75;</a>.</p>
 
   </div>
 </article>
@@ -279,15 +279,15 @@
     <div id="nav-footer" style="display: none">
       <ul>
          
-          <li><a href="/Beking0912.github.io/">Home</a></li>
+          <li><a href="/">Home</a></li>
          
-          <li><a href="/Beking0912.github.io/archives/">Writing</a></li>
+          <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/Beking0912.github.io/categories/">categories</a></li>
+          <li><a href="/categories/">categories</a></li>
          
           <li><a target="_blank" rel="noopener" href="https://github.com/Beking0912">Projects</a></li>
          
-          <li><a href="/Beking0912.github.io/about/">About</a></li>
+          <li><a href="/about/">About</a></li>
         
       </ul>
     </div>
@@ -298,17 +298,17 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://beking0912.github.io/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://beking0912.github.io/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&text=Publish React npm Package with Rollup"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://beking0912.github.io/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&title=Publish React npm Package with Rollup"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://beking0912.github.io/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&is_video=false&description=Publish React npm Package with Rollup"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Publish React npm Package with Rollup&body=Check out this article: https://beking0912.github.io/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://beking0912.github.io/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&title=Publish React npm Package with Rollup"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://beking0912.github.io/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&title=Publish React npm Package with Rollup"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://beking0912.github.io/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&title=Publish React npm Package with Rollup"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://beking0912.github.io/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&title=Publish React npm Package with Rollup"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://beking0912.github.io/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&name=Publish React npm Package with Rollup&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://beking0912.github.io/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&t=Publish React npm Package with Rollup"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://beking0912.github.io/2023/02/06/Quickstart-with-Rollup/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&text=Publish React npm Package with Rollup"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&title=Publish React npm Package with Rollup"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&is_video=false&description=Publish React npm Package with Rollup"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Publish React npm Package with Rollup&body=Check out this article: https://beking0912.github.io/2023/02/06/Quickstart-with-Rollup/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&title=Publish React npm Package with Rollup"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&title=Publish React npm Package with Rollup"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&title=Publish React npm Package with Rollup"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&title=Publish React npm Package with Rollup"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&name=Publish React npm Package with Rollup&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&t=Publish React npm Package with Rollup"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -336,15 +336,15 @@
     <nav>
       <ul>
         <!--
-       --><li><a href="/Beking0912.github.io/">Home</a></li><!--
+       --><li><a href="/">Home</a></li><!--
      --><!--
-       --><li><a href="/Beking0912.github.io/archives/">Writing</a></li><!--
+       --><li><a href="/archives/">Writing</a></li><!--
      --><!--
-       --><li><a href="/Beking0912.github.io/categories/">categories</a></li><!--
+       --><li><a href="/categories/">categories</a></li><!--
      --><!--
        --><li><a target="_blank" rel="noopener" href="https://github.com/Beking0912">Projects</a></li><!--
      --><!--
-       --><li><a href="/Beking0912.github.io/about/">About</a></li><!--
+       --><li><a href="/about/">About</a></li><!--
      -->
       </ul>
     </nav>
@@ -392,7 +392,7 @@
   </script>
 
 
-<script src="/Beking0912.github.io/js/main.js"></script>
+<script src="/js/main.js"></script>
 
 <!-- search -->
 
