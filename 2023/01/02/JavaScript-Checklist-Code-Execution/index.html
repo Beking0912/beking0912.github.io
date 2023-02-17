@@ -9,7 +9,7 @@
     <meta name="description" content="1. 为何 try 里面放 return，finally 还会执行https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;8ee16a315f19 2. 异步编程 EventLoop 机制3. 宏任务和微任务 宏任务：scriptsetTimeoutsetIntervalsetImmediaterequestAnimationFramepostMessage、MessageChannelUI 交互事件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript Checklist: Code Execution">
-<meta property="og:url" content="https://github.com/Beking0912/2023/01/02/JavaScript-Checklist-Code-Execution/index.html">
+<meta property="og:url" content="https://beking0912.github.io/2023/01/02/JavaScript-Checklist-Code-Execution/index.html">
 <meta property="og:site_name" content="Gloria&#39;s Notebook">
 <meta property="og:description" content="1. 为何 try 里面放 return，finally 还会执行https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;8ee16a315f19 2. 异步编程 EventLoop 机制3. 宏任务和微任务 宏任务：scriptsetTimeoutsetIntervalsetImmediaterequestAnimationFramepostMessage、MessageChannelUI 交互事件">
 <meta property="og:locale" content="en_US">
@@ -22,17 +22,17 @@
     
       
         
-          <link rel="shortcut icon" href="/Beking0912/images/iconmonstr-cat-1-240.png">
+          <link rel="shortcut icon" href="/images/iconmonstr-cat-1-240.png">
         
       
       
         
-          <link rel="icon" type="image/png" href="/Beking0912/images/favicon-192x192.png" sizes="192x192">
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
         
       
       
         
-          <link rel="apple-touch-icon" sizes="180x180" href="/Beking0912/images/apple-touch-icon.png">
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
         
       
     
@@ -40,7 +40,7 @@
     <title>JavaScript Checklist: Code Execution</title><meta name="robots" content="noindex">
     <!-- styles -->
     
-<link rel="stylesheet" href="/Beking0912/css/style.css">
+<link rel="stylesheet" href="/css/style.css">
 
     <!-- persian styles -->
     
@@ -49,7 +49,7 @@
     
 	<!-- mathjax -->
 	
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/Beking0912/atom.xml" title="Gloria's Notebook" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Gloria's Notebook" type="application/atom+xml">
 </head>
 
 <body class="max-width mx-auto px3 ltr">
@@ -62,15 +62,15 @@
     <span id="nav">
       <ul>
         <!--
-       --><li><a href="/Beking0912/">Home</a></li><!--
+       --><li><a href="/">Home</a></li><!--
      --><!--
-       --><li><a href="/Beking0912/archives/">Writing</a></li><!--
+       --><li><a href="/archives/">Writing</a></li><!--
      --><!--
-       --><li><a href="/Beking0912/categories/">categories</a></li><!--
+       --><li><a href="/categories/">categories</a></li><!--
      --><!--
-       --><li><a href="https://github.com/Beking0912">Projects</a></li><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/Beking0912">Projects</a></li><!--
      --><!--
-       --><li><a href="/Beking0912/about/">About</a></li><!--
+       --><li><a href="/about/">About</a></li><!--
      -->
       </ul>
     </span>
@@ -90,17 +90,17 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://github.com/Beking0912/2023/01/02/JavaScript-Checklist-Code-Execution/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://github.com/Beking0912/2023/01/02/JavaScript-Checklist-Code-Execution/&text=JavaScript Checklist: Code Execution"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://github.com/Beking0912/2023/01/02/JavaScript-Checklist-Code-Execution/&title=JavaScript Checklist: Code Execution"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://github.com/Beking0912/2023/01/02/JavaScript-Checklist-Code-Execution/&is_video=false&description=JavaScript Checklist: Code Execution"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=JavaScript Checklist: Code Execution&body=Check out this article: https://github.com/Beking0912/2023/01/02/JavaScript-Checklist-Code-Execution/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://github.com/Beking0912/2023/01/02/JavaScript-Checklist-Code-Execution/&title=JavaScript Checklist: Code Execution"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://github.com/Beking0912/2023/01/02/JavaScript-Checklist-Code-Execution/&title=JavaScript Checklist: Code Execution"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://github.com/Beking0912/2023/01/02/JavaScript-Checklist-Code-Execution/&title=JavaScript Checklist: Code Execution"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://github.com/Beking0912/2023/01/02/JavaScript-Checklist-Code-Execution/&title=JavaScript Checklist: Code Execution"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://github.com/Beking0912/2023/01/02/JavaScript-Checklist-Code-Execution/&name=JavaScript Checklist: Code Execution&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://github.com/Beking0912/2023/01/02/JavaScript-Checklist-Code-Execution/&t=JavaScript Checklist: Code Execution"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://beking0912.github.io/2023/01/02/JavaScript-Checklist-Code-Execution/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://beking0912.github.io/2023/01/02/JavaScript-Checklist-Code-Execution/&text=JavaScript Checklist: Code Execution"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://beking0912.github.io/2023/01/02/JavaScript-Checklist-Code-Execution/&title=JavaScript Checklist: Code Execution"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://beking0912.github.io/2023/01/02/JavaScript-Checklist-Code-Execution/&is_video=false&description=JavaScript Checklist: Code Execution"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=JavaScript Checklist: Code Execution&body=Check out this article: https://beking0912.github.io/2023/01/02/JavaScript-Checklist-Code-Execution/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://beking0912.github.io/2023/01/02/JavaScript-Checklist-Code-Execution/&title=JavaScript Checklist: Code Execution"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://beking0912.github.io/2023/01/02/JavaScript-Checklist-Code-Execution/&title=JavaScript Checklist: Code Execution"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://beking0912.github.io/2023/01/02/JavaScript-Checklist-Code-Execution/&title=JavaScript Checklist: Code Execution"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://beking0912.github.io/2023/01/02/JavaScript-Checklist-Code-Execution/&title=JavaScript Checklist: Code Execution"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://beking0912.github.io/2023/01/02/JavaScript-Checklist-Code-Execution/&name=JavaScript Checklist: Code Execution&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://beking0912.github.io/2023/01/02/JavaScript-Checklist-Code-Execution/&t=JavaScript Checklist: Code Execution"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -161,7 +161,7 @@
 <li><p><strong>微任务</strong>：<br><strong>process.nextTick</strong><br><strong>MutationObserver</strong><br><strong>Promise.then、catch、finally</strong></p>
 </li>
 </ul>
-<h2 id="4-异步嵌套逻辑分析方法"><a href="#4-异步嵌套逻辑分析方法" class="headerlink" title="4. 异步嵌套逻辑分析方法"></a>4. 异步嵌套逻辑分析方法</h2><p><a href="https://github.com/logan70/Blog/issues/35">https://github.com/logan70/Blog/issues/35</a></p>
+<h2 id="4-异步嵌套逻辑分析方法"><a href="#4-异步嵌套逻辑分析方法" class="headerlink" title="4. 异步嵌套逻辑分析方法"></a>4. 异步嵌套逻辑分析方法</h2><p><a target="_blank" rel="noopener" href="https://github.com/logan70/Blog/issues/35">https://github.com/logan70/Blog/issues/35</a></p>
 <h2 id="5-使用-Promise-实现串行"><a href="#5-使用-Promise-实现串行" class="headerlink" title="5. 使用 Promise 实现串行"></a>5. 使用 Promise 实现串行</h2><p>Promise 串行是指每一个由 promise 封装的任务都顺序执行，即上一个执行完成后再执行下一个。</p>
 <ol>
 <li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce"><strong>Array.prototype.reduce()</strong></a><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">runPromiseInSequence</span>(<span class="params">arr, input</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> arr.<span class="title function_">reduce</span>(</span><br><span class="line">        <span class="function">(<span class="params">previousPromise, currentPromise</span>) =&gt;</span> previousPromise.<span class="title function_">then</span>(currentPromise),</span><br><span class="line">        <span class="title class_">Promise</span>.<span class="title function_">resolve</span>(input)</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">runPromiseInSequence</span>(promiseArr, <span class="number">10</span>).<span class="title function_">then</span>(<span class="variable language_">console</span>.<span class="property">log</span>);</span><br></pre></td></tr></table></figure></li>
@@ -174,7 +174,7 @@
 <ul>
 <li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904000127500296">https://juejin.cn/post/6844904000127500296</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/8ee16a315f19">https://www.jianshu.com/p/8ee16a315f19</a></li>
-<li><a href="https://github.com/logan70/Blog/issues/35">https://github.com/logan70/Blog/issues/35</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/logan70/Blog/issues/35">https://github.com/logan70/Blog/issues/35</a></li>
 <li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/90850451">https://zhuanlan.zhihu.com/p/90850451</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/1122b93e42ce">https://www.jianshu.com/p/1122b93e42ce</a></li>
 <li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903938894872589">https://juejin.cn/post/6844903938894872589</a></li>
@@ -192,15 +192,15 @@
     <div id="nav-footer" style="display: none">
       <ul>
          
-          <li><a href="/Beking0912/">Home</a></li>
+          <li><a href="/">Home</a></li>
          
-          <li><a href="/Beking0912/archives/">Writing</a></li>
+          <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/Beking0912/categories/">categories</a></li>
+          <li><a href="/categories/">categories</a></li>
          
-          <li><a href="https://github.com/Beking0912">Projects</a></li>
+          <li><a target="_blank" rel="noopener" href="https://github.com/Beking0912">Projects</a></li>
          
-          <li><a href="/Beking0912/about/">About</a></li>
+          <li><a href="/about/">About</a></li>
         
       </ul>
     </div>
@@ -211,17 +211,17 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://github.com/Beking0912/2023/01/02/JavaScript-Checklist-Code-Execution/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://github.com/Beking0912/2023/01/02/JavaScript-Checklist-Code-Execution/&text=JavaScript Checklist: Code Execution"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://github.com/Beking0912/2023/01/02/JavaScript-Checklist-Code-Execution/&title=JavaScript Checklist: Code Execution"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://github.com/Beking0912/2023/01/02/JavaScript-Checklist-Code-Execution/&is_video=false&description=JavaScript Checklist: Code Execution"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=JavaScript Checklist: Code Execution&body=Check out this article: https://github.com/Beking0912/2023/01/02/JavaScript-Checklist-Code-Execution/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://github.com/Beking0912/2023/01/02/JavaScript-Checklist-Code-Execution/&title=JavaScript Checklist: Code Execution"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://github.com/Beking0912/2023/01/02/JavaScript-Checklist-Code-Execution/&title=JavaScript Checklist: Code Execution"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://github.com/Beking0912/2023/01/02/JavaScript-Checklist-Code-Execution/&title=JavaScript Checklist: Code Execution"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://github.com/Beking0912/2023/01/02/JavaScript-Checklist-Code-Execution/&title=JavaScript Checklist: Code Execution"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://github.com/Beking0912/2023/01/02/JavaScript-Checklist-Code-Execution/&name=JavaScript Checklist: Code Execution&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://github.com/Beking0912/2023/01/02/JavaScript-Checklist-Code-Execution/&t=JavaScript Checklist: Code Execution"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://beking0912.github.io/2023/01/02/JavaScript-Checklist-Code-Execution/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://beking0912.github.io/2023/01/02/JavaScript-Checklist-Code-Execution/&text=JavaScript Checklist: Code Execution"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://beking0912.github.io/2023/01/02/JavaScript-Checklist-Code-Execution/&title=JavaScript Checklist: Code Execution"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://beking0912.github.io/2023/01/02/JavaScript-Checklist-Code-Execution/&is_video=false&description=JavaScript Checklist: Code Execution"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=JavaScript Checklist: Code Execution&body=Check out this article: https://beking0912.github.io/2023/01/02/JavaScript-Checklist-Code-Execution/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://beking0912.github.io/2023/01/02/JavaScript-Checklist-Code-Execution/&title=JavaScript Checklist: Code Execution"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://beking0912.github.io/2023/01/02/JavaScript-Checklist-Code-Execution/&title=JavaScript Checklist: Code Execution"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://beking0912.github.io/2023/01/02/JavaScript-Checklist-Code-Execution/&title=JavaScript Checklist: Code Execution"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://beking0912.github.io/2023/01/02/JavaScript-Checklist-Code-Execution/&title=JavaScript Checklist: Code Execution"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://beking0912.github.io/2023/01/02/JavaScript-Checklist-Code-Execution/&name=JavaScript Checklist: Code Execution&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://beking0912.github.io/2023/01/02/JavaScript-Checklist-Code-Execution/&t=JavaScript Checklist: Code Execution"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -249,15 +249,15 @@
     <nav>
       <ul>
         <!--
-       --><li><a href="/Beking0912/">Home</a></li><!--
+       --><li><a href="/">Home</a></li><!--
      --><!--
-       --><li><a href="/Beking0912/archives/">Writing</a></li><!--
+       --><li><a href="/archives/">Writing</a></li><!--
      --><!--
-       --><li><a href="/Beking0912/categories/">categories</a></li><!--
+       --><li><a href="/categories/">categories</a></li><!--
      --><!--
-       --><li><a href="https://github.com/Beking0912">Projects</a></li><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/Beking0912">Projects</a></li><!--
      --><!--
-       --><li><a href="/Beking0912/about/">About</a></li><!--
+       --><li><a href="/about/">About</a></li><!--
      -->
       </ul>
     </nav>
@@ -305,7 +305,7 @@
   </script>
 
 
-<script src="/Beking0912/js/main.js"></script>
+<script src="/js/main.js"></script>
 
 <!-- search -->
 
