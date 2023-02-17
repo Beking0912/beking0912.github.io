@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="In this tutorial, I’ll walk you through my own process of using Rollup, a popular bundler, to create a React component package, enabling others to easily integrate your components into their projects">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Publish React npm Package with Rollup">
+<meta property="og:url" content="https://github.com/Beking0912/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/index.html">
+<meta property="og:site_name" content="Gloria&#39;s Notebook">
+<meta property="og:description" content="In this tutorial, I’ll walk you through my own process of using Rollup, a popular bundler, to create a React component package, enabling others to easily integrate your components into their projects">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s2.loli.net/2023/02/18/ojxUeXibkZClKzt.png">
+<meta property="article:published_time" content="2023-02-06T17:11:37.000Z">
+<meta property="article:modified_time" content="2023-02-17T19:51:07.278Z">
+<meta property="article:author" content="Gloria Su">
+<meta property="article:tag" content="React">
+<meta property="article:tag" content="TypeScript">
+<meta property="article:tag" content="Rollup">
+<meta property="article:tag" content="npm">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2023/02/18/ojxUeXibkZClKzt.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/Beking0912/Beking0912.github.io/images/iconmonstr-cat-1-240.png">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/Beking0912/Beking0912.github.io/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/Beking0912/Beking0912.github.io/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Publish React npm Package with Rollup</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/Beking0912/Beking0912.github.io/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/Beking0912/Beking0912.github.io/atom.xml" title="Gloria's Notebook" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/Beking0912/Beking0912.github.io/">Home</a></li><!--
+     --><!--
+       --><li><a href="/Beking0912/Beking0912.github.io/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/Beking0912/Beking0912.github.io/categories/">categories</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/Beking0912">Projects</a></li><!--
+     --><!--
+       --><li><a href="/Beking0912/Beking0912.github.io/about/">About</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/Beking0912/Beking0912.github.io/2022/12/13/3D-Breakout-with-react-three-fiber/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://github.com/Beking0912/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://github.com/Beking0912/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&text=Publish React npm Package with Rollup"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://github.com/Beking0912/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&title=Publish React npm Package with Rollup"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://github.com/Beking0912/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&is_video=false&description=Publish React npm Package with Rollup"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Publish React npm Package with Rollup&body=Check out this article: https://github.com/Beking0912/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://github.com/Beking0912/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&title=Publish React npm Package with Rollup"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://github.com/Beking0912/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&title=Publish React npm Package with Rollup"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://github.com/Beking0912/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&title=Publish React npm Package with Rollup"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://github.com/Beking0912/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&title=Publish React npm Package with Rollup"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://github.com/Beking0912/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&name=Publish React npm Package with Rollup&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://github.com/Beking0912/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&t=Publish React npm Package with Rollup"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Initialize-the-repo"><span class="toc-number">1.</span> <span class="toc-text">Initialize the repo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Add-dependencies"><span class="toc-number">2.</span> <span class="toc-text">Add dependencies</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TypeScript-configuration"><span class="toc-number">3.</span> <span class="toc-text">TypeScript configuration</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ESLint-configuration"><span class="toc-number">4.</span> <span class="toc-text">ESLint configuration</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Add-gitignore"><span class="toc-number">5.</span> <span class="toc-text">Add .gitignore</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Adding-components"><span class="toc-number">6.</span> <span class="toc-text">Adding components</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rollup-configuration"><span class="toc-number">7.</span> <span class="toc-text">Rollup configuration</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Why-Rollup"><span class="toc-number">7.1.</span> <span class="toc-text">Why Rollup</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Why-not"><span class="toc-number">7.2.</span> <span class="toc-text">Why not</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Packages"><span class="toc-number">7.3.</span> <span class="toc-text">Packages</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Add-ts-jest"><span class="toc-number">8.</span> <span class="toc-text">Add ts-jest</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Husky-configuration"><span class="toc-number">9.</span> <span class="toc-text">Husky configuration</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Github-Action"><span class="toc-number">10.</span> <span class="toc-text">Github Action</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Publish"><span class="toc-number">11.</span> <span class="toc-text">Publish</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-to-use"><span class="toc-number">12.</span> <span class="toc-text">How to use</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Publish React npm Package with Rollup
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Gloria Su</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2023-02-06T17:11:37.000Z" itemprop="datePublished">2023-02-06</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/Beking0912/Beking0912.github.io/categories/Coding/">Coding</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/Beking0912/Beking0912.github.io/tags/React/" rel="tag">React</a>, <a class="tag-link-link" href="/Beking0912/Beking0912.github.io/tags/Rollup/" rel="tag">Rollup</a>, <a class="tag-link-link" href="/Beking0912/Beking0912.github.io/tags/TypeScript/" rel="tag">TypeScript</a>, <a class="tag-link-link" href="/Beking0912/Beking0912.github.io/tags/npm/" rel="tag">npm</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p><img src="https://s2.loli.net/2023/02/18/ojxUeXibkZClKzt.png" alt="rollup-typescript _2_.png"></p>
+<p>In this tutorial, I’ll walk you through my own process of using Rollup, a popular bundler, to create a React component package, enabling others to easily integrate your components into their projects. </p>
+<h2 id="Initialize-the-repo"><a href="#Initialize-the-repo" class="headerlink" title="Initialize the repo"></a>Initialize the repo</h2><p>Create a new directory called <em><strong>react-lib</strong></em> and initialize a new npm project within it, allowing you to install and manage dependencies for a React library.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> react-lib</span><br><span class="line"><span class="built_in">cd</span> react-lib</span><br><span class="line">npm init</span><br></pre></td></tr></table></figure>
+
+<h2 id="Add-dependencies"><a href="#Add-dependencies" class="headerlink" title="Add dependencies"></a>Add dependencies</h2><p>Add dependencies we need. And <strong><a target="_blank" rel="noopener" href="https://styled-components.com/docs/">Styled-components</a></strong> is a CSS-in-JS library that allows to write CSS in JavaScript code. It provides a powerful API for building reusable and dynamic styled components in React applications. </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i -D react typescript @types/react</span><br><span class="line">npm i --save styled-components</span><br></pre></td></tr></table></figure>
+
+<h2 id="TypeScript-configuration"><a href="#TypeScript-configuration" class="headerlink" title="TypeScript configuration"></a>TypeScript configuration</h2><p>Initialize a TypeScript project by creating a <em><strong>tsconfig.json</strong></em> file which specifies how TypeScript should compile the project’s source files.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx tsc --init</span><br></pre></td></tr></table></figure>
+<p>This is an example for <em><strong>tsconfig.json</strong></em>.</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;compilerOptions&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;target&quot;</span><span class="punctuation">:</span> <span class="string">&quot;es5&quot;</span><span class="punctuation">,</span>                                <span class="comment">/* Specify ECMAScript target version: &#x27;ES3&#x27; (default), &#x27;ES5&#x27;, &#x27;ES2015&#x27;, &#x27;ES2016&#x27;, &#x27;ES2017&#x27;, &#x27;ES2018&#x27;, &#x27;ES2019&#x27;, &#x27;ES2020&#x27;, or &#x27;ESNEXT&#x27;. */</span></span><br><span class="line">    <span class="attr">&quot;module&quot;</span><span class="punctuation">:</span> <span class="string">&quot;esnext&quot;</span><span class="punctuation">,</span> </span><br><span class="line">    <span class="attr">&quot;jsx&quot;</span><span class="punctuation">:</span> <span class="string">&quot;react&quot;</span><span class="punctuation">,</span>                                <span class="comment">/* Specify what JSX code is generated. */</span></span><br><span class="line">    <span class="attr">&quot;moduleResolution&quot;</span><span class="punctuation">:</span> <span class="string">&quot;node&quot;</span><span class="punctuation">,</span>                       <span class="comment">/* Specify how TypeScript looks up a file from a given module specifier. */</span></span><br><span class="line">    <span class="attr">&quot;allowJs&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span>                                  <span class="comment">/* Allow JavaScript files to be a part of your program. Use the &#x27;checkJS&#x27; option to get errors from these files. */</span></span><br><span class="line">    <span class="attr">&quot;outDir&quot;</span><span class="punctuation">:</span> <span class="string">&quot;./types&quot;</span><span class="punctuation">,</span>                                     <span class="comment">/* Specify an output folder for all emitted files. */</span></span><br><span class="line">    <span class="attr">&quot;allowSyntheticDefaultImports&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span>             <span class="comment">/* Allow &#x27;import x from y&#x27; when a module doesn&#x27;t have a default export. */</span></span><br><span class="line">    <span class="attr">&quot;esModuleInterop&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span>                             <span class="comment">/* Emit additional JavaScript to ease support for importing CommonJS modules. This enables &#x27;allowSyntheticDefaultImports&#x27; for type compatibility. */</span></span><br><span class="line">    <span class="attr">&quot;forceConsistentCasingInFileNames&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span>            <span class="comment">/* Ensure that casing is correct in imports. */</span></span><br><span class="line">    <span class="attr">&quot;strict&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span>                                      <span class="comment">/* Enable all strict type-checking options. */</span></span><br><span class="line">    <span class="attr">&quot;skipLibCheck&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span>                                 <span class="comment">/* Skip type checking all .d.ts files. */</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;include&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;src&quot;</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;exclude&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;test&quot;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="ESLint-configuration"><a href="#ESLint-configuration" class="headerlink" title="ESLint configuration"></a>ESLint configuration</h2><p><strong>ESLint</strong> is a popular linting tool for JavaScript that helps catch common errors and enforce coding standards, and it can also be configured to catch specific coding issues, such as incorrect syntax or anti-patterns, saving time and prevent bugs from slipping through the cracks.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i eslint -D </span><br><span class="line">npx eslint --init</span><br></pre></td></tr></table></figure>
+<p>Create <em><strong>.eslintignore</strong></em> to exclude certain files from ESLint checks.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">test/**</span><br><span class="line">lib/**</span><br><span class="line">types/**</span><br></pre></td></tr></table></figure>
+
+<h2 id="Add-gitignore"><a href="#Add-gitignore" class="headerlink" title="Add .gitignore"></a>Add .gitignore</h2><p>Create <em><strong>.gitignore</strong></em> to exclude certain files from git push.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/node_modules</span><br><span class="line">/types</span><br><span class="line">/lib</span><br></pre></td></tr></table></figure>
+
+<h2 id="Adding-components"><a href="#Adding-components" class="headerlink" title="Adding components"></a>Adding components</h2><p>Write and export your custom component code in the src folder. And here is an example in TypeScript.</p>
+<ul>
+<li><p>src&#x2F;components&#x2F;Sum&#x2F;index.tsx</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">SumProps</span> &#125; <span class="keyword">from</span> <span class="string">&quot;./Sum.types&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">StyledSum</span> <span class="keyword">from</span> <span class="string">&quot;./styles&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Sum</span>: <span class="title class_">React</span>.<span class="property">FC</span>&lt;<span class="title class_">SumProps</span>&gt; = <span class="function">(<span class="params">&#123; a, b &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> sum = a + b;</span><br><span class="line">  <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">StyledSum</span>&gt;</span>&#123;a&#125; + &#123;b&#125; = &#123;sum&#125;<span class="tag">&lt;/<span class="name">StyledSum</span>&gt;</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">Sum</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>src&#x2F;components&#x2F;Sum&#x2F;Sum.types.ts</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> type <span class="title class_">SumProps</span> = &#123;</span><br><span class="line">  <span class="attr">a</span>: number;</span><br><span class="line">  <span class="attr">b</span>: number;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>src&#x2F;components&#x2F;Sum&#x2F;styles.tsx</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> styled <span class="keyword">from</span> <span class="string">&#x27;styled-components&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">StyledSum</span> = styled.<span class="property">div</span><span class="string">`</span></span><br><span class="line"><span class="string">    display: flex;</span></span><br><span class="line"><span class="string">    align-items: center;</span></span><br><span class="line"><span class="string">    justify-content: center;</span></span><br><span class="line"><span class="string">    font-size: 1.2rem;</span></span><br><span class="line"><span class="string">    font-weight: bold;</span></span><br><span class="line"><span class="string">    padding: 10px;</span></span><br><span class="line"><span class="string">    background-color: #f2f2f2;</span></span><br><span class="line"><span class="string">    border: 1px solid #ccc;</span></span><br><span class="line"><span class="string">    border-radius: 5px;</span></span><br><span class="line"><span class="string">`</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">StyledSum</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>src&#x2F;components&#x2F;index.ts</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> &#123; <span class="keyword">default</span> <span class="keyword">as</span> <span class="title class_">Sum</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;./Sum&#x27;</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>src&#x2F;index.ts</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> * <span class="keyword">from</span> <span class="string">&#x27;./components&#x27;</span>;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="Rollup-configuration"><a href="#Rollup-configuration" class="headerlink" title="Rollup configuration"></a>Rollup configuration</h2><p><strong><a target="_blank" rel="noopener" href="https://rollupjs.org/">Rollup</a></strong> is a module bundler that allows to package your code into modules, making it easier to share and distribute code. It creates a single file from multiple ES6 modules, resulting in smaller output files with faster loading times, and makes it particularly useful for creating libraries and packages, and can improve web application load times, especially on mobile devices.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -D rollup</span><br></pre></td></tr></table></figure>
+
+<h3 id="Why-Rollup"><a href="#Why-Rollup" class="headerlink" title="Why Rollup"></a>Why Rollup</h3><ul>
+<li>Rollup uses the ES6 standard format to bundle code.</li>
+<li>It only bundles JavaScript, which makes it fast and generates small bundle sizes.</li>
+<li>It has algorithmic advantages in handling pure code and is suitable for developing JavaScript libraries, it can also be used for bundling application development.</li>
+</ul>
+<h3 id="Why-not"><a href="#Why-not" class="headerlink" title="Why not"></a>Why not</h3><ul>
+<li>When code splitting is needed, and Rollup does not support code splitting.</li>
+<li>If there are many static resources that need to be processed, and the module structure is complex.</li>
+<li>If the project being built requires many dependencies on CommonJS modules.</li>
+</ul>
+<h3 id="Packages"><a href="#Packages" class="headerlink" title="Packages"></a>Packages</h3><ul>
+<li><strong>@rollup&#x2F;plugin-node-resolve</strong>: enables to use external libraries and modules. Rollup does not support directly bundling the contents of the node_modules folder, so it needs to be installed.</li>
+<li><strong>@rollup&#x2F;plugin-commonjs</strong>: converts CommonJS modules to ES6 modules, enables to use modules that were not designed for ES6 module syntax. Lodash is not bundled by default as it uses CommonJS and Rollup only processes ES modules, but this package can solve the problem of CommonJS exports and ES module imports.</li>
+<li><strong>@rollup&#x2F;plugin-typescript</strong>: compiles TypeScript files into JavaScript code.</li>
+</ul>
+<p>And this is my <em><strong>rollup.config.js</strong></em>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> resolve <span class="keyword">from</span> <span class="string">&quot;@rollup/plugin-node-resolve&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> commonjs <span class="keyword">from</span> <span class="string">&quot;@rollup/plugin-commonjs&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> typescript <span class="keyword">from</span> <span class="string">&quot;@rollup/plugin-typescript&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">input</span>: <span class="string">&quot;src/index.ts&quot;</span>,</span><br><span class="line">  <span class="attr">external</span>: [<span class="string">&#x27;react&#x27;</span>],</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="title function_">typescript</span>(),</span><br><span class="line">    <span class="title function_">commonjs</span>(),</span><br><span class="line">    <span class="title function_">resolve</span>()</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">output</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">file</span>: <span class="string">&quot;lib/bundle.cjs.js&quot;</span>,</span><br><span class="line">      <span class="attr">format</span>: <span class="string">&#x27;cjs&#x27;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">file</span>: <span class="string">&quot;lib/bundle.esm.js&quot;</span>,</span><br><span class="line">      <span class="attr">format</span>: <span class="string">&#x27;esm&#x27;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">file</span>: <span class="string">&quot;lib/bundle.browser.js&quot;</span>,</span><br><span class="line">      <span class="attr">format</span>: <span class="string">&#x27;umd&#x27;</span>,</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;Dry&#x27;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">  ],</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Add new scripts commands <em><strong>build</strong></em> and <em><strong>build:types</strong></em> to the <em><strong>package.json</strong></em> file. </p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;@bk/sum&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;A react component that sum two numbers.&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;repository&quot;</span><span class="punctuation">:</span> <span class="string">&quot;git@github.com:Beking0912/react-typescript-rollup-starter.git&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;main&quot;</span><span class="punctuation">:</span> <span class="string">&quot;lib/bundle.cjs.js&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;module&quot;</span><span class="punctuation">:</span> <span class="string">&quot;lib/bundle.esm.js&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;browser&quot;</span><span class="punctuation">:</span> <span class="string">&quot;lib/bundle.browser.js&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;types&quot;</span><span class="punctuation">:</span> <span class="string">&quot;types/index.d.ts&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;build&quot;</span><span class="punctuation">:</span> <span class="string">&quot;rollup -c&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;build:types&quot;</span><span class="punctuation">:</span> <span class="string">&quot;tsc&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;author&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Biqing Su&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;license&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ISC&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;devDependencies&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;@rollup/plugin-commonjs&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^24.0.1&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;@rollup/plugin-node-resolve&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^15.0.1&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;@rollup/plugin-typescript&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^11.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;@types/react&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^18.0.28&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;@types/styled-components&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^5.1.26&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;react&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^18.2.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;rollup&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^3.15.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;styled-components&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^5.3.6&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;typescript&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^4.9.5&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;dependencies&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;tslib&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^2.5.0&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>Run <em><strong>npm run build</strong></em> and <em><strong>npm run build:types</strong></em> to view the bundled results.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm run build</span><br><span class="line">npm run build:types</span><br></pre></td></tr></table></figure>
+
+<h2 id="Add-ts-jest"><a href="#Add-ts-jest" class="headerlink" title="Add ts-jest"></a>Add ts-jest</h2><p><strong><a href="https://github.com/kulshekhar/ts-jest">ts-jest</a></strong> simplifies the process of writing and running tests for TypeScript code, and can also make it easier for other developers to contribute to the project.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i jest ts-jest @types/jest -D</span><br><span class="line">npx ts-jest config:init</span><br></pre></td></tr></table></figure>
+
+<p>Add testing scripts to the package.json file.</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;test&quot;</span><span class="punctuation">:</span> <span class="string">&quot;jest&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>Create a <em><strong>test</strong></em> directory in the root folder to store test files, and run <em><strong>npm run test</strong></em> to view the status of the test cases.</p>
+<h2 id="Husky-configuration"><a href="#Husky-configuration" class="headerlink" title="Husky configuration"></a>Husky configuration</h2><p>Use <strong><a href="tttps://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2Ftypicode%2Fhusky%2Ftree%2Fmain">Husky</a></strong> to standardize the format of commit messages, which makes it easier to generate a CHANGELOG through scripts later.<br>Firstly, add the prepare scripts to the <em><strong>package.json</strong></em> file:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;hooks&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;pre-commit&quot;</span><span class="punctuation">:</span> <span class="string">&quot;npm test &amp;&amp; npm run foo&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;prepare&quot;</span><span class="punctuation">:</span> <span class="string">&quot;husky install&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>or</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm set-script prepare <span class="string">&quot;husky install&quot;</span></span><br><span class="line">npm run prepare</span><br></pre></td></tr></table></figure>
+<p>Configure the Husky hooks in the <em><strong>package.json</strong></em> file using the husky property.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx husky add .husky/pre-commit npm <span class="built_in">test</span> &amp;&amp; npm run foo</span><br></pre></td></tr></table></figure>
+
+<h2 id="Github-Action"><a href="#Github-Action" class="headerlink" title="Github Action"></a>Github Action</h2><p>GitHub Actions allows to automate your entire development workflow, from code changes to production deployment, all within the GitHub environment. The following configuration is mainly to let Github Action help us run lint and test, and when we push a tag, it will help us publish the package to npm and deploy the latest documentation.</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">dry</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">tags:</span> </span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;*&#x27;</span>           <span class="comment"># Push events to every tag not containing /</span></span><br><span class="line">  <span class="attr">pull_request:</span></span><br><span class="line">    <span class="attr">branches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">main</span></span><br><span class="line">  <span class="attr">workflow_dispatch:</span>       <span class="comment"># https://github.blog/changelog/2020-07-06-github-actions-manual-triggers-with-workflow_dispatch/</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-18.04</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span>   </span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">persist-credentials:</span> <span class="literal">false</span> <span class="comment"># otherwise, the token used is the GITHUB_TOKEN, instead of your personal token</span></span><br><span class="line">          <span class="attr">fetch-depth:</span> <span class="number">0</span> <span class="comment"># otherwise, you will failed to push refs to dest repo</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/setup-node@v1</span>  </span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/cache@v2</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">path:</span> <span class="string">~/.npm</span></span><br><span class="line">          <span class="attr">key:</span> <span class="string">$&#123;&#123;</span> <span class="string">runner.os</span> <span class="string">&#125;&#125;-node-$&#123;&#123;</span> <span class="string">hashFiles(&#x27;**/package-lock.json&#x27;)</span> <span class="string">&#125;&#125;</span></span><br><span class="line">          <span class="attr">restore-keys:</span> <span class="string">|</span></span><br><span class="line"><span class="string">            $&#123;&#123; runner.os &#125;&#125;-node-</span></span><br><span class="line"><span class="string"></span>      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">check</span> <span class="string">code</span>   </span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          npm install</span></span><br><span class="line"><span class="string">          npm run lint</span></span><br><span class="line"><span class="string">          npm run test</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">run:</span> <span class="string">echo</span> <span class="string">&quot;//registry.npmjs.org/:_authToken=$<span class="template-variable">&#123;&#123; secrets.NPM_TOKEN &#125;&#125;</span>&quot;</span> <span class="string">&gt;</span> <span class="string">~/.npmrc</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">publish</span>                          </span><br><span class="line">        <span class="attr">if:</span> <span class="string">$&#123;&#123;contains(github.ref,</span> <span class="string">&#x27;refs/tags/&#x27;</span><span class="string">)&#125;&#125;</span>  </span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          npm run build</span></span><br><span class="line"><span class="string">          npm run build:types</span></span><br><span class="line"><span class="string">          npm run docs:build</span></span><br><span class="line"><span class="string">          npm publish --access public</span></span><br><span class="line"><span class="string"></span>      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">deploy</span>                         </span><br><span class="line">        <span class="attr">if:</span> <span class="string">$&#123;&#123;contains(github.ref,</span> <span class="string">&#x27;refs/tags/&#x27;</span><span class="string">)&#125;&#125;</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">JamesIves/github-pages-deploy-action@4.1.1</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">branch:</span> <span class="string">gh-pages</span> <span class="comment"># The branch the action should deploy to.</span></span><br><span class="line">          <span class="attr">folder:</span> <span class="string">docs/.vuepress/dist</span> <span class="comment"># The folder the action should deploy.</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Publish"><a href="#Publish" class="headerlink" title="Publish"></a>Publish</h2><p>Update the version number of the package, and push any new tags created to the remote repository.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm version patch/tag</span><br><span class="line">git push</span><br><span class="line">git push origin --tags</span><br></pre></td></tr></table></figure>
+
+<p>Retrieve the registry URL that is configured for the local npm installation.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config get registry</span><br></pre></td></tr></table></figure>
+
+<p>Log in to an npm registry with credentials which is necessary in order to publish packages to the registry.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm adduser</span><br></pre></td></tr></table></figure>
+
+<p>Check whether the currently named package already exists.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm info @bk/sum@version</span><br></pre></td></tr></table></figure>
+
+<p>Publish or delete a package.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm publish</span><br><span class="line">npm unpublish @bk/sum --force</span><br><span class="line"></span><br><span class="line">npm unpublish @bk/sum@version</span><br></pre></td></tr></table></figure>
+
+<h2 id="How-to-use"><a href="#How-to-use" class="headerlink" title="How to use"></a>How to use</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i bk-sum</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Sum</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@bk/sum&#x27;</span></span><br><span class="line"></span><br><span class="line">&lt;<span class="title class_">Sum</span> a=&#123;<span class="number">2</span>&#125; b=&#123;<span class="number">3</span>&#125;/&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>References:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://dev.to/siddharthvenkatesh/component-library-setup-with-react-typescript-and-rollup-onj">https://dev.to/siddharthvenkatesh/component-library-setup-with-react-typescript-and-rollup-onj</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6950557086916804645#heading-0">https://juejin.cn/post/6950557086916804645#heading-0</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6934507948911788045">https://juejin.cn/post/6934507948911788045</a></li>
+</ul>
+<p>🔍 Check out my code in <a href="https://github.com/Beking0912/react-typescript-rollup-starter"><strong>github</strong></a>.<br>📮 If find any errors, please feel free to discuss and correct them: <a href="mailto:&#98;&#115;&#117;&#53;&#x40;&#110;&#x63;&#x73;&#117;&#46;&#101;&#100;&#117;">&#98;&#115;&#117;&#53;&#x40;&#110;&#x63;&#x73;&#117;&#46;&#101;&#100;&#117;</a>.</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/Beking0912/Beking0912.github.io/">Home</a></li>
+         
+          <li><a href="/Beking0912/Beking0912.github.io/archives/">Writing</a></li>
+         
+          <li><a href="/Beking0912/Beking0912.github.io/categories/">categories</a></li>
+         
+          <li><a href="https://github.com/Beking0912">Projects</a></li>
+         
+          <li><a href="/Beking0912/Beking0912.github.io/about/">About</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Initialize-the-repo"><span class="toc-number">1.</span> <span class="toc-text">Initialize the repo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Add-dependencies"><span class="toc-number">2.</span> <span class="toc-text">Add dependencies</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TypeScript-configuration"><span class="toc-number">3.</span> <span class="toc-text">TypeScript configuration</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ESLint-configuration"><span class="toc-number">4.</span> <span class="toc-text">ESLint configuration</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Add-gitignore"><span class="toc-number">5.</span> <span class="toc-text">Add .gitignore</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Adding-components"><span class="toc-number">6.</span> <span class="toc-text">Adding components</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rollup-configuration"><span class="toc-number">7.</span> <span class="toc-text">Rollup configuration</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Why-Rollup"><span class="toc-number">7.1.</span> <span class="toc-text">Why Rollup</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Why-not"><span class="toc-number">7.2.</span> <span class="toc-text">Why not</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Packages"><span class="toc-number">7.3.</span> <span class="toc-text">Packages</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Add-ts-jest"><span class="toc-number">8.</span> <span class="toc-text">Add ts-jest</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Husky-configuration"><span class="toc-number">9.</span> <span class="toc-text">Husky configuration</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Github-Action"><span class="toc-number">10.</span> <span class="toc-text">Github Action</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Publish"><span class="toc-number">11.</span> <span class="toc-text">Publish</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-to-use"><span class="toc-number">12.</span> <span class="toc-text">How to use</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://github.com/Beking0912/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://github.com/Beking0912/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&text=Publish React npm Package with Rollup"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://github.com/Beking0912/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&title=Publish React npm Package with Rollup"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://github.com/Beking0912/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&is_video=false&description=Publish React npm Package with Rollup"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Publish React npm Package with Rollup&body=Check out this article: https://github.com/Beking0912/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://github.com/Beking0912/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&title=Publish React npm Package with Rollup"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://github.com/Beking0912/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&title=Publish React npm Package with Rollup"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://github.com/Beking0912/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&title=Publish React npm Package with Rollup"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://github.com/Beking0912/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&title=Publish React npm Package with Rollup"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://github.com/Beking0912/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&name=Publish React npm Package with Rollup&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://github.com/Beking0912/Beking0912.github.io/2023/02/06/Quickstart-with-Rollup/&t=Publish React npm Package with Rollup"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2023
+    Gloria Su
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/Beking0912/Beking0912.github.io/">Home</a></li><!--
+     --><!--
+       --><li><a href="/Beking0912/Beking0912.github.io/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/Beking0912/Beking0912.github.io/categories/">categories</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/Beking0912">Projects</a></li><!--
+     --><!--
+       --><li><a href="/Beking0912/Beking0912.github.io/about/">About</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/Beking0912/Beking0912.github.io/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

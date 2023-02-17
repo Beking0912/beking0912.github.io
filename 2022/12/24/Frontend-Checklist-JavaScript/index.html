@@ -9,7 +9,7 @@
     <meta name="description" content="1. 语言类型Undefined, Null, Boolean, Number, String, Object, Symbol, BigInt. 2. 变量在内存中的存储形式 堆（heap）堆内存，动态分配内存，内存大小不一，不是自动释放。队列优先, 先进先出，方便存储和开辟内存空间。如果存储在栈中，将会影响程序运行的性能；  栈（stack）栈内存，自动分配相对固定大小的内存空间，并由系统自动释">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript Checklist: Variables &amp; Types">
-<meta property="og:url" content="http://example.com/2022/12/24/Frontend-Checklist-JavaScript/index.html">
+<meta property="og:url" content="https://github.com/Beking0912/Beking0912.github.io/2022/12/24/Frontend-Checklist-JavaScript/index.html">
 <meta property="og:site_name" content="Gloria&#39;s Notebook">
 <meta property="og:description" content="1. 语言类型Undefined, Null, Boolean, Number, String, Object, Symbol, BigInt. 2. 变量在内存中的存储形式 堆（heap）堆内存，动态分配内存，内存大小不一，不是自动释放。队列优先, 先进先出，方便存储和开辟内存空间。如果存储在栈中，将会影响程序运行的性能；  栈（stack）栈内存，自动分配相对固定大小的内存空间，并由系统自动释">
 <meta property="og:locale" content="en_US">
@@ -25,17 +25,17 @@
     
       
         
-          <link rel="shortcut icon" href="/images/iconmonstr-cat-1-240.png">
+          <link rel="shortcut icon" href="/Beking0912/Beking0912.github.io/images/iconmonstr-cat-1-240.png">
         
       
       
         
-          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          <link rel="icon" type="image/png" href="/Beking0912/Beking0912.github.io/images/favicon-192x192.png" sizes="192x192">
         
       
       
         
-          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          <link rel="apple-touch-icon" sizes="180x180" href="/Beking0912/Beking0912.github.io/images/apple-touch-icon.png">
         
       
     
@@ -43,7 +43,7 @@
     <title>JavaScript Checklist: Variables &amp; Types</title><meta name="robots" content="noindex">
     <!-- styles -->
     
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/Beking0912/Beking0912.github.io/css/style.css">
 
     <!-- persian styles -->
     
@@ -52,7 +52,7 @@
     
 	<!-- mathjax -->
 	
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Gloria's Notebook" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/Beking0912/Beking0912.github.io/atom.xml" title="Gloria's Notebook" type="application/atom+xml">
 </head>
 
 <body class="max-width mx-auto px3 ltr">
@@ -65,15 +65,15 @@
     <span id="nav">
       <ul>
         <!--
-       --><li><a href="/">Home</a></li><!--
+       --><li><a href="/Beking0912/Beking0912.github.io/">Home</a></li><!--
      --><!--
-       --><li><a href="/about/">About</a></li><!--
+       --><li><a href="/Beking0912/Beking0912.github.io/archives/">Writing</a></li><!--
      --><!--
-       --><li><a href="/archives/">Writing</a></li><!--
+       --><li><a href="/Beking0912/Beking0912.github.io/categories/">categories</a></li><!--
      --><!--
-       --><li><a href="/categories/">categories</a></li><!--
+       --><li><a href="https://github.com/Beking0912">Projects</a></li><!--
      --><!--
-       --><li><a target="_blank" rel="noopener" href="https://github.com/Beking0912">Projects</a></li><!--
+       --><li><a href="/Beking0912/Beking0912.github.io/about/">About</a></li><!--
      -->
       </ul>
     </span>
@@ -93,17 +93,17 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&text=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&title=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&is_video=false&description=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=JavaScript Checklist: Variables &amp; Types&body=Check out this article: http://example.com/2022/12/24/Frontend-Checklist-JavaScript/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&title=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&title=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&title=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&title=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&name=JavaScript Checklist: Variables &amp; Types&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&t=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://github.com/Beking0912/Beking0912.github.io/2022/12/24/Frontend-Checklist-JavaScript/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://github.com/Beking0912/Beking0912.github.io/2022/12/24/Frontend-Checklist-JavaScript/&text=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://github.com/Beking0912/Beking0912.github.io/2022/12/24/Frontend-Checklist-JavaScript/&title=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://github.com/Beking0912/Beking0912.github.io/2022/12/24/Frontend-Checklist-JavaScript/&is_video=false&description=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=JavaScript Checklist: Variables &amp; Types&body=Check out this article: https://github.com/Beking0912/Beking0912.github.io/2022/12/24/Frontend-Checklist-JavaScript/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://github.com/Beking0912/Beking0912.github.io/2022/12/24/Frontend-Checklist-JavaScript/&title=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://github.com/Beking0912/Beking0912.github.io/2022/12/24/Frontend-Checklist-JavaScript/&title=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://github.com/Beking0912/Beking0912.github.io/2022/12/24/Frontend-Checklist-JavaScript/&title=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://github.com/Beking0912/Beking0912.github.io/2022/12/24/Frontend-Checklist-JavaScript/&title=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://github.com/Beking0912/Beking0912.github.io/2022/12/24/Frontend-Checklist-JavaScript/&name=JavaScript Checklist: Variables &amp; Types&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://github.com/Beking0912/Beking0912.github.io/2022/12/24/Frontend-Checklist-JavaScript/&t=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -251,7 +251,7 @@
 <p>References:</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903830887366670#heading-2">https://juejin.cn/post/6844903830887366670#heading-2</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/frontend9/fe9-library/issues/287">https://github.com/frontend9/fe9-library/issues/287</a></li>
+<li><a href="https://github.com/frontend9/fe9-library/issues/287">https://github.com/frontend9/fe9-library/issues/287</a></li>
 </ul>
 <!-- flag of hidden posts -->
   </div>
@@ -266,15 +266,15 @@
     <div id="nav-footer" style="display: none">
       <ul>
          
-          <li><a href="/">Home</a></li>
+          <li><a href="/Beking0912/Beking0912.github.io/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/Beking0912/Beking0912.github.io/archives/">Writing</a></li>
          
-          <li><a href="/archives/">Writing</a></li>
+          <li><a href="/Beking0912/Beking0912.github.io/categories/">categories</a></li>
          
-          <li><a href="/categories/">categories</a></li>
+          <li><a href="https://github.com/Beking0912">Projects</a></li>
          
-          <li><a target="_blank" rel="noopener" href="https://github.com/Beking0912">Projects</a></li>
+          <li><a href="/Beking0912/Beking0912.github.io/about/">About</a></li>
         
       </ul>
     </div>
@@ -285,17 +285,17 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&text=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&title=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&is_video=false&description=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=JavaScript Checklist: Variables &amp; Types&body=Check out this article: http://example.com/2022/12/24/Frontend-Checklist-JavaScript/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&title=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&title=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&title=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&title=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&name=JavaScript Checklist: Variables &amp; Types&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2022/12/24/Frontend-Checklist-JavaScript/&t=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://github.com/Beking0912/Beking0912.github.io/2022/12/24/Frontend-Checklist-JavaScript/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://github.com/Beking0912/Beking0912.github.io/2022/12/24/Frontend-Checklist-JavaScript/&text=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://github.com/Beking0912/Beking0912.github.io/2022/12/24/Frontend-Checklist-JavaScript/&title=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://github.com/Beking0912/Beking0912.github.io/2022/12/24/Frontend-Checklist-JavaScript/&is_video=false&description=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=JavaScript Checklist: Variables &amp; Types&body=Check out this article: https://github.com/Beking0912/Beking0912.github.io/2022/12/24/Frontend-Checklist-JavaScript/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://github.com/Beking0912/Beking0912.github.io/2022/12/24/Frontend-Checklist-JavaScript/&title=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://github.com/Beking0912/Beking0912.github.io/2022/12/24/Frontend-Checklist-JavaScript/&title=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://github.com/Beking0912/Beking0912.github.io/2022/12/24/Frontend-Checklist-JavaScript/&title=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://github.com/Beking0912/Beking0912.github.io/2022/12/24/Frontend-Checklist-JavaScript/&title=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://github.com/Beking0912/Beking0912.github.io/2022/12/24/Frontend-Checklist-JavaScript/&name=JavaScript Checklist: Variables &amp; Types&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://github.com/Beking0912/Beking0912.github.io/2022/12/24/Frontend-Checklist-JavaScript/&t=JavaScript Checklist: Variables &amp; Types"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -316,22 +316,22 @@
     Copyright &copy;
     
     
-    2022-2023
+    2023
     Gloria Su
   </div>
   <div class="footer-right">
     <nav>
       <ul>
         <!--
-       --><li><a href="/">Home</a></li><!--
+       --><li><a href="/Beking0912/Beking0912.github.io/">Home</a></li><!--
      --><!--
-       --><li><a href="/about/">About</a></li><!--
+       --><li><a href="/Beking0912/Beking0912.github.io/archives/">Writing</a></li><!--
      --><!--
-       --><li><a href="/archives/">Writing</a></li><!--
+       --><li><a href="/Beking0912/Beking0912.github.io/categories/">categories</a></li><!--
      --><!--
-       --><li><a href="/categories/">categories</a></li><!--
+       --><li><a href="https://github.com/Beking0912">Projects</a></li><!--
      --><!--
-       --><li><a target="_blank" rel="noopener" href="https://github.com/Beking0912">Projects</a></li><!--
+       --><li><a href="/Beking0912/Beking0912.github.io/about/">About</a></li><!--
      -->
       </ul>
     </nav>
@@ -379,7 +379,7 @@
   </script>
 
 
-<script src="/js/main.js"></script>
+<script src="/Beking0912/Beking0912.github.io/js/main.js"></script>
 
 <!-- search -->
 
