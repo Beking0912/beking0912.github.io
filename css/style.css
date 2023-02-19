@@ -1697,3 +1697,34 @@ code {
 .highlight .line {
   height: 22px;
 }
+#description-shadow {
+  overflow: hidden;
+  margin: 0px auto;
+  font-weight: 600;
+  text-align: left;
+  font-size: 1.5rem;
+  color: #edeee9;
+  line-height: 1;
+  font-family: 'Georgia';
+  text-shadow: 3px -3px 3px #3e3e40;
+}
+#description-shadow p {
+  margin: 0.5rem 0;
+}
+.go-back-home {
+  height: 4rem;
+  width: 10rem;
+  margin: auto;
+  margin-bottom: 6rem;
+  font-size: 1rem;
+  font-weight: 800;
+  border-radius: 1rem;
+  cursor: pointer;
+  border: dotted 5px #41403e;
+  box-shadow: 20px 38px 34px -26px rgba(0,0,0,0.2);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  background: none;
+}
+.go-back-home:hover {
+  box-shadow: none;
+}

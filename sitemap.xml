@@ -2,7 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://beking0912.github.io/404/index.html</loc>
+    
+    <lastmod>2023-02-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://beking0912.github.io/2022/12/13/3D-Breakout-with-react-three-fiber/</loc>
+    
+    <lastmod>2023-02-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://beking0912.github.io/about/index.html</loc>
+    
+    <lastmod>2023-02-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://beking0912.github.io/2022/11/11/Rendering-textured-and-transparent-models-in-WebGL/</loc>
+    
+    <lastmod>2023-02-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://beking0912.github.io/2022/10/17/Reading-Reactions-Principles-of-Computer-Graphics/</loc>
     
     <lastmod>2023-02-19</lastmod>
     
@@ -13,25 +49,7 @@
   <url>
     <loc>https://beking0912.github.io/2023/02/06/Quickstart-with-Rollup/</loc>
     
-    <lastmod>2023-02-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://beking0912.github.io/2022/11/11/Rendering-textured-and-transparent-models-in-WebGL/</loc>
-    
-    <lastmod>2023-02-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://beking0912.github.io/2022/12/13/3D-Breakout-with-react-three-fiber/</loc>
-    
-    <lastmod>2023-02-16</lastmod>
+    <lastmod>2023-02-19</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -40,7 +58,7 @@
   <url>
     <loc>https://beking0912.github.io/2022/10/14/hello-world/</loc>
     
-    <lastmod>2023-02-16</lastmod>
+    <lastmod>2023-02-19</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -50,15 +68,6 @@
     <loc>https://beking0912.github.io/categories/index.html</loc>
     
     <lastmod>2023-02-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://beking0912.github.io/2022/10/17/Reading-Reactions-Principles-of-Computer-Graphics/</loc>
-    
-    <lastmod>2022-12-24</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -83,7 +92,7 @@
 
   
   <url>
-    <loc>https://beking0912.github.io/tags/TypeScript/</loc>
+    <loc>https://beking0912.github.io/tags/WebGL/</loc>
     <lastmod>2023-02-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -91,6 +100,13 @@
   
   <url>
     <loc>https://beking0912.github.io/tags/React/</loc>
+    <lastmod>2023-02-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beking0912.github.io/tags/TypeScript/</loc>
     <lastmod>2023-02-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -112,13 +128,6 @@
   
   <url>
     <loc>https://beking0912.github.io/tags/Hexo/</loc>
-    <lastmod>2023-02-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beking0912.github.io/tags/WebGL/</loc>
     <lastmod>2023-02-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
