@@ -1204,22 +1204,39 @@ article .content .caption {
   text-align: center;
   font-size: 0.9em;
 }
-article .content .timeline-left {
-  border: 2px dashed #d44375;
-  padding: 12px;
-  border-top: none;
-  border-right: none;
+article .content .about-title {
+  display: flex;
+  align-items: center;
 }
-article .content .timeline-right {
-  border: 2px dashed #d44375;
-  padding: 12px;
-  border-top: none;
-  border-left: none;
+article .content .about-image {
+  margin: 0;
 }
-article .content .timeline-year {
-  font-size: 20px;
+article .content .time-block {
+  border-left: 2px solid rgba(212,67,117,0.3);
+  margin-left: 5px;
+  padding: 14px 0 10px 20px;
+}
+article .content .time-circle {
+  position: relative;
+  left: -70px;
   color: #d44375;
-  font-weight: bolder;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+article .content .time-circle::before {
+  position: absolute;
+  content: "";
+  top: 6px;
+  left: 43px;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #d44375;
+  border-radius: 50%;
+  background: #d44375;
+  box-shadow: 0 0 0 3px rgba(212,67,117,0.3);
+}
+article .content .time-title {
+  margin-left: 36px;
 }
 .posttitle {
   text-transform: none;
