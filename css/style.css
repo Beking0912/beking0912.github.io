@@ -1204,6 +1204,9 @@ article .content .caption {
   text-align: center;
   font-size: 0.9em;
 }
+article .content .overall-timeline {
+  margin-left: 36px;
+}
 article .content .about-title {
   display: flex;
   align-items: center;
