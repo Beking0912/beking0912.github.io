@@ -478,7 +478,7 @@ html {
 body {
   margin: 0;
   height: 100%;
-  background-color: #e2e0de;
+  background-color: #fffbf5;
   color: #363533;
   font-display: swap;
   font-weight: 400;
@@ -518,13 +518,13 @@ body {
   background-repeat: repeat-x;
 }
 .content a:hover {
-  background-image: linear-gradient(transparent, transparent 4px, #2bbc8a 4px, #2bbc8a);
+  background-image: linear-gradient(transparent, transparent 4px, #3ac569 4px, #3ac569);
 }
 .content a.icon {
   background: none;
 }
 .content a.icon:hover {
-  color: #2bbc8a;
+  color: #3ac569;
 }
 .content h1 a,
 .content .h1 a,
@@ -544,7 +544,7 @@ body {
 .content h4 a:hover,
 .content h5 a:hover,
 .content h6 a:hover {
-  background-image: linear-gradient(transparent, transparent 6px, #2bbc8a 6px, #2bbc8a);
+  background-image: linear-gradient(transparent, transparent 6px, #3ac569 6px, #3ac569);
   background-position: bottom;
   background-size: 100% 6px;
   background-repeat: repeat-x;
@@ -555,7 +555,7 @@ body {
   text-decoration: none;
 }
 .content h6 a:hover {
-  background-image: linear-gradient(transparent, transparent 6px, #2bbc8a 6px, #2bbc8a);
+  background-image: linear-gradient(transparent, transparent 6px, #3ac569 6px, #3ac569);
   background-position: bottom;
   background-size: 100% 6px;
   background-repeat: repeat-x;
@@ -718,7 +718,7 @@ body {
   background: none;
 }
 #header-post a.icon:hover {
-  color: #2bbc8a;
+  color: #3ac569;
 }
 #header-post ol {
   list-style-type: none;
@@ -835,7 +835,7 @@ body {
   text-align: right;
 }
 #header-post #toc a:hover {
-  color: #2bbc8a;
+  color: #3ac569;
 }
 #header-post #toc .toc-level-1 > .toc-link {
   display: none;
@@ -922,7 +922,7 @@ body {
   z-index: 5000000;
   width: 100%;
   border-top: 1px solid #666;
-  background: #dedcd9;
+  background: #fff7eb;
   transition: opacity 0.2s;
 }
 #footer-post a {
@@ -934,12 +934,12 @@ body {
   background: none;
 }
 #footer-post a.icon:hover {
-  color: #2bbc8a;
+  color: #3ac569;
 }
 #footer-post #nav-footer {
   padding-right: 1rem;
   padding-left: 1rem;
-  background: #cdcac6;
+  background: #ffe7c3;
   text-align: center;
 }
 #footer-post #nav-footer a {
@@ -983,7 +983,7 @@ body {
 #footer-post #share-footer {
   padding-right: 1rem;
   padding-left: 1rem;
-  background: #cdcac6;
+  background: #ffe7c3;
   text-align: center;
 }
 #footer-post #share-footer ul {
@@ -1003,7 +1003,7 @@ body {
   clear: both;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  background: #cdcac6;
+  background: #ffe7c3;
   text-align: left;
 }
 #footer-post #toc-footer ol {
@@ -1015,7 +1015,7 @@ body {
   line-height: 30px;
 }
 #footer-post #toc-footer a:hover {
-  color: #2bbc8a;
+  color: #3ac569;
 }
 #footer-post #toc-footer .toc-level-1 > .toc-link {
   display: none;
@@ -1247,7 +1247,7 @@ article .content .time-title {
   line-height: 1.25;
 }
 .article-tag .tag-link {
-  background-image: linear-gradient(transparent, transparent 10px, #2bbc8a 10px, #2bbc8a);
+  background-image: linear-gradient(transparent, transparent 10px, #3ac569 10px, #3ac569);
   background-position: bottom;
   background-size: 100% 6px;
   background-repeat: repeat-x;
@@ -1256,7 +1256,7 @@ article .content .time-title {
   content: "#";
 }
 .article-category .category-link {
-  background-image: linear-gradient(transparent, transparent 10px, #2bbc8a 10px, #2bbc8a);
+  background-image: linear-gradient(transparent, transparent 10px, #3ac569 10px, #3ac569);
   background-position: bottom;
   background-size: 100% 6px;
   background-repeat: repeat-x;
@@ -1393,7 +1393,7 @@ article .content .time-title {
   outline: none;
   border: solid 1px #666;
   border-radius: 5px;
-  background-color: #e2e0de;
+  background-color: #fffbf5;
   color: #363533;
   font-size: 1.2rem;
   -webkit-border-radius: 5px;
@@ -1424,8 +1424,8 @@ article .content .time-title {
   font-size: 0.8em;
 }
 #search-result em.search-keyword {
-  border-bottom: 1px dashed #2bbc8a;
-  color: #2bbc8a;
+  border-bottom: 1px dashed #3ac569;
+  color: #3ac569;
   font-weight: bold;
 }
 .search-no-result {
@@ -1453,7 +1453,7 @@ article .content .time-title {
   display: none;
   padding: 0.2em 0.5em;
   -webkit-font-smoothing: subpixel-antialiased;
-  color: #e2e0de;
+  color: #fffbf5;
   font-display: swap;
   font-weight: 400;
   font-size: 11.200000000000001px;
@@ -1658,7 +1658,7 @@ code {
   margin: 1rem 0;
   padding: 10px 15px;
   border-radius: 4px;
-  background: #dedcd9;
+  background: #fff7eb;
   font-family: "Menlo", "Meslo LG", monospace;
   -webkit-border-radius: 4px;
 }
@@ -1673,7 +1673,7 @@ code {
   color: #757575;
   font-style: italic;
   font-size: 0.8em;
-  background-image: linear-gradient(transparent, transparent 10px, #2bbc8a 10px, #2bbc8a);
+  background-image: linear-gradient(transparent, transparent 10px, #3ac569 10px, #3ac569);
   background-position: bottom;
   background-size: 100% 6px;
   background-repeat: repeat-x;
