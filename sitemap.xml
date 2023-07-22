@@ -2,18 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://beking0912.github.io/2023/07/09/Migration-Guide-Vue2-Nuxt2-Vuetify2-to-Vue3-Nuxt3-Vuetify3/</loc>
-    
-    <lastmod>2023-07-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://beking0912.github.io/about/index.html</loc>
     
-    <lastmod>2023-05-09</lastmod>
+    <lastmod>2023-07-22</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -94,71 +85,57 @@
 
   <url>
     <loc>https://beking0912.github.io/</loc>
-    <lastmod>2023-07-20</lastmod>
+    <lastmod>2023-07-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>https://beking0912.github.io/tags/Linux/</loc>
-    <lastmod>2023-07-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://beking0912.github.io/tags/WebGL/</loc>
-    <lastmod>2023-07-20</lastmod>
+    <lastmod>2023-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://beking0912.github.io/tags/React/</loc>
-    <lastmod>2023-07-20</lastmod>
+    <lastmod>2023-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beking0912.github.io/tags/Linux/</loc>
+    <lastmod>2023-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://beking0912.github.io/tags/TypeScript/</loc>
-    <lastmod>2023-07-20</lastmod>
+    <lastmod>2023-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://beking0912.github.io/tags/Rollup/</loc>
-    <lastmod>2023-07-20</lastmod>
+    <lastmod>2023-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://beking0912.github.io/tags/npm/</loc>
-    <lastmod>2023-07-20</lastmod>
+    <lastmod>2023-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://beking0912.github.io/tags/Hexo/</loc>
-    <lastmod>2023-07-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beking0912.github.io/tags/Nuxt/</loc>
-    <lastmod>2023-07-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beking0912.github.io/tags/Vue/</loc>
-    <lastmod>2023-07-20</lastmod>
+    <lastmod>2023-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -167,14 +144,14 @@
   
   <url>
     <loc>https://beking0912.github.io/categories/Coding/</loc>
-    <lastmod>2023-07-20</lastmod>
+    <lastmod>2023-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://beking0912.github.io/categories/Reading/</loc>
-    <lastmod>2023-07-20</lastmod>
+    <lastmod>2023-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
