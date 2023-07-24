@@ -122,20 +122,6 @@
   </url>
   
   <url>
-    <loc>https://beking0912.github.io/tags/Nuxt/</loc>
-    <lastmod>2023-07-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beking0912.github.io/tags/Vue/</loc>
-    <lastmod>2023-07-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://beking0912.github.io/tags/TypeScript/</loc>
     <lastmod>2023-07-24</lastmod>
     <changefreq>weekly</changefreq>
@@ -151,6 +137,20 @@
   
   <url>
     <loc>https://beking0912.github.io/tags/npm/</loc>
+    <lastmod>2023-07-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beking0912.github.io/tags/Nuxt/</loc>
+    <lastmod>2023-07-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beking0912.github.io/tags/Vue/</loc>
     <lastmod>2023-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -173,14 +173,14 @@
   </url>
   
   <url>
-    <loc>https://beking0912.github.io/categories/Coding/Migration/</loc>
+    <loc>https://beking0912.github.io/categories/Reading/</loc>
     <lastmod>2023-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://beking0912.github.io/categories/Reading/</loc>
+    <loc>https://beking0912.github.io/categories/Coding/Migration/</loc>
     <lastmod>2023-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

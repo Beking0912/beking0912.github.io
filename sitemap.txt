@@ -12,12 +12,12 @@ https://beking0912.github.io/
 https://beking0912.github.io/tags/WebGL/
 https://beking0912.github.io/tags/React/
 https://beking0912.github.io/tags/Linux/
-https://beking0912.github.io/tags/Nuxt/
-https://beking0912.github.io/tags/Vue/
 https://beking0912.github.io/tags/TypeScript/
 https://beking0912.github.io/tags/Rollup/
 https://beking0912.github.io/tags/npm/
+https://beking0912.github.io/tags/Nuxt/
+https://beking0912.github.io/tags/Vue/
 https://beking0912.github.io/tags/Hexo/
 https://beking0912.github.io/categories/Coding/
-https://beking0912.github.io/categories/Coding/Migration/
 https://beking0912.github.io/categories/Reading/
+https://beking0912.github.io/categories/Coding/Migration/
