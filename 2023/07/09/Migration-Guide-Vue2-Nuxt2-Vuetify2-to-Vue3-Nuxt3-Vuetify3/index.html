@@ -6,21 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="As technology evolves, so must our projects.With Vue 2 support coming to an end on December 31st, 2023, it becomes imperative for us to migrate our projects to the latest Vue 3, Nuxt 3, and Vuetify 3.">
+    <meta name="description" content="As technology evolves, so must our projects.  With Vue 2 support coming to an end on December 31st, 2023, it becomes imperative for us to migrate our projects to the latest Vue 3, Nuxt 3, and Vuetify">
 <meta property="og:type" content="article">
 <meta property="og:title" content="🧱 Migration Guide: Vue2&#x2F;Nuxt2&#x2F;Vuetify2 to Vue3&#x2F;Nuxt3&#x2F;Vuetify3">
 <meta property="og:url" content="https://beking0912.github.io/2023/07/09/Migration-Guide-Vue2-Nuxt2-Vuetify2-to-Vue3-Nuxt3-Vuetify3/index.html">
 <meta property="og:site_name" content="Gloria&#39;s Notebook">
-<meta property="og:description" content="As technology evolves, so must our projects.With Vue 2 support coming to an end on December 31st, 2023, it becomes imperative for us to migrate our projects to the latest Vue 3, Nuxt 3, and Vuetify 3.">
+<meta property="og:description" content="As technology evolves, so must our projects.  With Vue 2 support coming to an end on December 31st, 2023, it becomes imperative for us to migrate our projects to the latest Vue 3, Nuxt 3, and Vuetify">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s2.loli.net/2023/07/24/F9cwXKE6x3zoUtf.png">
 <meta property="og:image" content="https://s2.loli.net/2023/07/20/6xNak423G9HBMJb.png">
+<meta property="og:image" content="https://s2.loli.net/2023/07/24/EdoMYzqficF2SmV.png">
+<meta property="og:image" content="https://s2.loli.net/2023/07/24/Ca1Zlwh2943sfmy.png">
+<meta property="og:image" content="https://s2.loli.net/2023/07/24/3YBqE5f18IywW7d.png">
+<meta property="og:image" content="https://s2.loli.net/2023/07/24/Kb8E2Sw7znJoeHY.png">
+<meta property="og:image" content="https://s2.loli.net/2023/07/24/tdnQoFAv2YczZ63.png">
+<meta property="og:image" content="https://s2.loli.net/2023/07/24/5pWn19TFlVcfS2K.png">
+<meta property="og:image" content="https://s2.loli.net/2023/07/24/RUnmBtFw6uek8C2.webp">
+<meta property="og:image" content="https://s2.loli.net/2023/07/24/6NhIKwSBHWCMtq3.webp">
+<meta property="og:image" content="https://s2.loli.net/2023/07/24/NtQJsyaC31X7Kfc.webp">
 <meta property="article:published_time" content="2023-07-10T02:32:15.000Z">
-<meta property="article:modified_time" content="2023-07-22T02:54:00.419Z">
+<meta property="article:modified_time" content="2023-07-24T05:07:34.588Z">
 <meta property="article:author" content="Gloria Su">
 <meta property="article:tag" content="Nuxt">
 <meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s2.loli.net/2023/07/20/6xNak423G9HBMJb.png">
+<meta name="twitter:image" content="https://s2.loli.net/2023/07/24/F9cwXKE6x3zoUtf.png">
     
     
       
@@ -40,7 +50,7 @@
       
     
     <!-- title -->
-    <title>🧱 Migration Guide: Vue2/Nuxt2/Vuetify2 to Vue3/Nuxt3/Vuetify3</title><meta name="robots" content="noindex">
+    <title>🧱 Migration Guide: Vue2/Nuxt2/Vuetify2 to Vue3/Nuxt3/Vuetify3</title>
     <!-- styles -->
     
 <link rel="stylesheet" href="/css/style.css">
@@ -81,6 +91,8 @@
       <ul>
         
         
+        <li><a class="icon" aria-label="Next post" href="/2023/04/04/Flatpak-Development-A-11-Keylogger/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
         <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" aria-label="Share post" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
       </ul>
@@ -107,7 +119,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Background"><span class="toc-number">1.</span> <span class="toc-text">Background</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Plan"><span class="toc-number">2.</span> <span class="toc-text">Plan</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nuxt-3-Changes-Checklist"><span class="toc-number">3.</span> <span class="toc-text">Nuxt 3 Changes Checklist</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue-3-breaking-Changes-Checklist"><span class="toc-number">4.</span> <span class="toc-text">Vue 3 breaking Changes Checklist</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What%E2%80%99s-new-in-Vue-3"><span class="toc-number">5.</span> <span class="toc-text">What’s new in Vue 3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vuetify-3-Changes-Checklist"><span class="toc-number">6.</span> <span class="toc-text">Vuetify 3 Changes Checklist</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Check-for-Nuxt-3-compatibility-of-modules"><span class="toc-number">7.</span> <span class="toc-text">Check for Nuxt 3 compatibility of modules</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Challenges-and-Solutions"><span class="toc-number">8.</span> <span class="toc-text">Challenges and Solutions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-number">9.</span> <span class="toc-text">Conclusion</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Background"><span class="toc-number">1.</span> <span class="toc-text">Background</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Before-Migration"><span class="toc-number">2.</span> <span class="toc-text">Before Migration</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Resources"><span class="toc-number">3.</span> <span class="toc-text">Resources</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue-3"><span class="toc-number">3.1.</span> <span class="toc-text">Vue 3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Nuxt-3"><span class="toc-number">3.2.</span> <span class="toc-text">Nuxt 3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vuetify-3"><span class="toc-number">3.3.</span> <span class="toc-text">Vuetify 3</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Migration-Plan"><span class="toc-number">4.</span> <span class="toc-text">Migration Plan</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nuxt-3-Changes-Checklist"><span class="toc-number">5.</span> <span class="toc-text">Nuxt 3 Changes Checklist</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue-3-Changes-Checklist"><span class="toc-number">6.</span> <span class="toc-text">Vue 3 Changes Checklist</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What%E2%80%99s-New-in-Vue-3"><span class="toc-number">7.</span> <span class="toc-text">What’s New in Vue 3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vuetify-3-Changes-Checklist"><span class="toc-number">8.</span> <span class="toc-text">Vuetify 3 Changes Checklist</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Check-for-Nuxt-3-Modules-Compatibility"><span class="toc-number">9.</span> <span class="toc-text">Check for Nuxt 3 Modules Compatibility</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Challenges-and-Solutions"><span class="toc-number">10.</span> <span class="toc-text">Challenges and Solutions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-number">11.</span> <span class="toc-text">Conclusion</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -140,14 +152,14 @@
       
     <div class="article-category">
         <i class="fas fa-archive"></i>
-        
+        <a class="category-link" href="/categories/Coding/">Coding</a> › <a class="category-link" href="/categories/Coding/Migration/">Migration</a>
     </div>
 
 
       
     <div class="article-tag">
         <i class="fas fa-tag"></i>
-        
+        <a class="tag-link-link" href="/tags/Nuxt/" rel="tag">Nuxt</a>, <a class="tag-link-link" href="/tags/Vue/" rel="tag">Vue</a>
     </div>
 
 
@@ -156,15 +168,104 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>As technology evolves, so must our projects.<br>With Vue 2 support coming to an end on December 31st, 2023, it becomes imperative for us to migrate our projects to the latest Vue 3, Nuxt 3, and Vuetify 3. </p>
+    <img src="https://s2.loli.net/2023/07/24/F9cwXKE6x3zoUtf.png" style="width:50%;">
+As technology evolves, so must our projects. 
+With Vue 2 support coming to an end on December 31st, 2023, it becomes imperative for us to migrate our projects to the latest Vue 3, Nuxt 3, and Vuetify 3. 
+
 <p>In this blog, I will share my experience and insights gained while migrating the project based on an existing codebase, from tackling Nuxt 3 updates to addressing Vue 3 breaking changes and adapting to Vuetify 3. I navigated through numerous hurdles and discovered effective solutions, as a result, I will also share the challenges encountered and the strategies employed.</p>
+<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>Before going ahead with the migration, I extensively researched various technical blogs and almost all of them recommended migrating the code after creating a new project, cause there might be too many errors🐞 and could not figure out which module was causing the error or if it was something else.<br><img src="https://s2.loli.net/2023/07/20/6xNak423G9HBMJb.png" alt="Frame 1 _3_.png"><br>But after weighing the pros and cons, I made the decision to upgrade the project based on our old codebase, mainly because our codebase already uses the composition api syntax by <strong>@nuxt&#x2F;composition-api</strong> using TypeScript, and have also introduced auto-imports. It proved to be a very bold decision💥, as I was not able to validate the changes I made for quite some time, and in fact I did not actually get the project up and running until after I had completed most of the nuxt 3 and vue 3 migrations. But fortunately, I did succeed 🎉.</p>
+<h2 id="Before-Migration"><a href="#Before-Migration" class="headerlink" title="Before Migration"></a>Before Migration</h2><ol>
+<li><strong>Learn about Nuxt 3</strong></li>
+</ol>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://v3-migration.vuejs.org/">Vue 3 Migration Guide</a></li>
-<li><a target="_blank" rel="noopener" href="https://nuxt.com/docs/migration/overview">Nuxt 3 Migration Guide</a></li>
-<li><a target="_blank" rel="noopener" href="https://vuetifyjs.com/en/getting-started/upgrade-guide/">Vuetify 3 Upgrade Guide</a></li>
+<li>It allows to experience <a target="_blank" rel="noopener" href="https://www.typescriptlang.org/"><strong>TypeScript</strong></a> with zero configuration.</li>
+<li>Nuxt 2 uses webpack 4 and Babel, Nuxt 3 switched to <a target="_blank" rel="noopener" href="https://vitejs.dev/"><strong>Vite</strong></a> (or <a target="_blank" rel="noopener" href="https://webpack.js.org/"><strong>webpack 5</strong></a>) and esbuild. Vite is the default choice but you can still use webpack 5.</li>
+<li>It uses <a target="_blank" rel="noopener" href="https://nuxt.com/docs/api/commands/add"><strong>Nuxi</strong></a> for Command line interface. It is like the Vue CLI but for Nuxt.</li>
+<li>It uses <a target="_blank" rel="noopener" href="https://nitro.unjs.io/"><strong>Nitro</strong></a> as the server engine, offering cross-platform support for Node.js, browsers, service workers and more.</li>
+<li>It uses <a target="_blank" rel="noopener" href="https://nuxt.com/docs/api/advanced/kit"><strong>Nuxt Kit</strong></a> that provides users with a new flexible module development experience with cross-version compatibility.</li>
+<li>It uses <a target="_blank" rel="noopener" href="https://nuxt.com/docs/bridge/overview"><strong>Nuxt Bridge</strong></a> to ease the migration from Nuxt 2.</li>
 </ul>
-<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>Before going ahead with the migration, I extensively researched various technical blogs and almost all of them recommended migrating the code after creating a new project, cause there might be too many errors🐞 and could not figure out which module was causing the error or if it was something else.<br><img src="https://s2.loli.net/2023/07/20/6xNak423G9HBMJb.png" alt="Frame 1 _3_.png"><br>But after weighing the pros and cons, I made the decision to upgrade the project based on our old codebase, mainly because our codebase already uses the composition api syntax by <strong>@nuxt&#x2F;composition-api</strong> using TypeScript, and have also introduced auto-imports. It proved to be a very bold decision💥, as I was not able to validate the changes I made for quite some time, and in fact I did not actually get the project up and running until after I had completed most of the nuxt3 and vue3 migrations. But fortunately, I did succeed 🎉.</p>
-<h2 id="Plan"><a href="#Plan" class="headerlink" title="Plan"></a>Plan</h2><h2 id="Nuxt-3-Changes-Checklist"><a href="#Nuxt-3-Changes-Checklist" class="headerlink" title="Nuxt 3 Changes Checklist"></a>Nuxt 3 Changes Checklist</h2><p>To get the project set up as quickly as possible, I focused on the nuxt 3 migration firstly. Here is a checklist outlining the major changes required.</p>
+<ol start="2">
+<li><strong>Learn Vue 3 Composition API</strong></li>
+</ol>
+<ul>
+<li>As Nuxt 3 is built on Vue 3, understanding the changes and enhancements in Vue 3 is essential. Pay attention to the <a target="_blank" rel="noopener" href="https://vuejs.org/api/composition-api-setup.html">Composition API</a>, which offers a more flexible and powerful way to organize and manage your code.</li>
+</ul>
+<ol start="3">
+<li><strong>Learn about TypeScript</strong></li>
+</ol>
+<ul>
+<li>Nuxt 3 is written in TypeScript, and having a basic understanding of TypeScript will be beneficial. Being able to read and understand TypeScript code will help you navigate through Nuxt 3’s source code and address any potential issues that may arise during the migration process.</li>
+<li>Migrating your code to TypeScript is highly recommended due to its enhanced type safety, improved developer experience with autocompletion and type inference, early detection of errors during development, robust tooling support, and its ability to maintain code scalability and readability as projects grow in complexity. TypeScript adds clarity and structure to the codebase, ultimately leading to more reliable and maintainable applications.</li>
+</ul>
+<ol start="4">
+<li><strong>Learn about Modules</strong></li>
+</ol>
+<ul>
+<li>Nuxt 3 requires <a target="_blank" rel="noopener" href="https://nuxt.com/docs/guide/concepts/esm">ECMAScript modules</a> (ESM), which may require converting CommonJS modules (CJS) used in your project. Learn about the differences between these module systems and how to migrate your modules to ESM.</li>
+</ul>
+<ol start="5">
+<li><strong>Try to set up a demo project</strong></li>
+</ol>
+<ul>
+<li>👍👍👍 Having a demo project before migration is an excellent idea, especially when dealing with complex and large-scale projects. Here’s an example demo project including Vue 3, Nuxt 3, Vuetify 3, Pinia, pwa and firebase auth: 👉 <a target="_blank" rel="noopener" href="https://github.com/Beking0912/vue3-nuxt3-vuetify3-starter">link</a>. And I’ll post another blog to talk about the process about setting up the demo project later, please keep waiting. 🙏</li>
+<li>It allows you to experiment and isolate specific packages or modules, helping you identify the source of issues more effectively. When facing challenges in the migration process, the demo project serves as a safe playground to troubleshoot and find solutions without impacting the main project. </li>
+<li>This experimental approach fosters a deeper understanding of potential pitfalls and ensures a smoother migration for the main project, ultimately saving time and minimizing risks.</li>
+</ul>
+<h2 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h2><p>📖 Keeping the migration guide open and referring to it throughout the process will help you avoid common pitfalls and ensure a smoother transition.<br><img src="https://s2.loli.net/2023/07/24/EdoMYzqficF2SmV.png" style="width: 35%;position: absolute;right: 0;"></p>
+<h3 id="Vue-3"><a href="#Vue-3" class="headerlink" title="Vue 3"></a>Vue 3</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://v3-migration.vuejs.org/">Migration Guide ✨</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/vuejs/core">Github</a></li>
+<li><a target="_blank" rel="noopener" href="https://discord.com/invite/HBherRA">Discord</a></li>
+<li><a target="_blank" rel="noopener" href="https://vuejs.org/examples/#hello-world">Examples</a></li>
+</ul>
+<h3 id="Nuxt-3"><a href="#Nuxt-3" class="headerlink" title="Nuxt 3"></a>Nuxt 3</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://nuxt.com/docs/migration/overview">Migration Guide ✨</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/nuxt/nuxt">Github</a></li>
+<li><a target="_blank" rel="noopener" href="https://discord.com/invite/ps2h6QT">Discord</a></li>
+<li><a target="_blank" rel="noopener" href="https://nuxt.com/docs/examples/hello-world">Examples</a></li>
+</ul>
+<h3 id="Vuetify-3"><a href="#Vuetify-3" class="headerlink" title="Vuetify 3"></a>Vuetify 3</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://vuetifyjs.com/en/getting-started/upgrade-guide/">Upgrade Guide ✨</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/vuetifyjs/vuetify">Github</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/vuetifyjs/vuetify/discussions">Github Discussions</a></li>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/search?q=vuetify&s=f1924ffc-2529-425f-a546-b4dd9c069f1d">Stack Overflow</a></li>
+<li><a target="_blank" rel="noopener" href="https://discord.com/invite/s93b7Fv">Discord</a></li>
+</ul>
+<h2 id="Migration-Plan"><a href="#Migration-Plan" class="headerlink" title="Migration Plan"></a>Migration Plan</h2><p><strong>0. Abstracting recurring code patterns into reusable components</strong></p>
+<p><strong>1. Nuxt 3 Migration</strong></p>
+<ul>
+<li>Identify and implement necessary changes for the Nuxt 3 migration, ensuring compatibility with the latest version.</li>
+<li>Update Nuxt 3-specific configurations and adapt to any breaking changes.</li>
+</ul>
+<p><strong>2. Package Upgrades and Replacements</strong></p>
+<ul>
+<li>Upgrade package versions to their Vue 3-compatible equivalents.</li>
+<li>Identify and replace packages that may not be compatible with Vue 3 or have alternative solutions available.</li>
+</ul>
+<p><strong>3. Integration of New Configurations</strong></p>
+<ul>
+<li>Integrate the updated router, i18n, pinia, pwa, firebase, and other configurations to align with Nuxt 3.</li>
+</ul>
+<p><strong>4. Vue 3 Migration</strong></p>
+<ul>
+<li>Begin the migration by updating the project’s codebase to work with Vue 3.</li>
+<li>Rewrite all components using the “script setup” syntax introduced in Vue 3.</li>
+</ul>
+<p><strong>5. Test Project Setup</strong></p>
+<ul>
+<li>Attempt to run the project.</li>
+<li>Address any issues or conflicts that may arise during the testing phase.</li>
+</ul>
+<p><strong>6. Vuetify 3 Migration</strong></p>
+<ul>
+<li>Initiate the migration to Vuetify 3, taking advantage of its new features and improvements.</li>
+</ul>
+<p><strong>7. Style Restoration</strong></p>
+<ul>
+<li>Restore any customized styles or appearance adjustments to maintain the project’s original look.</li>
+</ul>
+<h2 id="Nuxt-3-Changes-Checklist"><a href="#Nuxt-3-Changes-Checklist" class="headerlink" title="Nuxt 3 Changes Checklist"></a>Nuxt 3 Changes Checklist</h2><p><img src="https://s2.loli.net/2023/07/24/Ca1Zlwh2943sfmy.png" alt="full-logo-green-dark.png"><br>To get the project set up as quickly as possible, I focused on the nuxt 3 migration firstly. Here is a checklist outlining the major changes required. Nuxt 3 introduces several significant changes and improvements that require careful consideration during the migration process. In this section, I will present a checklist detailing the key modifications needed to adapt the project to Nuxt 3.</p>
 <details open>
 <summary><u><b>Configuration</b></u></summary>
 
@@ -269,7 +370,10 @@
 <ul>
 <li>Any files in <code>~/server/api</code> and <code>~/server/middleware</code> will be automatically registered, so you can remove them from <code>serverMiddleware</code> array.</details></li>
 </ul>
-<h2 id="Vue-3-breaking-Changes-Checklist"><a href="#Vue-3-breaking-Changes-Checklist" class="headerlink" title="Vue 3 breaking Changes Checklist"></a>Vue 3 breaking Changes Checklist</h2><details open>
+<h2 id="Vue-3-Changes-Checklist"><a href="#Vue-3-Changes-Checklist" class="headerlink" title="Vue 3 Changes Checklist"></a>Vue 3 Changes Checklist</h2><img src="https://s2.loli.net/2023/07/24/3YBqE5f18IywW7d.png" style="width: 10%;">
+Vue 3 comes with several breaking changes compared to Vue 2, which may necessitate adjustments to the project's existing codebase. In this section, I will provide a checklist of these breaking changes and the corresponding solutions or workarounds.
+
+<details open>
 <summary><u><b>v-model</b></u></summary>
 
 <ol>
@@ -346,7 +450,7 @@
 <li><code>$on</code>, <code>$off</code> and <code>$once</code> instance methods are removed. </li>
 <li>Component instances no longer implement the event emitter interface.</details></li>
 </ol>
-<h2 id="What’s-new-in-Vue-3"><a href="#What’s-new-in-Vue-3" class="headerlink" title="What’s new in Vue 3"></a>What’s new in Vue 3</h2><details open>
+<h2 id="What’s-New-in-Vue-3"><a href="#What’s-New-in-Vue-3" class="headerlink" title="What’s New in Vue 3"></a>What’s New in Vue 3</h2><details open>
 <summary><u><b>Async Components</b></u></summary>
 
 <ul>
@@ -360,7 +464,8 @@
 <ul>
 <li>For components that re-emit native events to their parent, this would now lead to two events being fired.</details></li>
 </ul>
-<h2 id="Vuetify-3-Changes-Checklist"><a href="#Vuetify-3-Changes-Checklist" class="headerlink" title="Vuetify 3 Changes Checklist"></a>Vuetify 3 Changes Checklist</h2><p>A &#x3D;&gt; B means A has been renamed to B.</p>
+<h2 id="Vuetify-3-Changes-Checklist"><a href="#Vuetify-3-Changes-Checklist" class="headerlink" title="Vuetify 3 Changes Checklist"></a>Vuetify 3 Changes Checklist</h2><p><img src="https://s2.loli.net/2023/07/24/Kb8E2Sw7znJoeHY.png" alt="vuetify-logo-v3-light 1 _1_.png"><br>It is essential to address the changes in Vuetify 3. However, it is important to note that Vuetify 3 is still under development, and some components may not be fully available yet. Here’s a checklist of the changes and updates. </p>
+<p><strong>A &#x3D;&gt; B means A has been renamed to B.</strong></p>
 <details open>
 <summary><u><b>v-expansion-panel</b></u></summary>
 
@@ -443,7 +548,7 @@
 <li>In items array <code>text</code> &#x3D;&gt; <code>title</code>, <code>value</code> &#x3D;&gt; <code>key</code>.</li>
 <li>Slot <code>expanded-item</code> &#x3D;&gt; <code>expanded-row</code> ,<code>header</code> &#x3D;&gt; <code>columns</code>.</details></li>
 </ol>
-<h2 id="Check-for-Nuxt-3-compatibility-of-modules"><a href="#Check-for-Nuxt-3-compatibility-of-modules" class="headerlink" title="Check for Nuxt 3 compatibility of modules"></a>Check for Nuxt 3 compatibility of modules</h2><p>For the modules named start with @nuxt, you can search for it <a target="_blank" rel="noopener" href="https://nuxt.com/modules?q=">here</a>.</p>
+<h2 id="Check-for-Nuxt-3-Modules-Compatibility"><a href="#Check-for-Nuxt-3-Modules-Compatibility" class="headerlink" title="Check for Nuxt 3 Modules Compatibility"></a>Check for Nuxt 3 Modules Compatibility</h2><p>Ensuring the compatibility of third-party modules and plugins is crucial for a seamless transition. By upgrading, removing, or replacing modules as needed, we can maintain the project’s functionality and avoid potential conflicts.<br>For the modules named start with @nuxt, you can search for it <a target="_blank" rel="noopener" href="https://nuxt.com/modules?q=">here</a>.</p>
 <ol>
 <li><strong>Modules Removed</strong></li>
 </ol>
@@ -481,7 +586,21 @@
 <li>@vueuse&#x2F;nuxt &#x3D;&gt; ^10.1.2 <a target="_blank" rel="noopener" href="https://vueuse.org/guide/#nuxt"><strong>guide</strong></a></li>
 <li>@pinia&#x2F;nuxt &#x3D;&gt; ^0.4.11</li>
 </ul>
-<h2 id="Challenges-and-Solutions"><a href="#Challenges-and-Solutions" class="headerlink" title="Challenges and Solutions"></a>Challenges and Solutions</h2><p>During the migration, I encountered several challenging issues that were not readily addressed in the official documentation. To find solutions, I proactively sought assistance from various sources, including the GitHub repository issues, the official Discord community, and Stack Overflow. In some cases, I even delved into the source code to gain a deeper understanding.<br>Here are some of the questions I encountered and the corresponding answers I discovered.</p>
+<h2 id="Challenges-and-Solutions"><a href="#Challenges-and-Solutions" class="headerlink" title="Challenges and Solutions"></a>Challenges and Solutions</h2><div style="display: flex;flex-direction: row;margin-bottom: 32px;">
+<p>During the migration, I encountered several challenging issues that were not readily addressed in the official documentation. To find solutions, I proactively sought assistance from various sources, including the GitHub repository issues, the official Discord community, and Stack Overflow. In some cases, I even delved into the source code to gain a deeper understanding. 
+Here are some of the questions I encountered and the corresponding answers I discovered.</p>
+<img src="https://s2.loli.net/2023/07/24/tdnQoFAv2YczZ63.png" style="width: 35%;">
+</div>
+
+<details open>
+<summary><u><b>❓ Refactoring Options API to Composition API</b></u></summary>
+
+<p>While the Options API remains functional in Vue 3, leveraging the Composition API offers significant advantages, especially for larger codebase. The Composition API is a built-in feature in Vue 3 and is also available in Vue 2 through the @vue&#x2F;composition-api plugin.<br><img src="https://s2.loli.net/2023/07/24/5pWn19TFlVcfS2K.png" alt="Frame 2 _3_.png"><br>Let’s see a basic example to understand the difference of coding structure between Options API and Composition API, the specific code images reference is from here: <a target="_blank" rel="noopener" href="https://medium.com/arcana-network-blog/vue-3-composition-api-basics-and-patterns-44813f2c785d">Arcana Network Blog</a>. </p>
+<p><strong>1. Code in the Options API</strong><br><img src="https://s2.loli.net/2023/07/24/RUnmBtFw6uek8C2.webp" alt="Example 1 using Options API" style="width: 75%;"></p>
+<p><strong>2. Code in the Composition API</strong><br><img src="https://s2.loli.net/2023/07/24/6NhIKwSBHWCMtq3.webp" alt="Example 1 using Composition API" style="width: 75%;"></p>
+<p><strong>3. Simplified the above code by using the <code>&lt;script setup&gt;</code> syntax</strong><br><img src="https://s2.loli.net/2023/07/24/NtQJsyaC31X7Kfc.webp" alt="Example 1 using Composition API with script setup" style="width: 75%;"></p>
+</details>
+
 <details>
 <summary><u><b>❓ How to inject in context in Nuxt 3</b></u></summary>
 
@@ -509,55 +628,88 @@
 <details>
 <summary><u><b>❓ How to use labs components in Vuetify 3</b></u></summary>
 
-<ol>
-<li>Way 1: Import and bootstrap <code>v-data-table</code> in your component:<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">VDataTable</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;vuetify/labs/VDataTable&#x27;</span></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></li>
-<li>Way 2: Make the component available globally by importing it in Vuetify plugin.<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createVuetify &#125; <span class="keyword">from</span> <span class="string">&#x27;vuetify&#x27;</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> components <span class="keyword">from</span> <span class="string">&#x27;vuetify/components&#x27;</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> labsComponents <span class="keyword">from</span> <span class="string">&#x27;vuetify/labs/components&#x27;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">createVuetify</span>(&#123;</span><br><span class="line">  <span class="attr">components</span>: &#123;</span><br><span class="line">    ...components,</span><br><span class="line">    ...labsComponents,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-</details></li>
-</ol>
+<p><strong>1. Way 1:</strong> Import and bootstrap <code>v-data-table</code> in your component:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">VDataTable</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;vuetify/labs/VDataTable&#x27;</span></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>2. Way 2:</strong> Make the component available globally by importing it in Vuetify plugin.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createVuetify &#125; <span class="keyword">from</span> <span class="string">&#x27;vuetify&#x27;</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> components <span class="keyword">from</span> <span class="string">&#x27;vuetify/components&#x27;</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> labsComponents <span class="keyword">from</span> <span class="string">&#x27;vuetify/labs/components&#x27;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">createVuetify</span>(&#123;</span><br><span class="line">  <span class="attr">components</span>: &#123;</span><br><span class="line">    ...components,</span><br><span class="line">    ...labsComponents,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</details>
+
 <details>
 <summary><u><b>❓ How to define themes in Vuetify 3</b></u></summary>
 
+<p>Define the themes in plugins&#x2F;vuetify file, light and dark are pre-installed in Vuetify 3, and you can change the color of them as following:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// plugins/vuetify.ts</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">defineNuxtPlugin</span>(<span class="function">(<span class="params">nuxtApp</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> vuetify = <span class="title function_">createVuetify</span>(&#123;</span><br><span class="line">    <span class="attr">ssr</span>: <span class="literal">true</span>,</span><br><span class="line">    components,</span><br><span class="line">    directives,</span><br><span class="line">    <span class="attr">themes</span>: &#123;</span><br><span class="line">        <span class="attr">light</span>: &#123;</span><br><span class="line">          <span class="attr">colors</span>: &#123;</span><br><span class="line">            <span class="attr">something</span>: <span class="string">&#x27;#fff&#x27;</span></span><br><span class="line">          &#125;,</span><br><span class="line">          <span class="attr">dark</span>: <span class="literal">false</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">dark</span>: &#123;</span><br><span class="line">          <span class="attr">colors</span>: &#123;</span><br><span class="line">            <span class="attr">something</span>: <span class="string">&#x27;#000&#x27;</span></span><br><span class="line">          &#125;,</span><br><span class="line">          <span class="attr">dark</span>: <span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  nuxtApp.<span class="property">vueApp</span>.<span class="title function_">use</span>(vuetify)</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="attr">provide</span>: &#123;</span><br><span class="line">      vuetify</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
+<p>To get the ‘something’ color under colors, you can do like this: </p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.your-class-name</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">rgb</span>(<span class="built_in">var</span>(--v-theme-something))</span><br><span class="line">  color: <span class="built_in">rgba</span>(<span class="built_in">var</span>(--v-theme-on-something), <span class="number">0.9</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>To change the theme by clicking, you can do like this: </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">v-btn</span> @<span class="attr">click</span>=<span class="string">&quot;toggleTheme&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      toggle theme</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">v-btn</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">setup</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="keyword">import</span> &#123; useTheme &#125; <span class="keyword">from</span> <span class="string">&#x27;vuetify&#x27;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="keyword">const</span> theme = <span class="title function_">useTheme</span>()</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="keyword">const</span> <span class="title function_">toggleTheme</span> = (<span class="params"></span>) =&gt; &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  theme.<span class="property">global</span>.<span class="property">name</span>.<span class="property">value</span> = theme.<span class="property">global</span>.<span class="property">current</span>.<span class="property">value</span>.<span class="property">dark</span> ? <span class="string">&#x27;light&#x27;</span> : <span class="string">&#x27;dark&#x27;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">&#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 </details>
 
 <details>
-<summary><u><b>❓ How to migrate useFetch from @nuxt/composition-api in Nuxt 3</b></u></summary>
+<summary><u><b>❓ How to migrate useFetch from @nuxt/composition-api to Nuxt 3</b></u></summary>
 
-
-</details>
-
-<details>
-<summary><u><b>❓ How to validate the code</b></u></summary>
-
-
+<p>In Nuxt 2, I use useFetch API from <code>@nuxt/composition-api</code>, like this:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">&quot;fetchState.pending&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      something</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="keyword">import</span> &#123; defineComponent, ref, useFetch &#125; <span class="keyword">from</span> <span class="string">&#x27;@nuxtjs/composition-api&#x27;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">defineComponent</span>(&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  <span class="title function_">setup</span>(<span class="params"></span>) &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="keyword">const</span> name = <span class="title function_">ref</span>(<span class="string">&#x27;&#x27;</span>)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="keyword">const</span> &#123; fetchState &#125; = <span class="title function_">useFetch</span>(<span class="keyword">async</span> () =&gt; &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      name.<span class="property">value</span> = <span class="keyword">await</span> axios.<span class="title function_">get</span>(<span class="string">&#x27;https://myapi.com/name&#x27;</span>)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    &#125;)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  &#125;,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">&#125;)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>In Nuxt 3, there are many replacements, such as <code>useAsyncData</code> and <code>useFetch</code> that are auto-imported in Nuxt 3 project.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">&quot;pending&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      something</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">setup</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="keyword">const</span> &#123; pending, <span class="attr">data</span>: name, error, refresh &#125; = <span class="title function_">useAsyncData</span>(<span class="string">&#x27;myapi&#x27;</span>, <span class="function">() =&gt;</span> $fetch(<span class="string">&#x27;https://myapi.com/name&#x27;</span>))</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>What’s more, we can define options in <code>useAsyncData</code> including <code>lazy</code>, <code>transform</code>, <code>watch</code>. See more <a target="_blank" rel="noopener" href="https://nuxt.com/docs/api/composables/use-async-data#params">here</a>.</p>
 </details>
 
 <details>
 <summary><u><b>❓ Error: v-on with no argument expects an object value</b></u></summary>
 
-
-</details>
-
+<p>I got this warning in console when page first rendered, and it led to the problem that the menu doesn’t show when button is clicked, same problem for v-tooltip. After diving into the Vuetify 3 documentation, I found the solution in the <a target="_blank" rel="noopener" href="https://vuetifyjs.com/en/getting-started/upgrade-guide/">upgrade guide</a>, there’s a general change for components:</p>
+<ul>
+<li>Activator slots work slightly different. </li>
+<li>Replace <code>#activator=&#123; attrs, on &#125;</code> with <code>#activator=&#123; props &#125;</code>, then remove <code>v-on=&quot;on&quot;</code> and replace <code>v-bind=&quot;attrs&quot;</code> with <code>v-bind=&quot;props&quot;</code>.<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// before</span></span><br><span class="line">&lt;v-tooltip&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">template</span> #<span class="attr">activator</span>=<span class="string">&quot;&#123; on, attrs &#125;&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-on</span>=<span class="string">&quot;on&quot;</span> <span class="attr">v-bind</span>=<span class="string">&quot;attrs&quot;</span>&gt;</span>&#123;&#123; title &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span></span><br><span class="line">&lt;/v-tooltip&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// after</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">v-tooltip</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">template</span> #<span class="attr">activator</span>=<span class="string">&quot;&#123; props &#125;&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-bind</span>=<span class="string">&quot;props&quot;</span>&gt;</span>&#123;&#123; title &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">v-tooltip</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+Related issue: <a target="_blank" rel="noopener" href="https://github.com/vuetifyjs/vuetify/issues/14299">here</a></details></li>
+</ul>
 <details>
 <summary><u><b>❓ Error: Transition renders non-element root node that cannot be animated</b></u></summary>
 
-
+<p>Just keep there is only one root element.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>can not work<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  　<span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  　<span class="tag">&lt;<span class="name">div</span>&gt;</span>can work now<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </details>
 
 <details>
 <summary><u><b>❓ Error: Cannot read _leaveCb property</b></u></summary>
 
-
+<p>This error happened when using watch to refresh the data and assign a value to template. Both of these give an error, but disappeared if remove <code>watch</code>:</p>
+<ol>
+<li><code>watch(props, refresh);</code>.</li>
+<li>add <code>watch: [props]</code> within <code>useAsyncData</code>.</li>
+</ol>
+<p>I have tried all the solutions mentioned in similar issues, but only one of them works for me: <strong>Add <code>&lt;ClientOnly&gt;</code> around the component.</strong></p>
+<p>Related issues: <a target="_blank" rel="noopener" href="https://github.com/nuxt/nuxt/issues/13309">nuxt issue</a>, <a target="_blank" rel="noopener" href="https://github.com/vuejs/router/issues/341">vue-router issue</a>.</p>
 </details>
 
 <details>
 <summary><u><b>❓ Error: localStorage is not defined in nuxt server-side</b></u></summary>
 
-
+<p>When you use SSR you don’t have access to the browser storage, <code>localStorage</code> can only work on client side when <code>process.client</code> is true.</p>
 </details>
 
 
-<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><!-- flag of hidden posts -->
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>The migration from Vue 2&#x2F;Nuxt 2&#x2F;Vuetify 2 to Vue 3&#x2F;Nuxt 3&#x2F;Vuetify 3 has been a challenging but highly rewarding journey. By choosing to upgrade the project from its existing codebase, I was able to preserve valuable configurations, logic, and functionality, saving time and effort that would have been required to start from scratch.</p>
+<p>Throughout the migration process, I have navigated through various aspects, including Nuxt 3 changes, Vue 3 breaking changes, Vuetify 3 updates, and package adjustments. By leveraging the official documentation, seeking support from my mentor 💪, and also the discussion form the community like GitHub, StackOverflow, and Discord, I overcame obstacles and found solutions to intricate problems.</p>
+<p>Migrating a project of this scale required patience, perseverance, and attention to detail. At times, I faced moments of frustration and uncertainty 😢, but with determination and the guidance of my mentor, I stayed focused on the goal 🎯. The adoption of TypeScript in the Nuxt 3 project further enhanced code safety and maintainability, ensuring a more robust codebase. 🔝</p>
+<p>As I progressed through each migration phase, I carefully integrated new versions, refactored components using the Composition API, and verified functionality through rigorous testing. This meticulous approach ensured a successful transition to Vue 3 and Nuxt 3, unleashing the full potential of their features.</p>
+<p>This migration project has taught me valuable lessons in <strong>staying adaptable</strong>, <strong>seeking support</strong>, <strong>problem-solving</strong>, and the importance of <strong>continuous learning</strong> to keep our projects at the forefront of web development. 👍 And thanks again for <strong>my mentor R.J.</strong> for his unwavering support, guidance, and belief in my abilities, without which this achievement would not have been possible. I’m truly grateful for his time and encouragement throughout this remarkable journey. 😄</p>
+<hr>
+<p>References:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://harlanzw.com/blog/nuxt-3-migration-cheatsheet">Nuxt 3 Migration Simplified: A Cheat Sheet</a></li>
+<li><a target="_blank" rel="noopener" href="https://gist.github.com/mgd216/33d7805847f9bb1ef23a381fd76e22e6">Vue3 &#x2F; Nuxt3 &#x2F; Vuetify3 Migration Steps</a></li>
+<li><a target="_blank" rel="noopener" href="https://debbie.codes/blog/migrating-nuxt2-nuxt3/">Migrating from Nuxt 2 to Nuxt 3</a></li>
+<li><a target="_blank" rel="noopener" href="https://medium.com/arcana-network-blog/vue-3-composition-api-basics-and-patterns-44813f2c785d">Vue 3 Composition API: Basics and Patterns</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.telerik.com/blogs/100-things-you-should-know-about-nuxt-3">100 Things You Should Know About Nuxt 3</a></li>
+<li><a target="_blank" rel="noopener" href="https://levelup.gitconnected.com/vuejs-3-migrating-from-options-to-composition-api-e8a765e57b8d">Vuejs 3: Migrating from Options to Composition API</a></li>
+<li><a target="_blank" rel="noopener" href="https://masteringnuxt.com/nuxt2">Mastering Nuxt 2 Course</a> and <a target="_blank" rel="noopener" href="https://masteringnuxt.com/nuxt3">Mastering Nuxt 3 Course</a>.</li>
+</ul>
+<p>🔍 Check out the demo project in <a target="_blank" rel="noopener" href="https://github.com/Beking0912/vue3-nuxt3-vuetify3-starter"><strong>github</strong></a>.<br>📮 If find any errors, please feel free to discuss and correct them: <a href="mailto:&#x62;&#x73;&#x75;&#x35;&#64;&#110;&#99;&#x73;&#x75;&#46;&#101;&#x64;&#117;">&#x62;&#x73;&#x75;&#x35;&#64;&#110;&#99;&#x73;&#x75;&#46;&#101;&#x64;&#117;</a>.</p>
+
   </div>
 </article>
 
@@ -582,7 +734,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Background"><span class="toc-number">1.</span> <span class="toc-text">Background</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Plan"><span class="toc-number">2.</span> <span class="toc-text">Plan</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nuxt-3-Changes-Checklist"><span class="toc-number">3.</span> <span class="toc-text">Nuxt 3 Changes Checklist</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue-3-breaking-Changes-Checklist"><span class="toc-number">4.</span> <span class="toc-text">Vue 3 breaking Changes Checklist</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What%E2%80%99s-new-in-Vue-3"><span class="toc-number">5.</span> <span class="toc-text">What’s new in Vue 3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vuetify-3-Changes-Checklist"><span class="toc-number">6.</span> <span class="toc-text">Vuetify 3 Changes Checklist</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Check-for-Nuxt-3-compatibility-of-modules"><span class="toc-number">7.</span> <span class="toc-text">Check for Nuxt 3 compatibility of modules</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Challenges-and-Solutions"><span class="toc-number">8.</span> <span class="toc-text">Challenges and Solutions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-number">9.</span> <span class="toc-text">Conclusion</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Background"><span class="toc-number">1.</span> <span class="toc-text">Background</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Before-Migration"><span class="toc-number">2.</span> <span class="toc-text">Before Migration</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Resources"><span class="toc-number">3.</span> <span class="toc-text">Resources</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue-3"><span class="toc-number">3.1.</span> <span class="toc-text">Vue 3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Nuxt-3"><span class="toc-number">3.2.</span> <span class="toc-text">Nuxt 3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vuetify-3"><span class="toc-number">3.3.</span> <span class="toc-text">Vuetify 3</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Migration-Plan"><span class="toc-number">4.</span> <span class="toc-text">Migration Plan</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nuxt-3-Changes-Checklist"><span class="toc-number">5.</span> <span class="toc-text">Nuxt 3 Changes Checklist</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue-3-Changes-Checklist"><span class="toc-number">6.</span> <span class="toc-text">Vue 3 Changes Checklist</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What%E2%80%99s-New-in-Vue-3"><span class="toc-number">7.</span> <span class="toc-text">What’s New in Vue 3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vuetify-3-Changes-Checklist"><span class="toc-number">8.</span> <span class="toc-text">Vuetify 3 Changes Checklist</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Check-for-Nuxt-3-Modules-Compatibility"><span class="toc-number">9.</span> <span class="toc-text">Check for Nuxt 3 Modules Compatibility</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Challenges-and-Solutions"><span class="toc-number">10.</span> <span class="toc-text">Challenges and Solutions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-number">11.</span> <span class="toc-text">Conclusion</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
