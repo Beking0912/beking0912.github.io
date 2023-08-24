@@ -6,19 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="I’m excited to share my work on the 2023 Google Summer of Code 🎉.  SummarizeAbout the program:  Student Name: Biqing (Gloria) Su Mentors: Jeremy R. Easton-Marks, Ryan Fu Organization: cBioportal for">
+    <meta name="description" content="I’m excited to share my work on the 2023 Google Summer of Code 🎉.In this blog, my will focus on the feature I’ve developed.🔍 Stay tuned for my next post where I’ll share the guide and my experiences">
 <meta property="og:type" content="article">
 <meta property="og:title" content="🌞 GSoC 2023: Interactive Web Tour">
 <meta property="og:url" content="https://beking0912.github.io/2023/08/21/Open-Source-Journey-Guide-My-GSoC-2023/index.html">
 <meta property="og:site_name" content="Gloria&#39;s Notebook">
-<meta property="og:description" content="I’m excited to share my work on the 2023 Google Summer of Code 🎉.  SummarizeAbout the program:  Student Name: Biqing (Gloria) Su Mentors: Jeremy R. Easton-Marks, Ryan Fu Organization: cBioportal for">
+<meta property="og:description" content="I’m excited to share my work on the 2023 Google Summer of Code 🎉.In this blog, my will focus on the feature I’ve developed.🔍 Stay tuned for my next post where I’ll share the guide and my experiences">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://s2.loli.net/2023/08/05/nsi1NZ8aORFEAVK.png">
 <meta property="og:image" content="https://s2.loli.net/2023/08/23/GEf7ryNkjCnK2Lb.png">
 <meta property="og:image" content="https://s2.loli.net/2023/08/23/hj4nGgfsp2mzHEi.png">
-<meta property="og:image" content="https://s2.loli.net/2023/08/23/PjsqLBh12tkCURe.png">
+<meta property="og:image" content="https://s2.loli.net/2023/08/23/FOLNPMEycejrQIX.png">
+<meta property="og:image" content="https://s2.loli.net/2023/08/23/BNhyl1uwEdkrMab.png">
+<meta property="og:image" content="https://s2.loli.net/2023/08/24/DIU8WLjpinJVQHP.png">
+<meta property="og:image" content="https://s2.loli.net/2023/08/24/fFuy49JTE6oLnaC.png">
 <meta property="article:published_time" content="2023-08-21T23:38:08.000Z">
-<meta property="article:modified_time" content="2023-08-23T02:04:07.222Z">
+<meta property="article:modified_time" content="2023-08-24T02:21:56.653Z">
 <meta property="article:author" content="Gloria Su">
 <meta property="article:tag" content="React">
 <meta property="article:tag" content="TypeScript">
@@ -112,7 +115,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Summarize"><span class="toc-number">1.</span> <span class="toc-text">Summarize</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-number">2.</span> <span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Achievements"><span class="toc-number">3.</span> <span class="toc-text">Achievements</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#File-Structure"><span class="toc-number">4.</span> <span class="toc-text">File Structure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-it-works"><span class="toc-number">5.</span> <span class="toc-text">How it works</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-to-add-a-new-tour"><span class="toc-number">6.</span> <span class="toc-text">How to add a new tour</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Different-Interactions"><span class="toc-number">7.</span> <span class="toc-text">Different Interactions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Challenges-amp-Solutions"><span class="toc-number">8.</span> <span class="toc-text">Challenges &amp; Solutions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Testing"><span class="toc-number">9.</span> <span class="toc-text">Testing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Documentation"><span class="toc-number">10.</span> <span class="toc-text">Documentation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Demonstration"><span class="toc-number">11.</span> <span class="toc-text">Demonstration</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Summarize"><span class="toc-number">1.</span> <span class="toc-text">Summarize</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-number">2.</span> <span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Achievements"><span class="toc-number">3.</span> <span class="toc-text">Achievements</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#File-Structure"><span class="toc-number">4.</span> <span class="toc-text">File Structure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-it-works"><span class="toc-number">5.</span> <span class="toc-text">How it works</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-to-add-a-new-tour"><span class="toc-number">6.</span> <span class="toc-text">How to add a new tour</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Different-Interactions"><span class="toc-number">7.</span> <span class="toc-text">Different Interactions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Testing"><span class="toc-number">8.</span> <span class="toc-text">Testing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Challenge-amp-Solution"><span class="toc-number">9.</span> <span class="toc-text">Challenge &amp; Solution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Documentation"><span class="toc-number">10.</span> <span class="toc-text">Documentation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Demonstration"><span class="toc-number">11.</span> <span class="toc-text">Demonstration</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -161,7 +164,7 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p><img src="https://s2.loli.net/2023/08/05/nsi1NZ8aORFEAVK.png" alt="Frame 7 _3_.png"><br>I’m excited to share my work on the 2023 Google Summer of Code 🎉. </p>
+    <p><img src="https://s2.loli.net/2023/08/05/nsi1NZ8aORFEAVK.png" alt="Frame 7 _3_.png"><br>I’m excited to share my work on the 2023 Google Summer of Code 🎉.<br>In this blog, my will focus on the feature I’ve developed.<br>🔍 Stay tuned for my next post where I’ll share the guide and my experiences.</p>
 <h2 id="Summarize"><a href="#Summarize" class="headerlink" title="Summarize"></a>Summarize</h2><p>About the program:</p>
 <ul>
 <li><strong>Student Name:</strong> <a target="_blank" rel="noopener" href="https://github.com/Beking0912">Biqing (Gloria) Su</a></li>
@@ -223,8 +226,7 @@
 <li><strong>Tab-hopping:</strong> Display text with skip all and next tab buttons. Automatically load to another tab after user clicked the next tab button.</li>
 <li><strong>Page-hopping:</strong> Hide the skip all and next step buttons. Automatically jump to another page after user clicked the highlighted button.</li>
 </ul>
-<p><img src="https://s2.loli.net/2023/08/23/PjsqLBh12tkCURe.png" alt="2022-09-13-2261.png"></p>
-<h2 id="Challenges-amp-Solutions"><a href="#Challenges-amp-Solutions" class="headerlink" title="Challenges &amp; Solutions"></a>Challenges &amp; Solutions</h2><p>TBD</p>
+<p><img src="https://s2.loli.net/2023/08/23/FOLNPMEycejrQIX.png" alt="2022-09-13-2259.png"></p>
 <h2 id="Testing"><a href="#Testing" class="headerlink" title="Testing"></a>Testing</h2><p>E2E tests have been completed for the Create a Virtual Study for Logged In users and Compare User-defined Groups of Samples tour. The tests focus on validating the presence and functionality of expected buttons and elements by simulating user interactions. </p>
 <p>The following features should be covered in E2E testing for Web Tour: </p>
 <ul>
@@ -233,18 +235,67 @@
 <li><strong>Step Prompt Information</strong>: Ensure that the prompt information in each step is correctly displayed and matches the expected text. </li>
 <li><strong>User Actions</strong>: Verify that user actions in each step successfully trigger the related functionality, such as filling in a search box or selecting studies.</li>
 </ul>
-<p>Below is an example showcasing the aspects validated by the test case:</p>
+<p>Below is an example showcasing the aspects validated by the test case:<br><strong>Step 0: Type “glioma” in the search box automatically, on the homepage.</strong></p>
 <ol>
-<li>The tour should be at <strong>step &#x3D; 4</strong>.</li>
-<li>There should be a tour modal.</li>
-<li>On the modal, the title of the content should be <strong>Select samples</strong>.</li>
+<li>The tour should be on the first step: <strong>step &#x3D; 0</strong>, initialized at -1. </li>
+<li>There should be <strong>a tour modal</strong>.</li>
+<li>On the modal, the title of the content should be <strong>Search for the studies</strong>.</li>
 <li>On the modal, there should not be a <strong>Skill All</strong> button and a <strong>Next Step</strong> button.</li>
-<li>There should be the Mutated Genes table <strong>#mutated-genes-table</strong>.</li>
-<li>Select samples.</li>
-<li>On the modal, there should be a <strong>Skill All</strong> button and a <strong>Next Step</strong> button.</li>
+<li>There should be a search box on the homepage <strong>#cancer-study-search-box input</strong>.</li>
+<li>The value of the search box should be <strong>glioma</strong>.</li>
 <li>Click on the <strong>Next Step</strong> button, the tour should go to the next step.</li>
 </ol>
+<p><img src="https://s2.loli.net/2023/08/23/BNhyl1uwEdkrMab.png" alt="test-2022-09-13-2259.png"></p>
 <p>👉 <strong>See more about e2e testing on PR <a target="_blank" rel="noopener" href="https://github.com/cBioPortal/cbioportal-frontend/pull/4700">#4700</a>.</strong></p>
+<h2 id="Challenge-amp-Solution"><a href="#Challenge-amp-Solution" class="headerlink" title="Challenge &amp; Solution"></a>Challenge &amp; Solution</h2><details>
+<summary><div style="font-weight: bold;font-size: 1rem;margin: 0.5rem 0;border: 1px solid;border-radius: 5px;padding: 10px;text-align: center;background: beige;cursor: pointer;">Challenge 1: Multi-page Transformation</div></summary>
+
+<p><strong>SITUATION:</strong> Step 2 is on page A but step 3 is on page B, how to connect the steps?<br><strong>SOLUTION:</strong> Use localStorage to store the Tour state, get the state when tour first renders at page B.</p>
+<img src="https://s2.loli.net/2023/08/24/DIU8WLjpinJVQHP.png" width="80%"/>
+</details>
+
+
+<details>
+<summary><div style="font-weight: bold;font-size: 1rem;margin: 0.5rem 0;border: 1px solid;border-radius: 5px;padding: 10px;text-align: center;background: beige;cursor: pointer;">Challenge 2: Automatically Go Next Step</div></summary>
+
+<p><strong>SITUATION:</strong> After user clicked the target button, how automatically go to the next step?<br><strong>SOLUTION:</strong> Add Event Listener to listen for mouse events, set Timeout to wait for element rendering.</p>
+<img src="https://s2.loli.net/2023/08/24/fFuy49JTE6oLnaC.png" width="80%"/>
+</details>
+
+
+<details>
+<summary><div style="font-weight: bold;font-size: 1rem;margin: 0.5rem 0;border: 1px solid;border-radius: 5px;padding: 10px;text-align: center;background: beige;cursor: pointer;">Challenge 3: Error Running E2E Test Locally</div></summary>
+
+
+<p><strong>I’m trying to run end-to-end tests locally on M1 machine.</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yarn version: 1.22.5</span><br><span class="line">node version:  15.2.1</span><br><span class="line">python version: 3.10.12</span><br><span class="line">Apple M1 Pro MacOS Ventura 13.5</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>ERROR 1:</strong><br><code>cd end-to-end-test &amp;&amp; yarn</code> can not work correctly,<br>and reported the error: <code>fatal error: &#39;jpeglib.h&#39; file not found</code>.<br><strong>SOLUTION:</strong><br>It was due to a clang path error,<br>add <code>export CPLUS_INCLUDE_PATH=/opt/homebrew/include</code> to <code>~/.zshrc</code>,<br>and then <code>source ~/.zshrc</code>,<br>then it can work.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// .zshrc</span><br><span class="line">export CPLUS_INCLUDE_PATH=/opt/homebrew/include</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>ERROR 2:</strong><br><code>yarn run e2e:local --grep=end-to-end-test/local/specs/treatment.spec.js</code> can not work correctly and reported the error:<br><code>No specs found to run, exiting with failure</code>.<br><strong>SOLUTION:</strong><br>Remove <code>/**</code> from <code>wdio.conf.js</code> line 146,<br>and then run <code>yarn run e2e:local --grep=treatment.spec.js</code></p>
+<hr>
+<p><strong>ERROR 3:</strong><br><code>yarn run e2e:local --grep=end-to-end-test/local/specs/treatment.spec.js</code><br>can not work correctly and reported the error:<br><code>Error in onCompleteHook: Error: ENOENT: no such file or directory, scandir &#39;./shared/results/&#39;</code>.<br><strong>SOLUTION:</strong><br>Create a <code>results</code> folder under shared folder.</p>
+</details>
+
+
+<details>
+<summary><div style="font-weight: bold;font-size: 1rem;margin: 0.5rem 0;border: 1px solid;border-radius: 5px;padding: 10px;text-align: center;background: beige;cursor: pointer;">Challenge 4: Simulate Logged-in Users in the Test Code</div></summary>
+
+<p>TBD</p>
+</details>
+
+
+<details>
+<summary><div style="font-weight: bold;font-size: 1rem;margin: 0.5rem 0;border: 1px solid;border-radius: 5px;padding: 10px;text-align: center;background: beige;cursor: pointer;">Challenge 5: Multi-Tab Handling in E2E Testing</div></summary>
+
+<p><strong>SITUATION:</strong> In group comparison tour, it would open a new “group comparison page” tab after clicking the “compare” button on the mutated genes table. While the new tab is open, but the test code continues to run on the original tab, making it impossible to test the new tab’s content.<br>At first I thought it was a mistake in my code, then I realized it was because the test code was still in the old tab and not running in the new one.</p>
+<p><strong>SOLUTION:</strong> To address this, I used <a target="_blank" rel="noopener" href="https://webdriver.io/docs/api/jsonwp/#getwindowhandles">getWindowHandles</a> to find a list of window handles for every open top-level browsing context, then use the <a target="_blank" rel="noopener" href="https://webdriver.io/docs/api/browser/switchWindow/">switchWindow</a> api to switch the WebDriver’s focus to the new tab. Then it worked correctly on the new tab.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> handles = browser.<span class="title function_">getWindowHandles</span>();</span><br><span class="line"><span class="keyword">const</span> newTabHandle = handles[handles.<span class="property">length</span> - <span class="number">1</span>];</span><br><span class="line">browser.<span class="title function_">switchToWindow</span>(newTabHandle);</span><br></pre></td></tr></table></figure>
+</details>
+
 <h2 id="Documentation"><a href="#Documentation" class="headerlink" title="Documentation"></a>Documentation</h2><p>For detailed steps of each tour, test procedures, and instructions on adding new tours, refer to the <a target="_blank" rel="noopener" href="https://docs.google.com/document/d/1Xj8ZfcWcv2n_stCM26hMgk63xnxq7s7_W5RUYwBNUoQ/edit#heading=h.f5bc9dunvzs3">detailed documentation</a>.</p>
 <h2 id="Demonstration"><a href="#Demonstration" class="headerlink" title="Demonstration"></a>Demonstration</h2><ul>
 <li>Create a Virtual Study for Not Logged In users: <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/175nxZWAI6kkPxEmLnhrfHenKUbVj7M90/view?usp=sharing">video</a></li>
@@ -252,7 +303,7 @@
 <li>Compare User-defined Groups of Samples: <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1IL1a67X8SiZ_1-VzzPa9QGlO3IHhLGfs/view?usp=drive_link">video</a></li>
 </ul>
 <hr>
-<p>📮 Feel free to hit me up about Google Summer of Code experience: <a href="mailto:&#x62;&#115;&#x75;&#x35;&#x40;&#x6e;&#99;&#115;&#117;&#46;&#101;&#x64;&#117;">&#x62;&#115;&#x75;&#x35;&#x40;&#x6e;&#99;&#115;&#117;&#46;&#101;&#x64;&#117;</a>.<br>😄 Let’s contribute to Open Source!</p>
+<p>📮 Feel free to hit me up about Google Summer of Code experience: <a href="mailto:&#x62;&#115;&#x75;&#53;&#64;&#110;&#99;&#x73;&#117;&#x2e;&#101;&#x64;&#x75;">&#x62;&#115;&#x75;&#53;&#64;&#110;&#99;&#x73;&#117;&#x2e;&#101;&#x64;&#x75;</a>.<br>😄 Let’s contribute to Open Source!</p>
 
   </div>
 </article>
@@ -278,7 +329,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Summarize"><span class="toc-number">1.</span> <span class="toc-text">Summarize</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-number">2.</span> <span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Achievements"><span class="toc-number">3.</span> <span class="toc-text">Achievements</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#File-Structure"><span class="toc-number">4.</span> <span class="toc-text">File Structure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-it-works"><span class="toc-number">5.</span> <span class="toc-text">How it works</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-to-add-a-new-tour"><span class="toc-number">6.</span> <span class="toc-text">How to add a new tour</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Different-Interactions"><span class="toc-number">7.</span> <span class="toc-text">Different Interactions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Challenges-amp-Solutions"><span class="toc-number">8.</span> <span class="toc-text">Challenges &amp; Solutions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Testing"><span class="toc-number">9.</span> <span class="toc-text">Testing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Documentation"><span class="toc-number">10.</span> <span class="toc-text">Documentation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Demonstration"><span class="toc-number">11.</span> <span class="toc-text">Demonstration</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Summarize"><span class="toc-number">1.</span> <span class="toc-text">Summarize</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-number">2.</span> <span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Achievements"><span class="toc-number">3.</span> <span class="toc-text">Achievements</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#File-Structure"><span class="toc-number">4.</span> <span class="toc-text">File Structure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-it-works"><span class="toc-number">5.</span> <span class="toc-text">How it works</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-to-add-a-new-tour"><span class="toc-number">6.</span> <span class="toc-text">How to add a new tour</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Different-Interactions"><span class="toc-number">7.</span> <span class="toc-text">Different Interactions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Testing"><span class="toc-number">8.</span> <span class="toc-text">Testing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Challenge-amp-Solution"><span class="toc-number">9.</span> <span class="toc-text">Challenge &amp; Solution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Documentation"><span class="toc-number">10.</span> <span class="toc-text">Documentation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Demonstration"><span class="toc-number">11.</span> <span class="toc-text">Demonstration</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
