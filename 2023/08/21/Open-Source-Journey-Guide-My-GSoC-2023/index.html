@@ -14,14 +14,16 @@
 <meta property="og:description" content="I’m excited to share my work on the 2023 Google Summer of Code 🎉.In this blog, my will focus on the feature I’ve developed.🔍 Stay tuned for my next post where I’ll share the guide and my experiences">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://s2.loli.net/2023/08/05/nsi1NZ8aORFEAVK.png">
+<meta property="og:image" content="https://s2.loli.net/2023/08/24/tYz2BjbpGcsLfMU.gif">
 <meta property="og:image" content="https://s2.loli.net/2023/08/23/GEf7ryNkjCnK2Lb.png">
 <meta property="og:image" content="https://s2.loli.net/2023/08/23/hj4nGgfsp2mzHEi.png">
 <meta property="og:image" content="https://s2.loli.net/2023/08/23/FOLNPMEycejrQIX.png">
 <meta property="og:image" content="https://s2.loli.net/2023/08/23/BNhyl1uwEdkrMab.png">
 <meta property="og:image" content="https://s2.loli.net/2023/08/24/DIU8WLjpinJVQHP.png">
 <meta property="og:image" content="https://s2.loli.net/2023/08/24/fFuy49JTE6oLnaC.png">
+<meta property="og:image" content="https://s2.loli.net/2023/08/24/c1SPezKaHGN2IkC.jpg">
 <meta property="article:published_time" content="2023-08-21T23:38:08.000Z">
-<meta property="article:modified_time" content="2023-08-24T02:21:56.653Z">
+<meta property="article:modified_time" content="2023-08-24T15:34:09.888Z">
 <meta property="article:author" content="Gloria Su">
 <meta property="article:tag" content="React">
 <meta property="article:tag" content="TypeScript">
@@ -115,7 +117,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Summarize"><span class="toc-number">1.</span> <span class="toc-text">Summarize</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-number">2.</span> <span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Achievements"><span class="toc-number">3.</span> <span class="toc-text">Achievements</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#File-Structure"><span class="toc-number">4.</span> <span class="toc-text">File Structure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-it-works"><span class="toc-number">5.</span> <span class="toc-text">How it works</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-to-add-a-new-tour"><span class="toc-number">6.</span> <span class="toc-text">How to add a new tour</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Different-Interactions"><span class="toc-number">7.</span> <span class="toc-text">Different Interactions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Testing"><span class="toc-number">8.</span> <span class="toc-text">Testing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Challenge-amp-Solution"><span class="toc-number">9.</span> <span class="toc-text">Challenge &amp; Solution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Documentation"><span class="toc-number">10.</span> <span class="toc-text">Documentation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Demonstration"><span class="toc-number">11.</span> <span class="toc-text">Demonstration</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Summarize"><span class="toc-number">1.</span> <span class="toc-text">Summarize</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-number">2.</span> <span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Achievements"><span class="toc-number">3.</span> <span class="toc-text">Achievements</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#File-Structure"><span class="toc-number">4.</span> <span class="toc-text">File Structure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-it-works"><span class="toc-number">5.</span> <span class="toc-text">How it works</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-to-add-a-new-tour"><span class="toc-number">6.</span> <span class="toc-text">How to add a new tour</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Different-Interactions"><span class="toc-number">7.</span> <span class="toc-text">Different Interactions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Testing"><span class="toc-number">8.</span> <span class="toc-text">Testing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Challenge-amp-Solution"><span class="toc-number">9.</span> <span class="toc-text">Challenge &amp; Solution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Documentation"><span class="toc-number">10.</span> <span class="toc-text">Documentation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Demonstration"><span class="toc-number">11.</span> <span class="toc-text">Demonstration</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Feedback-amp-Next-Steps"><span class="toc-number">12.</span> <span class="toc-text">Feedback &amp; Next Steps</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Thanks-All"><span class="toc-number">13.</span> <span class="toc-text">Thanks All!!!</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -169,7 +171,7 @@
 <ul>
 <li><strong>Student Name:</strong> <a target="_blank" rel="noopener" href="https://github.com/Beking0912">Biqing (Gloria) Su</a></li>
 <li><strong>Mentors:</strong> <a target="_blank" rel="noopener" href="https://github.com/JREastonMarks">Jeremy R. Easton-Marks</a>, <a target="_blank" rel="noopener" href="https://github.com/fuzhaoyuan">Ryan Fu</a></li>
-<li><strong>Organization:</strong> <a target="_blank" rel="noopener" href="https://www.cbioportal.org/">cBioportal for Cancer Genomics</a></li>
+<li><strong>Organization:</strong> <a target="_blank" rel="noopener" href="https://www.cbioportal.org/">cBioportal for Cancer Genomics</a>, <a target="_blank" rel="noopener" href="https://github.com/cBioPortal">github</a></li>
 <li><strong>GSoC Program Announcement:</strong> <a target="_blank" rel="noopener" href="https://summerofcode.withgoogle.com/programs/2023/projects/luumPTO5">Proposal Page</a></li>
 <li><strong>GSoC Project Description:</strong> <a target="_blank" rel="noopener" href="https://github.com/cBioPortal/GSoC/issues/86">Interactive web tour #86</a></li>
 </ul>
@@ -177,9 +179,15 @@
 <ul>
 <li><strong>PR:</strong> <a target="_blank" rel="noopener" href="https://github.com/cBioPortal/cbioportal-frontend/pull/4687">Add Interactive Web Tour for Virtual Studies and Group Comparison #4687</a></li>
 <li><strong>Related PR:</strong> <a target="_blank" rel="noopener" href="https://github.com/cBioPortal/cbioportal-frontend/pull/4700">End-to-End Testing #4700</a>, <a target="_blank" rel="noopener" href="https://github.com/cBioPortal/cbioportal/pull/10333">Add show_web_tours #10333</a></li>
-<li><strong>Online Review:</strong> <a target="_blank" rel="noopener" href="https://deploy-preview-4687--cbioportalfrontend.netlify.app/">take a quick look here</a></li>
+<li><strong>Next Steps:</strong> <a target="_blank" rel="noopener" href="https://github.com/cBioPortal/cbioportal/issues/10341">#10341 Track suggestions</a></li>
 <li><strong>Related Documentation:</strong> <a target="_blank" rel="noopener" href="https://docs.google.com/document/d/1Xj8ZfcWcv2n_stCM26hMgk63xnxq7s7_W5RUYwBNUoQ/edit#heading=h.f5bc9dunvzs3">documentation</a></li>
+<li><strong>Online Review:</strong> <a target="_blank" rel="noopener" href="https://deploy-preview-4707--cbioportalfrontend.netlify.app/">Take a Quick Look Here</a></li>
 </ul>
+<p>Have a try?</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://deploy-preview-4707--cbioportalfrontend.netlify.app/"><strong>👉 Click Here to Take a Quick Look! (‘Interactive Tours’ on the right bar)</strong></a></li>
+</ul>
+<p><img src="https://s2.loli.net/2023/08/24/tYz2BjbpGcsLfMU.gif" alt="tour.gif"></p>
 <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>The cBioPortal provides access to a wealth of cancer genomics data, but new users often struggle to navigate its features, and existing users may not be aware of all available tools. This project introduces an <strong>Interactive Web Tour</strong> that aims to enhance the user experience and facilitate the exploration of less prominent features on the site. The interactive web tour guides new users through the functionalities of Virtual Studies as well as Group Comparison.<br>Find more description on <a target="_blank" rel="noopener" href="https://github.com/cBioPortal/GSoC/issues/86">Interactive web tour #86</a>.</p>
 <p>The tour is implemented using the <a target="_blank" rel="noopener" href="https://github.com/elrumordelaluz/reactour/tree/v1">reactour v1</a> library to provide an interactive UI, leveraging localStorage for seamless page transitions and TypeScript for robust type definitions.<br>The End-to-end testing is implemented using <a target="_blank" rel="noopener" href="https://mochajs.org/">Mocha</a> and <a target="_blank" rel="noopener" href="https://webdriver.io/">WebdriverIO</a>.</p>
 <h2 id="Achievements"><a href="#Achievements" class="headerlink" title="Achievements"></a>Achievements</h2><ul>
@@ -247,8 +255,9 @@
 </ol>
 <p><img src="https://s2.loli.net/2023/08/23/BNhyl1uwEdkrMab.png" alt="test-2022-09-13-2259.png"></p>
 <p>👉 <strong>See more about e2e testing on PR <a target="_blank" rel="noopener" href="https://github.com/cBioPortal/cbioportal-frontend/pull/4700">#4700</a>.</strong></p>
-<h2 id="Challenge-amp-Solution"><a href="#Challenge-amp-Solution" class="headerlink" title="Challenge &amp; Solution"></a>Challenge &amp; Solution</h2><details>
-<summary><div style="font-weight: bold;font-size: 1rem;margin: 0.5rem 0;border: 1px solid;border-radius: 5px;padding: 10px;text-align: center;background: beige;cursor: pointer;">Challenge 1: Multi-page Transformation</div></summary>
+<h2 id="Challenge-amp-Solution"><a href="#Challenge-amp-Solution" class="headerlink" title="Challenge &amp; Solution"></a>Challenge &amp; Solution</h2><p>Click to expand and view more.</p>
+<details>
+<summary><div style="font-weight: bold;font-size: 1rem;margin: 0.5rem 0;border: 1px solid;border-radius: 5px;padding: 10px;text-align: center;cursor: pointer;">Challenge 1: Multi-page Transformation</div></summary>
 
 <p><strong>SITUATION:</strong> Step 2 is on page A but step 3 is on page B, how to connect the steps?<br><strong>SOLUTION:</strong> Use localStorage to store the Tour state, get the state when tour first renders at page B.</p>
 <img src="https://s2.loli.net/2023/08/24/DIU8WLjpinJVQHP.png" width="80%"/>
@@ -256,7 +265,7 @@
 
 
 <details>
-<summary><div style="font-weight: bold;font-size: 1rem;margin: 0.5rem 0;border: 1px solid;border-radius: 5px;padding: 10px;text-align: center;background: beige;cursor: pointer;">Challenge 2: Automatically Go Next Step</div></summary>
+<summary><div style="font-weight: bold;font-size: 1rem;margin: 0.5rem 0;border: 1px solid;border-radius: 5px;padding: 10px;text-align: center;cursor: pointer;">Challenge 2: Automatically Go Next Step</div></summary>
 
 <p><strong>SITUATION:</strong> After user clicked the target button, how automatically go to the next step?<br><strong>SOLUTION:</strong> Add Event Listener to listen for mouse events, set Timeout to wait for element rendering.</p>
 <img src="https://s2.loli.net/2023/08/24/fFuy49JTE6oLnaC.png" width="80%"/>
@@ -264,7 +273,7 @@
 
 
 <details>
-<summary><div style="font-weight: bold;font-size: 1rem;margin: 0.5rem 0;border: 1px solid;border-radius: 5px;padding: 10px;text-align: center;background: beige;cursor: pointer;">Challenge 3: Error Running E2E Test Locally</div></summary>
+<summary><div style="font-weight: bold;font-size: 1rem;margin: 0.5rem 0;border: 1px solid;border-radius: 5px;padding: 10px;text-align: center;cursor: pointer;">Challenge 3: Error Running E2E Test Locally</div></summary>
 
 
 <p><strong>I’m trying to run end-to-end tests locally on M1 machine.</strong></p>
@@ -282,14 +291,15 @@
 
 
 <details>
-<summary><div style="font-weight: bold;font-size: 1rem;margin: 0.5rem 0;border: 1px solid;border-radius: 5px;padding: 10px;text-align: center;background: beige;cursor: pointer;">Challenge 4: Simulate Logged-in Users in the Test Code</div></summary>
+<summary><div style="font-weight: bold;font-size: 1rem;margin: 0.5rem 0;border: 1px solid;border-radius: 5px;padding: 10px;text-align: center;cursor: pointer;">Challenge 4: Simulate Logged-in Users in the Test Code</div></summary>
 
-<p>TBD</p>
+<p>We can use <code>goToUrlAndSetLocalStorage</code> function and set the second parameter to false to start the test, then it will automate the login process.<br>See <a target="_blank" rel="noopener" href="https://github.com/cBioPortal/cbioportal-frontend/blob/master/end-to-end-test/shared/specUtils.js#L208">specUtils.js#L208</a>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">before</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="title function_">goToUrlAndSetLocalStorage</span>(<span class="variable constant_">CBIOPORTAL_URL</span>, <span class="literal">true</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 </details>
 
 
 <details>
-<summary><div style="font-weight: bold;font-size: 1rem;margin: 0.5rem 0;border: 1px solid;border-radius: 5px;padding: 10px;text-align: center;background: beige;cursor: pointer;">Challenge 5: Multi-Tab Handling in E2E Testing</div></summary>
+<summary><div style="font-weight: bold;font-size: 1rem;margin: 0.5rem 0;border: 1px solid;border-radius: 5px;padding: 10px;text-align: center;cursor: pointer;">Challenge 5: Multi-Tab Handling in E2E Testing</div></summary>
 
 <p><strong>SITUATION:</strong> In group comparison tour, it would open a new “group comparison page” tab after clicking the “compare” button on the mutated genes table. While the new tab is open, but the test code continues to run on the original tab, making it impossible to test the new tab’s content.<br>At first I thought it was a mistake in my code, then I realized it was because the test code was still in the old tab and not running in the new one.</p>
 <p><strong>SOLUTION:</strong> To address this, I used <a target="_blank" rel="noopener" href="https://webdriver.io/docs/api/jsonwp/#getwindowhandles">getWindowHandles</a> to find a list of window handles for every open top-level browsing context, then use the <a target="_blank" rel="noopener" href="https://webdriver.io/docs/api/browser/switchWindow/">switchWindow</a> api to switch the WebDriver’s focus to the new tab. Then it worked correctly on the new tab.</p>
@@ -301,9 +311,39 @@
 <li>Create a Virtual Study for Not Logged In users: <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/175nxZWAI6kkPxEmLnhrfHenKUbVj7M90/view?usp=sharing">video</a></li>
 <li>Create a Virtual Study for Logged In users: <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1BX8Ra42a5h9aPvfby-NJuyRvIK6jgRAX/view?usp=drive_link">video</a></li>
 <li>Compare User-defined Groups of Samples: <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1IL1a67X8SiZ_1-VzzPa9QGlO3IHhLGfs/view?usp=drive_link">video</a></li>
+<li>End-to-End Testing for ‘Create a Virtual Study’: <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/122c5KwPQHeCJQyq3Nyc_ZtvtcNkf8zR5/view?usp=drive_link">video</a></li>
+<li>End-to-End Testing for ‘Compare User-defined Groups of Samples’: <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1JGkzux3p6C9e5OevMTYCXjfwVfX7rfot/view?usp=drive_link">video</a></li>
 </ul>
+<h2 id="Feedback-amp-Next-Steps"><a href="#Feedback-amp-Next-Steps" class="headerlink" title="Feedback &amp; Next Steps"></a>Feedback &amp; Next Steps</h2><p><strong>Midterm Feedback List:</strong> </p>
+<ul>
+<li>✅ Is there any way to link the tour to the questions, if we amplify oftentime we need to answer questions from users and link directly to the tool. </li>
+<li>If anyone breaks elements, is there any way to capture the changes? possible suggestion: scan the code base for data test attributes and keep account of them. (PRIORITY)  ✅ end-to-end testing.</li>
+<li>✅ the done button can be green. add some emoji. (DO IT)</li>
+<li>✅ handle for the pauses in the waiting for element X. (HOLD)</li>
+</ul>
+<p><strong>PR review Feedback List:</strong></p>
+<ul>
+<li>✅ Change text (this table only allows selection by mutation, other tables are for CNA): “Click the check box in the “#” column to select three samples such as IDH1 mutations, TP53 mutant samples and EGFR amplified samples.” -&gt; Click the check box in the “#” column to select samples with e.g. IDH1 or TP53 mutations.</li>
+<li>✅ In that same step, when select two and then deselect one, error.</li>
+</ul>
+<p><strong>Product Team (Niki) Feedback List:</strong></p>
+<ul>
+<li>✅ On the frontpage could you change: the tour section to be below the “What’s New?” section? </li>
+<li>✅ Rename the “Web tours” header to “Interactive Tours”.</li>
+</ul>
+<p><strong>Some other thoughts from Ino:</strong></p>
+<ul>
+<li>When you click anywhere else on the page one exists the tour. This is great but sometimes one might accidentally click in the wrong area (happened to me :). Not sure if there’s an easy way to bring the tour back. Alternatively maybe an additional confirmation button could work (“Do you really want to exit the tour?”) []</li>
+<li>Is there a way to enforce selection of a specific cohort? It might make sense to highlight some more specific cancer biology in future tours. Like e.g. in the mutations table one can explain what the most commonly mutated gene in glioma is. For the genomic alterations one could use e.g. this example and explain why AR is enriched in metastatic samples </li>
+<li>It might also be good to have a separate <a target="_blank" rel="noopener" href="https://deploy-preview-3101--cbioportalfrontend.netlify.app/">“intro to the website”</a> tour like here: (goes over the main navigation at the top etc)</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://github.com/cBioPortal/cbioportal/issues/10341">#10341 Track suggestions</a></p>
+<h2 id="Thanks-All"><a href="#Thanks-All" class="headerlink" title="Thanks All!!!"></a>Thanks All!!!</h2><p>Excellent mentoring, <a target="_blank" rel="noopener" href="https://github.com/JREastonMarks">Jeremy</a> and <a target="_blank" rel="noopener" href="https://github.com/fuzhaoyuan">Ryan</a>! 👏👏👏<br>Your guidance was invaluable throughout the GSoC journey. Your timely feedback and insightful suggestions greatly enhanced my learning and project outcomes. Thanks both for your outstanding support! 👏👏👏</p>
+<p>Extend my gratitude to the product team, for their thorough product reviews. 👏👏👏<br>Special thanks to <a target="_blank" rel="noopener" href="https://github.com/inodb">Ino</a> and <a target="_blank" rel="noopener" href="https://github.com/alisman">Aaron</a> for their valuable code reviews. 👏👏👏<br>I appreciate <a target="_blank" rel="noopener" href="https://github.com/inodb">Ino</a> and <a target="_blank" rel="noopener" href="https://github.com/dippindots">Gaofei</a> for patiently addressing my numerous questions. 👏👏👏<br>And heartfelt thanks to many others who contributed to my success! 👏👏👏<br><br/></p>
+<img src="https://s2.loli.net/2023/08/24/c1SPezKaHGN2IkC.jpg" width="80%"/>
+
 <hr>
-<p>📮 Feel free to hit me up about Google Summer of Code experience: <a href="mailto:&#x62;&#115;&#x75;&#53;&#64;&#110;&#99;&#x73;&#117;&#x2e;&#101;&#x64;&#x75;">&#x62;&#115;&#x75;&#53;&#64;&#110;&#99;&#x73;&#117;&#x2e;&#101;&#x64;&#x75;</a>.<br>😄 Let’s contribute to Open Source!</p>
+<p>📮 Feel free to hit me up about Google Summer of Code experience: <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/beking-0912/">Linkedin</a>.<br>😄 Let’s contribute to Open Source!</p>
 
   </div>
 </article>
@@ -329,7 +369,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Summarize"><span class="toc-number">1.</span> <span class="toc-text">Summarize</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-number">2.</span> <span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Achievements"><span class="toc-number">3.</span> <span class="toc-text">Achievements</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#File-Structure"><span class="toc-number">4.</span> <span class="toc-text">File Structure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-it-works"><span class="toc-number">5.</span> <span class="toc-text">How it works</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-to-add-a-new-tour"><span class="toc-number">6.</span> <span class="toc-text">How to add a new tour</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Different-Interactions"><span class="toc-number">7.</span> <span class="toc-text">Different Interactions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Testing"><span class="toc-number">8.</span> <span class="toc-text">Testing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Challenge-amp-Solution"><span class="toc-number">9.</span> <span class="toc-text">Challenge &amp; Solution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Documentation"><span class="toc-number">10.</span> <span class="toc-text">Documentation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Demonstration"><span class="toc-number">11.</span> <span class="toc-text">Demonstration</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Summarize"><span class="toc-number">1.</span> <span class="toc-text">Summarize</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-number">2.</span> <span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Achievements"><span class="toc-number">3.</span> <span class="toc-text">Achievements</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#File-Structure"><span class="toc-number">4.</span> <span class="toc-text">File Structure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-it-works"><span class="toc-number">5.</span> <span class="toc-text">How it works</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-to-add-a-new-tour"><span class="toc-number">6.</span> <span class="toc-text">How to add a new tour</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Different-Interactions"><span class="toc-number">7.</span> <span class="toc-text">Different Interactions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Testing"><span class="toc-number">8.</span> <span class="toc-text">Testing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Challenge-amp-Solution"><span class="toc-number">9.</span> <span class="toc-text">Challenge &amp; Solution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Documentation"><span class="toc-number">10.</span> <span class="toc-text">Documentation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Demonstration"><span class="toc-number">11.</span> <span class="toc-text">Demonstration</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Feedback-amp-Next-Steps"><span class="toc-number">12.</span> <span class="toc-text">Feedback &amp; Next Steps</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Thanks-All"><span class="toc-number">13.</span> <span class="toc-text">Thanks All!!!</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
