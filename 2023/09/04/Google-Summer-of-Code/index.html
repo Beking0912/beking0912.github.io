@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="In my previous blog, I delved into the technical intricacies of the feature I developed during Google Summer of Code - Interactive Web Tour. In this blog, I’ll be shifting gears, focusing on sharing m">
+<meta property="og:type" content="article">
+<meta property="og:title" content="🌞 Google Summer of Code: My Journey &amp; Guide">
+<meta property="og:url" content="https://beking0912.github.io/2023/09/04/Google-Summer-of-Code/index.html">
+<meta property="og:site_name" content="Gloria&#39;s Notebook">
+<meta property="og:description" content="In my previous blog, I delved into the technical intricacies of the feature I developed during Google Summer of Code - Interactive Web Tour. In this blog, I’ll be shifting gears, focusing on sharing m">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s2.loli.net/2023/09/05/NKTGf3QWkIr4c89.png">
+<meta property="og:image" content="https://s2.loli.net/2023/08/25/YyMExefg95vPaUk.png">
+<meta property="og:image" content="https://s2.loli.net/2023/08/25/FumhZnqXN1VGSDI.png">
+<meta property="og:image" content="https://s2.loli.net/2023/08/25/VXoSDTOJpE9FUug.png">
+<meta property="og:image" content="https://s2.loli.net/2023/08/25/89Jplrkcwm631UP.jpg">
+<meta property="og:image" content="https://s2.loli.net/2023/08/25/xXCWjITK2NvuLHt.jpg">
+<meta property="og:image" content="https://s2.loli.net/2023/08/25/WrRLGwxa6mHMDgf.png">
+<meta property="og:image" content="https://s2.loli.net/2023/09/05/fV1abPhurwzIOWM.png">
+<meta property="og:image" content="https://s2.loli.net/2023/09/05/TJLKhZx87IODWsV.png">
+<meta property="article:published_time" content="2023-09-04T18:17:01.000Z">
+<meta property="article:modified_time" content="2023-09-04T18:17:38.296Z">
+<meta property="article:author" content="Gloria Su">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2023/09/05/NKTGf3QWkIr4c89.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/iconmonstr-cat-1-240.png">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/iconmonstr-cat-1-240.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/iconmonstr-cat-1-240.png">
+        
+      
+    
+    <!-- title -->
+    <title>🌞 Google Summer of Code: My Journey &amp; Guide</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Gloria's Notebook" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div id="wallpaper" style="background-image: url(&quot;https://s2.loli.net/2023/03/29/y6h1NuejsoG3JYI.png&quot;);background-size: auto;background-repeat: repeat;position: absolute;inset: 0;background-position: center; position: fixed;"></div>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/projects/">Projects</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2023/08/21/Open-Source-Journey-Guide-My-GSoC-2023/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://beking0912.github.io/2023/09/04/Google-Summer-of-Code/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://beking0912.github.io/2023/09/04/Google-Summer-of-Code/&text=🌞 Google Summer of Code: My Journey &amp; Guide"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://beking0912.github.io/2023/09/04/Google-Summer-of-Code/&title=🌞 Google Summer of Code: My Journey &amp; Guide"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://beking0912.github.io/2023/09/04/Google-Summer-of-Code/&is_video=false&description=🌞 Google Summer of Code: My Journey &amp; Guide"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=🌞 Google Summer of Code: My Journey &amp; Guide&body=Check out this article: https://beking0912.github.io/2023/09/04/Google-Summer-of-Code/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://beking0912.github.io/2023/09/04/Google-Summer-of-Code/&title=🌞 Google Summer of Code: My Journey &amp; Guide"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://beking0912.github.io/2023/09/04/Google-Summer-of-Code/&title=🌞 Google Summer of Code: My Journey &amp; Guide"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://beking0912.github.io/2023/09/04/Google-Summer-of-Code/&title=🌞 Google Summer of Code: My Journey &amp; Guide"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://beking0912.github.io/2023/09/04/Google-Summer-of-Code/&title=🌞 Google Summer of Code: My Journey &amp; Guide"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://beking0912.github.io/2023/09/04/Google-Summer-of-Code/&name=🌞 Google Summer of Code: My Journey &amp; Guide&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://beking0912.github.io/2023/09/04/Google-Summer-of-Code/&t=🌞 Google Summer of Code: My Journey &amp; Guide"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Discovering-GSoC"><span class="toc-number">1.</span> <span class="toc-text">Discovering GSoC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Project-Selection-3-20-4-04"><span class="toc-number">2.</span> <span class="toc-text">Project Selection 3.20-4.04</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Finding-the-Right-Fit"><span class="toc-number">3.</span> <span class="toc-text">Finding the Right Fit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Crafting-the-Proposal"><span class="toc-number">4.</span> <span class="toc-text">Crafting the Proposal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Proposal-Accepted-5-04"><span class="toc-number">5.</span> <span class="toc-text">Proposal Accepted 5.04</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Visa-Concerns"><span class="toc-number">6.</span> <span class="toc-text">Visa Concerns</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Connect-with-Community"><span class="toc-number">7.</span> <span class="toc-text">Connect with Community</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Midterm-Evaluation-7-14"><span class="toc-number">8.</span> <span class="toc-text">Midterm Evaluation 7.14</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Final-Evaluation-9-4"><span class="toc-number">9.</span> <span class="toc-text">Final Evaluation 9.4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Summing-Up"><span class="toc-number">10.</span> <span class="toc-text">Summing Up</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Thanks-All"><span class="toc-number">11.</span> <span class="toc-text">Thanks All!!!</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        🌞 Google Summer of Code: My Journey &amp; Guide
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Gloria Su</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2023-09-04T18:17:01.000Z" itemprop="datePublished">2023-09-04</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/Open-Source/">Open Source</a>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>In my previous blog, I delved into the technical intricacies of the feature I developed during Google Summer of Code - <a href="https://beking0912.github.io/2023/08/21/Open-Source-Journey-Guide-My-GSoC-2023/"><strong>Interactive Web Tour</strong></a>. In this blog, I’ll be shifting gears, focusing on sharing my firsthand experiences, offering valuable suggestions, and addressing some frequently asked questions. </p>
+<p>Join me as I provide insights to enrich your Open-Source journey!</p>
+<p><img src="https://s2.loli.net/2023/09/05/NKTGf3QWkIr4c89.png" alt="2023-09-04 14.07.40.png"></p>
+<h2 id="Discovering-GSoC"><a href="#Discovering-GSoC" class="headerlink" title="Discovering GSoC"></a>Discovering GSoC</h2><p>I first learned about Google Summer of Code (GSoC) while browsing a forum for international students. I came across a post recommending open-source projects, which introduced Google Summer of Code, Outreachy, Linux Foundation Mentorship Program, and MLH Fellowship. Upon diving deeper into these opportunities, I made the choice to participate in this year’s Google Summer of Code.</p>
+<h2 id="Project-Selection-3-20-4-04"><a href="#Project-Selection-3-20-4-04" class="headerlink" title="Project Selection 3.20-4.04"></a>Project Selection 3.20-4.04</h2><p>On March 20th, the GSoC contributor application period began, and I started selecting the project I wanted to work on. My main criteria were how interesting the project was and how well it matched my technical skills. Initially, I narrowed down to 28 projects from 18 organizations. After carefully reading project descriptions and requirements, I took a deep breath: I had missed some code challenges, certain projects needed prior bug fixes and PR submissions, and some already had numerous self-recommendations and seemingly solid implementation proposals. It seemed that my ‘efforts’ were a bit late.</p>
+<p>However, I didn’t want to give up easily. I adjusted my approach. If I lacked competitiveness in those popular projects, I’d shift my focus to find projects that aligned with my skills yet weren’t as heavily contested. Meanwhile, I was immersed in my spring semester studies at school, leaving me limited time to craft proposals for multiple projects. So, I refined my selection once again. </p>
+<p>Finally, I found my best fit: <a target="_blank" rel="noopener" href="https://summerofcode.withgoogle.com/programs/2023/organizations/cbioportal-for-cancer-genomics"><strong>cBioPortal for Cancer Genomics</strong></a>.</p>
+<p>I found two projects in cBioPortal that best suited my skills:<br>1.<a target="_blank" rel="noopener" href="https://github.com/cBioPortal/GSoC/issues/95">Annotate Cancer Alterations and Generate Patient Report</a>,<br>2.<a target="_blank" rel="noopener" href="https://github.com/cBioPortal/GSoC/issues/86">Interactive Web Tour</a>.<br>Then I greeted the community in the github discussion to express my interest.</p>
+<p><img src="https://s2.loli.net/2023/08/25/YyMExefg95vPaUk.png" alt="2023-08-24 21.03.43.png"><br><img src="https://s2.loli.net/2023/08/25/FumhZnqXN1VGSDI.png" alt="2023-08-24 18.16.13.png"></p>
+<h2 id="Finding-the-Right-Fit"><a href="#Finding-the-Right-Fit" class="headerlink" title="Finding the Right Fit"></a>Finding the Right Fit</h2><p>The most direct way to enhance competitiveness is to ‘show me the code.’ So, I allocated two days for each project to explore solutions and create demos. The thoughts during my exploration and the final outcomes could serve as the basis for my proposals.</p>
+<p>While working on the first project, I hit a roadblock right at the beginning – I couldn’t even get the project running! I diligently followed the readme instructions step by step, but I ended up encountering perplexing errors that seemed unsolvable. (Here, my advice is to never hesitate to seek help from the community. This is my regret, but it also led me to my current project.)</p>
+<p>I then shifted to the second project, which was closely aligned with my strong suit. I had prior experience developing user guidance features, so I felt confident. Indeed, the process from installation to setup went incredibly smoothly. I got the project up and running with minimal effort, a positive sign! Following the project’s guidance, I browsed through code demos left by predecessor. I found the web tour intriguing and began sketching out a preliminary implementation plan, and created a basic version of the web tour.</p>
+<p>I believe the Interactive Web Tour project is my destined choice.</p>
+<h2 id="Crafting-the-Proposal"><a href="#Crafting-the-Proposal" class="headerlink" title="Crafting the Proposal"></a>Crafting the Proposal</h2><p>The next step is to write the proposal.<br>I’m including the challenges I anticipated during the brainstorming and demo-writing process, like choosing the right technologies, structuring content for each step, utilizing localStorage for cross-page continuity, and developing interactive web tour logic. I’ve also submitted a <a target="_blank" rel="noopener" href="https://github.com/cBioPortal/cbioportal-frontend/pull/4569"><strong>draft PR</strong></a> with a GIF to effectively showcase my work. Sincere effort is always the most convincing.</p>
+<p>About the project:</p>
+<ul>
+<li>Objective</li>
+<li>Specific Steps</li>
+<li>Anticipated Challenges and My Thoughts</li>
+<li>Tasks and Implementation Plan</li>
+</ul>
+<p>About the myself:</p>
+<ul>
+<li>Personal Background</li>
+<li>Relevant Skills</li>
+<li>Code Demo</li>
+<li>My Availability</li>
+</ul>
+<h2 id="Proposal-Accepted-5-04"><a href="#Proposal-Accepted-5-04" class="headerlink" title="Proposal Accepted 5.04"></a>Proposal Accepted 5.04</h2><p>My proposal got accepted!<br>This year’s GSoC had a total of 43,765 applicants from 160 countries, and I feel fortunate to be among the 967 GSoC contributors who got accepted. All my efforts have paid off!<br><img src="https://s2.loli.net/2023/08/25/VXoSDTOJpE9FUug.png" alt="2023-08-24 21.38.09.png"></p>
+<h2 id="Visa-Concerns"><a href="#Visa-Concerns" class="headerlink" title="Visa Concerns"></a>Visa Concerns</h2><p>Amidst my joy, as an international student on an F1 visa, I couldn’t help but worry about my eligibility for GSoC. I emailed the Office of International Services (OIS) to inquire, but their response was disheartening: ‘Unfortunately, Google Summer of Code is not eligible for CPT, nor can you complete any other work on your CPT authorization that was not part of the position you used to apply for CPT. Many students have expressed interest in the Summer of Code, and unfortunately there’s no way for an F-1 student to complete it unless they do it outside of the US.’</p>
+<p>My world nearly crumbled, until I shared this situation with one of my mentors. At that moment, I want to say: you’re my hero! Mentor Ryan helped me gather the necessary materials, and I successfully applied for CPT! I can now legally participate in GSoC in the US!</p>
+<p><img src="https://s2.loli.net/2023/08/25/89Jplrkcwm631UP.jpg" alt="WechatIMG614.jpeg"></p>
+<h2 id="Connect-with-Community"><a href="#Connect-with-Community" class="headerlink" title="Connect with Community"></a>Connect with Community</h2><p>Before GSoC officially began, my mentors invited me to meetings for introductions, Laptop Setup, Repo Review, and more. The cBioPortal community also organized an online meeting for all GSoC participants. Everything went smoothly.</p>
+<p><img src="https://s2.loli.net/2023/08/25/xXCWjITK2NvuLHt.jpg" alt="hoga 2023-08-24 230919.896.jpg"></p>
+<p>Moving on to the main part.<br>My mentors and I established a weekly meeting routine, covering topics like: </p>
+<ol>
+<li>Progress from the previous week, </li>
+<li>Plans for the upcoming week, </li>
+<li>Q&amp;A, Troubleshooting,</li>
+<li>Suggestions and improvements, and more.</li>
+</ol>
+<p>Although my spoken English and listening skills aren’t perfect, my mentors are incredibly nice; they speak slowly, consider my comfort, and encourage me to immerse myself in the English environment for improvement. Additionally, we communicate on Slack, where I proactively share my progress and seek assistance. Mentors respond promptly and offer helpful guidance. Gradually, I’ve adapted to this work environment.<br>I omitted the project’s specific details here, but you can find them in <a href="https://beking0912.github.io/2023/08/21/Open-Source-Journey-Guide-My-GSoC-2023/">this blog post</a>.</p>
+<h2 id="Midterm-Evaluation-7-14"><a href="#Midterm-Evaluation-7-14" class="headerlink" title="Midterm Evaluation 7.14"></a>Midterm Evaluation 7.14</h2><p>During the midterm presentation, I showcased the web tour I developed to the product and engineering teams, and explained how to add a new tour based on the current codebase (a fantastic suggestion from mentor Jeremy). And I actively sought feedback, meticulously incorporating it into iterative improvements that further enhanced the functionality and user experience.</p>
+<p><img src="https://s2.loli.net/2023/08/25/WrRLGwxa6mHMDgf.png" alt="2023-08-24 23.06.04.png"></p>
+<h2 id="Final-Evaluation-9-4"><a href="#Final-Evaluation-9-4" class="headerlink" title="Final Evaluation 9.4"></a>Final Evaluation 9.4</h2><p>After wrapping up coding and testing, I submitted a PR for experienced engineers to conduct a comprehensive code review. This led to an online preview, giving the product team an opportunity to provide optimization suggestions. Witnessing the feature I developed available for online preview was truly fulfilling, and I’m excited about the possibility of seeing it go live!</p>
+<p><img src="https://s2.loli.net/2023/09/05/fV1abPhurwzIOWM.png" alt="2023-09-04 14.09.42.png"></p>
+<h2 id="Summing-Up"><a href="#Summing-Up" class="headerlink" title="Summing Up"></a>Summing Up</h2><p><strong>Most important accomplishments:</strong></p>
+<ul>
+<li>Proposed and created an interactive web tour to facilitate the exploration of less prominent features including virtual study and group comparison, promoting efficient utilization of cancer genomics data.</li>
+<li>Completed the end-to-end tests to verify the entire web tour from start to finish.</li>
+<li>Delivered a detailed documentation for detailed steps of each tour, test procedures, and instructions on adding new tours.</li>
+</ul>
+<p><strong>Most significant challenges:</strong></p>
+<ul>
+<li>Achieved seamless transitions for web tour steps across multiple pages.</li>
+<li>Completed end-to-end testing code to cover all functionalities I have developed.</li>
+</ul>
+<p><strong>Skills developed:</strong></p>
+<ul>
+<li>I have learned a new skill, end-to-end testing.</li>
+<li><strong>Don’t be afraid to ask for help!</strong> Follow the “15-minute rule”, if you don’t have an answer after 15 minutes, you should ask for help.</li>
+</ul>
+<p>The most satisfying aspect was successfully completing the feature development and making a meaningful contribution to the open-source community. The collaborative atmosphere within the team has been equally beneficial - my colleagues have been ready to lend a helping hand and offer optimization suggestions, enriching my technical skills and contributing to my professional growth!</p>
+<p><img src="https://s2.loli.net/2023/09/05/TJLKhZx87IODWsV.png" alt="2023-09-04 14.15.06.png"></p>
+<h2 id="Thanks-All"><a href="#Thanks-All" class="headerlink" title="Thanks All!!!"></a>Thanks All!!!</h2><p>Excellent mentoring, <a target="_blank" rel="noopener" href="https://github.com/JREastonMarks">Jeremy</a> and <a target="_blank" rel="noopener" href="https://github.com/fuzhaoyuan">Ryan</a>! 👏👏👏<br>Your guidance was invaluable throughout the GSoC journey. Your timely feedback and insightful suggestions greatly enhanced my learning and project outcomes. Thanks both for your outstanding support! 👏👏👏</p>
+<p>Extend my gratitude to the product team, for their thorough product reviews. 👏👏👏<br>Special thanks to <a target="_blank" rel="noopener" href="https://github.com/inodb">Ino</a> and <a target="_blank" rel="noopener" href="https://github.com/alisman">Aaron</a> for their valuable code reviews. 👏👏👏<br>I appreciate <a target="_blank" rel="noopener" href="https://github.com/inodb">Ino</a> and <a target="_blank" rel="noopener" href="https://github.com/dippindots">Gaofei</a> for patiently addressing my numerous questions. 👏👏👏<br>And heartfelt thanks to many others who contributed to my success! 👏👏👏<br><br/></p>
+<hr>
+<p>📮 Feel free to hit me up about Google Summer of Code experience: <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/beking-0912/">Linkedin</a>.<br>😄 Let’s contribute to Open Source!</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects/">Projects</a></li>
+         
+          <li><a href="/about/">About</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Discovering-GSoC"><span class="toc-number">1.</span> <span class="toc-text">Discovering GSoC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Project-Selection-3-20-4-04"><span class="toc-number">2.</span> <span class="toc-text">Project Selection 3.20-4.04</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Finding-the-Right-Fit"><span class="toc-number">3.</span> <span class="toc-text">Finding the Right Fit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Crafting-the-Proposal"><span class="toc-number">4.</span> <span class="toc-text">Crafting the Proposal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Proposal-Accepted-5-04"><span class="toc-number">5.</span> <span class="toc-text">Proposal Accepted 5.04</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Visa-Concerns"><span class="toc-number">6.</span> <span class="toc-text">Visa Concerns</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Connect-with-Community"><span class="toc-number">7.</span> <span class="toc-text">Connect with Community</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Midterm-Evaluation-7-14"><span class="toc-number">8.</span> <span class="toc-text">Midterm Evaluation 7.14</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Final-Evaluation-9-4"><span class="toc-number">9.</span> <span class="toc-text">Final Evaluation 9.4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Summing-Up"><span class="toc-number">10.</span> <span class="toc-text">Summing Up</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Thanks-All"><span class="toc-number">11.</span> <span class="toc-text">Thanks All!!!</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://beking0912.github.io/2023/09/04/Google-Summer-of-Code/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://beking0912.github.io/2023/09/04/Google-Summer-of-Code/&text=🌞 Google Summer of Code: My Journey &amp; Guide"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://beking0912.github.io/2023/09/04/Google-Summer-of-Code/&title=🌞 Google Summer of Code: My Journey &amp; Guide"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://beking0912.github.io/2023/09/04/Google-Summer-of-Code/&is_video=false&description=🌞 Google Summer of Code: My Journey &amp; Guide"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=🌞 Google Summer of Code: My Journey &amp; Guide&body=Check out this article: https://beking0912.github.io/2023/09/04/Google-Summer-of-Code/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://beking0912.github.io/2023/09/04/Google-Summer-of-Code/&title=🌞 Google Summer of Code: My Journey &amp; Guide"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://beking0912.github.io/2023/09/04/Google-Summer-of-Code/&title=🌞 Google Summer of Code: My Journey &amp; Guide"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://beking0912.github.io/2023/09/04/Google-Summer-of-Code/&title=🌞 Google Summer of Code: My Journey &amp; Guide"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://beking0912.github.io/2023/09/04/Google-Summer-of-Code/&title=🌞 Google Summer of Code: My Journey &amp; Guide"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://beking0912.github.io/2023/09/04/Google-Summer-of-Code/&name=🌞 Google Summer of Code: My Journey &amp; Guide&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://beking0912.github.io/2023/09/04/Google-Summer-of-Code/&t=🌞 Google Summer of Code: My Journey &amp; Guide"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2023
+    Gloria Su
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/projects/">Projects</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
