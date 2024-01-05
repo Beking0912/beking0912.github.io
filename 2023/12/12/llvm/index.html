@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="In the world of making computer programs run faster, it’s crucial to really understand how a program behaves while it’s running. Traditional methods mostly look at the code itself, trying to estimate">
+<meta property="og:type" content="article">
+<meta property="og:title" content="🌲 LLVM Pass Development I: Branch-Pointer Trace">
+<meta property="og:url" content="https://beking0912.github.io/2023/12/12/llvm/index.html">
+<meta property="og:site_name" content="Gloria&#39;s Notebook">
+<meta property="og:description" content="In the world of making computer programs run faster, it’s crucial to really understand how a program behaves while it’s running. Traditional methods mostly look at the code itself, trying to estimate">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-12-13T01:58:17.000Z">
+<meta property="article:modified_time" content="2024-01-05T23:59:02.943Z">
+<meta property="article:author" content="Gloria Su">
+<meta property="article:tag" content="LLVM">
+<meta property="article:tag" content="Complier Construction">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/iconmonstr-cat-1-240.png">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/iconmonstr-cat-1-240.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/iconmonstr-cat-1-240.png">
+        
+      
+    
+    <!-- title -->
+    <title>🌲 LLVM Pass Development I: Branch-Pointer Trace</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Gloria's Notebook" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div id="wallpaper" style="background-image: url(&quot;https://s2.loli.net/2023/03/29/y6h1NuejsoG3JYI.png&quot;);background-size: auto;background-repeat: repeat;position: absolute;inset: 0;background-position: center; position: fixed;"></div>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/projects/">Projects</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2023/09/04/Google-Summer-of-Code/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://beking0912.github.io/2023/12/12/llvm/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://beking0912.github.io/2023/12/12/llvm/&text=🌲 LLVM Pass Development I: Branch-Pointer Trace"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://beking0912.github.io/2023/12/12/llvm/&title=🌲 LLVM Pass Development I: Branch-Pointer Trace"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://beking0912.github.io/2023/12/12/llvm/&is_video=false&description=🌲 LLVM Pass Development I: Branch-Pointer Trace"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=🌲 LLVM Pass Development I: Branch-Pointer Trace&body=Check out this article: https://beking0912.github.io/2023/12/12/llvm/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://beking0912.github.io/2023/12/12/llvm/&title=🌲 LLVM Pass Development I: Branch-Pointer Trace"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://beking0912.github.io/2023/12/12/llvm/&title=🌲 LLVM Pass Development I: Branch-Pointer Trace"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://beking0912.github.io/2023/12/12/llvm/&title=🌲 LLVM Pass Development I: Branch-Pointer Trace"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://beking0912.github.io/2023/12/12/llvm/&title=🌲 LLVM Pass Development I: Branch-Pointer Trace"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://beking0912.github.io/2023/12/12/llvm/&name=🌲 LLVM Pass Development I: Branch-Pointer Trace&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://beking0912.github.io/2023/12/12/llvm/&t=🌲 LLVM Pass Development I: Branch-Pointer Trace"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Key-Points-Detection"><span class="toc-number">1.</span> <span class="toc-text">Key Points Detection</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Before-Implementation"><span class="toc-number">2.</span> <span class="toc-text">Before Implementation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Challenges-amp-Solutions"><span class="toc-number">3.</span> <span class="toc-text">Challenges &amp; Solutions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code-Walkthrough"><span class="toc-number">4.</span> <span class="toc-text">Code Walkthrough</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Dictionary-and-Counter-Initialization"><span class="toc-number">4.1.</span> <span class="toc-text">Dictionary and Counter Initialization</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Function-and-Logging-Setup"><span class="toc-number">4.2.</span> <span class="toc-text">Function and Logging Setup</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Branch-Instrumentation"><span class="toc-number">4.3.</span> <span class="toc-text">Branch Instrumentation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ID-Generation-and-Logging"><span class="toc-number">4.4.</span> <span class="toc-text">ID Generation and Logging</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Input-amp-Output"><span class="toc-number">5.</span> <span class="toc-text">Input &amp; Output</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Compile-amp-Run"><span class="toc-number">6.</span> <span class="toc-text">Compile &amp; Run</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-number">7.</span> <span class="toc-text">Conclusion</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        🌲 LLVM Pass Development I: Branch-Pointer Trace
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Gloria Su</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2023-12-13T01:58:17.000Z" itemprop="datePublished">2023-12-12</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/Coding/">Coding</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/C/" rel="tag">C++</a>, <a class="tag-link-link" href="/tags/Complier-Construction/" rel="tag">Complier Construction</a>, <a class="tag-link-link" href="/tags/LLVM/" rel="tag">LLVM</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>In the world of making computer programs run faster, it’s crucial to really understand how a program behaves while it’s running. Traditional methods mostly look at the code itself, trying to estimate how it will perform. However, this approach often misses the important influence of different inputs on how a program acts when it’s actually running.</p>
+<p>The Key Points Detection project steps in to fill this gap by introducing a profiling tool. This tool is like a detective during the program’s execution, carefully keeping track of important events, especially focusing on decision points and function choices. This project is a big step forward in truly grasping how programs behave, which is crucial for making smart improvements to the code.</p>
+<h2 id="Key-Points-Detection"><a href="#Key-Points-Detection" class="headerlink" title="Key Points Detection"></a>Key Points Detection</h2><p>Let’s dive into a C program (let’s call it “fileX”) to see how Key Points Detection works in capturing branch and function pointer traces. The program has a function pointer and a loop, which can lead to different behaviors.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Line <span class="number">1</span>: <span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">Line <span class="number">2</span>:     <span class="type">void</span> (*fun_ptr)(<span class="type">int</span>) = &amp;fun;</span><br><span class="line">Line <span class="number">3</span>:     <span class="type">int</span> c = (*fun_ptr)(<span class="number">10</span>);</span><br><span class="line">Line <span class="number">4</span>:     </span><br><span class="line">Line <span class="number">5</span>:     <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">Line <span class="number">6</span>:          c = c + <span class="number">1</span>;</span><br><span class="line">Line <span class="number">7</span>:     &#125;</span><br><span class="line">Line <span class="number">8</span>:     <span class="keyword">return</span> c;</span><br><span class="line">Line <span class="number">9</span>: &#125;</span><br></pre></td></tr></table></figure>
+<p>The expected trace shows the occurrences of branches and function pointer values during the program’s execution. It looks like this:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">*func_0x32576867</span><br><span class="line">br_2</span><br><span class="line">br_2</span><br><span class="line">br_2</span><br><span class="line">br_3</span><br></pre></td></tr></table></figure>
+<p>In this trace, “*func_0x32576867” represents a function pointer value, and “br_x” represents branch IDs. These serve as a detailed record of what’s happening in the program.<br>For example, the tool’s dictionary file could explain branch IDs like this:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">br_2: fileX, <span class="number">5</span>, <span class="number">6</span></span><br><span class="line">br_3: fileX, <span class="number">5</span>, <span class="number">8</span></span><br></pre></td></tr></table></figure>
+
+<p>Breaking it down, “br_2” indicates a branch in “fileX” starting at line 5 and going to line 6. Similarly, “br_3” is another branch in “fileX,” starting from line 5 and reaching line 8. The line numbers tell you where the branch starts, and the target line number shows where it ends.</p>
+<p>In the provided code example, within the loop structure (lines 5-7), two branches are encountered due to the iterative nature of the loop. The trace appropriately captures these branches (br_2) multiple times, reflecting the dynamic execution of the program during each iteration of the loop.</p>
+<h2 id="Before-Implementation"><a href="#Before-Implementation" class="headerlink" title="Before Implementation"></a>Before Implementation</h2><p>Learn LLVM here: <a target="_blank" rel="noopener" href="https://llvm.org/"><strong>LLVM</strong></a></p>
+<p>LLVM (Low-Level Virtual Machine) is a widely used compiler infrastructure project that provides a collection of modular and reusable compiler and toolchain technologies. LLVM IR (Intermediate Representation) serves as an essential intermediate step during the compilation process. Profiling program behavior, particularly counting branch executions, is crucial for understanding control flow decisions. </p>
+<ul>
+<li><p>ID Generation:</p>
+<ul>
+<li>A unique branch ID is crafted by combining the opcode name and branch number.</li>
+<li>This ID serves as a distinct label for each encountered branch.</li>
+</ul>
+</li>
+<li><p>Dictionary Update and Counter Increment:</p>
+<ul>
+<li>The branch dictionary is updated with branch details, including file name, start line, and target line.</li>
+<li>The branch counter is incremented for generating a unique identifier for subsequent branches.</li>
+</ul>
+</li>
+<li><p>IR Instrumentation for Logging:</p>
+<ul>
+<li>Instrumentation code is inserted into the LLVM IR to call a logging function with the branch ID.</li>
+<li>The logging function captures and records information about branch executions.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Challenges-amp-Solutions"><a href="#Challenges-amp-Solutions" class="headerlink" title="Challenges &amp; Solutions"></a>Challenges &amp; Solutions</h2><p><strong>Challenge:</strong><br>LLVM, as a static analysis tool, does not inherently execute code during analysis. Consequently, it cannot directly count how many times a branch is taken during program execution. </p>
+<p><strong>Solution:</strong><br>To address this challenge, the profiling tool must insert instrumentation into the LLVM IR to increment counters each time a branch is executed.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">IRBuilder&lt;&gt; builder (&amp;*branch-&gt;getFirstInsertionPt ());</span><br><span class="line">Value* args [] = &#123;builder.CreateGlobalStringPtr (branchID)&#125;;</span><br><span class="line">builder.CreateCall (logFunc, args);</span><br></pre></td></tr></table></figure>
+
+<p><strong>Challenge:</strong><br>Printing branch IDs during Intermediate Representation (IR) analysis poses a significant challenge as LLVM primarily focuses on static analysis and does not inherently support direct printing functionalities during this phase.</p>
+<p><strong>Solution:</strong><br>To address the challenge of printing branch IDs within the LLVM IR, a well-defined solution involves the incorporation of a custom logging function. The solution code defines a logPrint function that takes a string as input and prints it. This function is then declared and instantiated within the LLVM context, creating a bridge between the static analysis process and the ability to generate runtime-like outputs.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ...</span></span><br><span class="line">LLVMContext &amp;Ctx = F.getContext();</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;Type *&gt; paramTypes = &#123;Type::getInt8PtrTy(Ctx)&#125;;</span><br><span class="line">Type *retType = Type::getVoidTy(Ctx);</span><br><span class="line">FunctionType *logFuncType = FunctionType::get(retType, paramTypes, <span class="literal">false</span>);</span><br><span class="line">FunctionCallee logFunc = F.getParent()-&gt;getOrInsertFunction(<span class="string">&quot;logPrint&quot;</span>, logFuncType);</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">builder.CreateCall(logFunc, args);</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Code-Walkthrough"><a href="#Code-Walkthrough" class="headerlink" title="Code Walkthrough"></a>Code Walkthrough</h2><p>Check out my code in <a target="_blank" rel="noopener" href="https://github.com/Beking0912/llvm-pass-skeleton"><strong>github</strong></a>.</p>
+<p>Let’s break down the key points in the LLVM Pass code for branch execution counting, emphasizing the understanding of the critical code blocks:</p>
+<h3 id="Dictionary-and-Counter-Initialization"><a href="#Dictionary-and-Counter-Initialization" class="headerlink" title="Dictionary and Counter Initialization"></a>Dictionary and Counter Initialization</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::<span class="built_in">map</span>&lt;<span class="built_in">std</span>::<span class="built_in">string</span>, <span class="built_in">std</span>::tuple&lt;<span class="built_in">std</span>::<span class="built_in">string</span>, <span class="type">int</span>, <span class="type">int</span>&gt;&gt; branchDictionary;</span><br><span class="line"><span class="type">int</span> branchNumber = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>branchDictionary</code>: A data structure to store information about each branch, identified by a unique branch ID. It holds details like the source file name, starting line, and target line.</li>
+<li><code>branchNumber</code>: An integer counter initialized to zero, responsible for assigning unique IDs to each encountered branch.</li>
+</ul>
+<h3 id="Function-and-Logging-Setup"><a href="#Function-and-Logging-Setup" class="headerlink" title="Function and Logging Setup"></a>Function and Logging Setup</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (Function &amp;F : M.functions ()) &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  FunctionType *logFuncType = FunctionType::get(retType, paramTypes, <span class="literal">false</span>);</span><br><span class="line">  FunctionCallee logFunc = F.getParent()-&gt;getOrInsertFunction(<span class="string">&quot;logPrint&quot;</span>, logFuncType);</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>The LLVM Pass iterates over each function in the module.</li>
+<li>It sets up a logging function (<code>logPrint</code>) with the appropriate function type, preparing to log information about executed branches.</li>
+</ul>
+<h3 id="Branch-Instrumentation"><a href="#Branch-Instrumentation" class="headerlink" title="Branch Instrumentation"></a>Branch Instrumentation</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (BasicBlock &amp;B : F) &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="keyword">for</span> (Instruction &amp;I : B) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">auto</span> *BI = dyn_cast&lt;BranchInst&gt;(&amp;I)) &#123;</span><br><span class="line">      <span class="keyword">if</span> (BI-&gt;isConditional()) &#123;</span><br><span class="line">        <span class="type">const</span> DebugLoc &amp;Loc = BI-&gt;getDebugLoc();</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Nested loops traverse basic blocks and instructions within functions.</li>
+<li>Conditional branch instructions (<code>BranchInst</code>) are identified for instrumentation.</li>
+<li>Debug location information is extracted to identify the source code location of the branch.</li>
+</ul>
+<h3 id="ID-Generation-and-Logging"><a href="#ID-Generation-and-Logging" class="headerlink" title="ID Generation and Logging"></a>ID Generation and Logging</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::<span class="built_in">string</span> branchID = opcodeName + <span class="string">&quot;_&quot;</span> + <span class="built_in">std</span>::to_string(branchNumber);</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">IRBuilder&lt;&gt; builder (&amp;*branch-&gt;getFirstInsertionPt ());</span><br><span class="line">Value* args[] = &#123;builder.CreateGlobalStringPtr(branchID)&#125;;</span><br><span class="line">builder.CreateCall(logFunc, args);</span><br><span class="line">branchNumber += <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>A unique branch ID is generated by combining the opcode name and the branch number.</li>
+<li>The branchDictionary is then updated with information related to the current branch. This includes the source file name, starting line, and target line. Simultaneously, the <code>branchNumber</code> is incremented, ensuring the generation of a distinct identifier for the next encountered branch.</li>
+<li>The LLVM IR is dynamically modified to insert instrumentation code. Using the IRBuilder, a call to the logging function (<code>logFunc</code>) is added at the beginning of the basic block containing the branch instruction. This call includes the branch ID as a parameter, facilitating the logging of branch-related information.</li>
+</ul>
+<h2 id="Input-amp-Output"><a href="#Input-amp-Output" class="headerlink" title="Input &amp; Output"></a>Input &amp; Output</h2><p><strong>Input:</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> c;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">fun</span><span class="params">(<span class="type">int</span> a)</span> &#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;Value of a is %d\n&quot;</span>, a);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">  <span class="type">void</span> (*fun_ptr)(<span class="type">int</span>) = &amp;fun;</span><br><span class="line">  (*fun_ptr)(<span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">  <span class="type">int</span> b;</span><br><span class="line">  <span class="keyword">for</span> (c = <span class="number">0</span>; c &lt; <span class="number">3</span>; c++) &#123;</span><br><span class="line">    b = c + <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Output:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">main: func_0x147e4af98</span><br><span class="line">Branch Dictionary:</span><br><span class="line">br_0: fileX.c, 14, 15</span><br><span class="line">br_1: fileX.c, 14, 18</span><br><span class="line"></span><br><span class="line">Value of a is 10</span><br><span class="line">br_0</span><br><span class="line">br_0</span><br><span class="line">br_0</span><br><span class="line">br_1</span><br></pre></td></tr></table></figure>
+
+<h2 id="Compile-amp-Run"><a href="#Compile-amp-Run" class="headerlink" title="Compile &amp; Run"></a>Compile &amp; Run</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Step 1: Create and navigate to the build directory</span></span><br><span class="line"><span class="built_in">mkdir</span> build</span><br><span class="line"><span class="built_in">cd</span> build</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 2: Run CMake and make with Debug flags</span></span><br><span class="line">cmake -DCMAKE_BUILD_TYPE=Debug ..</span><br><span class="line">make</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 3: Navigate back to the parent directory</span></span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 4: Compile logPrint.c with debug information and no optimization</span></span><br><span class="line">cc -g -O0 -c logPrint.c</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 5: Compile fileX.c with the clang plugin, including debug information and no optimization</span></span><br><span class="line">clang -fno-discard-value-names -fpass-plugin=<span class="string">&#x27;build/skeleton/SkeletonPass.dylib&#x27;</span> -c test2.c -g -O0</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 6: Link the object files and create the executable with debug information</span></span><br><span class="line">cc -g test2.o logPrint.o -o a.out</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 7: Run the executable</span></span><br><span class="line">./a.out</span><br></pre></td></tr></table></figure>
+
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>By successfully capturing and recording critical runtime factors including conditional branching points and function pointer calls, our profiling tool provides valuable insights into program executions. The generated Branch-Pointer Trace and associated dictionary offer a comprehensive overview of control flow dynamics, laying the groundwork for in-depth program analysis.</p>
+<p>Looking ahead, the next phase of this project involves the implementation of a static analysis tool. This tool will build upon the existing codebase, aiming to automatically identify the inputs to a C program that specifically determine its behavior at key points. Focusing on conditional branching and function pointer calls, our goal is to streamline the identification process, facilitating a more automated and efficient understanding of program behaviors. </p>
+<hr>
+<p>References:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.cs.cornell.edu/%7Easampson/blog/llvm.html">LLVM for Grad Students</a></li>
+</ul>
+<p>🔍 Check out my code in <a target="_blank" rel="noopener" href="https://github.com/Beking0912/llvm-pass-skeleton"><strong>github</strong></a>.<br>📮 If find any errors, please feel free to discuss and correct them: <a href="mailto:&#98;&#115;&#x75;&#53;&#x40;&#110;&#99;&#x73;&#x75;&#46;&#101;&#x64;&#117;">&#98;&#115;&#x75;&#53;&#x40;&#110;&#99;&#x73;&#x75;&#46;&#101;&#x64;&#117;</a>.</p>
+
+  </div>
+</article>
+
+
+<script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=LAScMVNC13lGc72rIqINM2L1yFfiJg8h4Xr5pHR7doA&cl=ffffff&w=a"></script>
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects/">Projects</a></li>
+         
+          <li><a href="/about/">About</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Key-Points-Detection"><span class="toc-number">1.</span> <span class="toc-text">Key Points Detection</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Before-Implementation"><span class="toc-number">2.</span> <span class="toc-text">Before Implementation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Challenges-amp-Solutions"><span class="toc-number">3.</span> <span class="toc-text">Challenges &amp; Solutions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code-Walkthrough"><span class="toc-number">4.</span> <span class="toc-text">Code Walkthrough</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Dictionary-and-Counter-Initialization"><span class="toc-number">4.1.</span> <span class="toc-text">Dictionary and Counter Initialization</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Function-and-Logging-Setup"><span class="toc-number">4.2.</span> <span class="toc-text">Function and Logging Setup</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Branch-Instrumentation"><span class="toc-number">4.3.</span> <span class="toc-text">Branch Instrumentation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ID-Generation-and-Logging"><span class="toc-number">4.4.</span> <span class="toc-text">ID Generation and Logging</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Input-amp-Output"><span class="toc-number">5.</span> <span class="toc-text">Input &amp; Output</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Compile-amp-Run"><span class="toc-number">6.</span> <span class="toc-text">Compile &amp; Run</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-number">7.</span> <span class="toc-text">Conclusion</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://beking0912.github.io/2023/12/12/llvm/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://beking0912.github.io/2023/12/12/llvm/&text=🌲 LLVM Pass Development I: Branch-Pointer Trace"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://beking0912.github.io/2023/12/12/llvm/&title=🌲 LLVM Pass Development I: Branch-Pointer Trace"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://beking0912.github.io/2023/12/12/llvm/&is_video=false&description=🌲 LLVM Pass Development I: Branch-Pointer Trace"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=🌲 LLVM Pass Development I: Branch-Pointer Trace&body=Check out this article: https://beking0912.github.io/2023/12/12/llvm/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://beking0912.github.io/2023/12/12/llvm/&title=🌲 LLVM Pass Development I: Branch-Pointer Trace"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://beking0912.github.io/2023/12/12/llvm/&title=🌲 LLVM Pass Development I: Branch-Pointer Trace"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://beking0912.github.io/2023/12/12/llvm/&title=🌲 LLVM Pass Development I: Branch-Pointer Trace"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://beking0912.github.io/2023/12/12/llvm/&title=🌲 LLVM Pass Development I: Branch-Pointer Trace"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://beking0912.github.io/2023/12/12/llvm/&name=🌲 LLVM Pass Development I: Branch-Pointer Trace&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://beking0912.github.io/2023/12/12/llvm/&t=🌲 LLVM Pass Development I: Branch-Pointer Trace"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2023-2024
+    Gloria Su
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/projects/">Projects</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
