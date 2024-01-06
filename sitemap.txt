@@ -30,6 +30,6 @@ https://beking0912.github.io/tags/Pinia/
 https://beking0912.github.io/tags/Firebase/
 https://beking0912.github.io/categories/Coding/
 https://beking0912.github.io/categories/Open-Source/
-https://beking0912.github.io/categories/Reading/
 https://beking0912.github.io/categories/Coding/Open-Source/
+https://beking0912.github.io/categories/Reading/
 https://beking0912.github.io/categories/Coding/Migration/

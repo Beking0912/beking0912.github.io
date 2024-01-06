@@ -13,13 +13,16 @@
 <meta property="og:site_name" content="Gloria&#39;s Notebook">
 <meta property="og:description" content="In the world of making computer programs run faster, it’s crucial to really understand how a program behaves while it’s running. Traditional methods mostly look at the code itself, trying to estimate">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s2.loli.net/2024/01/06/JA6sz4WtqvEkpd3.png">
+<meta property="og:image" content="https://s2.loli.net/2024/01/06/shgorHTIQfRYJW3.png">
 <meta property="article:published_time" content="2023-12-13T01:58:17.000Z">
-<meta property="article:modified_time" content="2024-01-05T23:59:02.943Z">
+<meta property="article:modified_time" content="2024-01-06T00:05:22.752Z">
 <meta property="article:author" content="Gloria Su">
 <meta property="article:tag" content="LLVM">
 <meta property="article:tag" content="Complier Construction">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2024/01/06/JA6sz4WtqvEkpd3.png">
     
     
       
@@ -157,7 +160,7 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>In the world of making computer programs run faster, it’s crucial to really understand how a program behaves while it’s running. Traditional methods mostly look at the code itself, trying to estimate how it will perform. However, this approach often misses the important influence of different inputs on how a program acts when it’s actually running.</p>
+    <p><img src="https://s2.loli.net/2024/01/06/JA6sz4WtqvEkpd3.png" alt="Frame 2 _3_.png"><br>In the world of making computer programs run faster, it’s crucial to really understand how a program behaves while it’s running. Traditional methods mostly look at the code itself, trying to estimate how it will perform. However, this approach often misses the important influence of different inputs on how a program acts when it’s actually running.</p>
 <p>The Key Points Detection project steps in to fill this gap by introducing a profiling tool. This tool is like a detective during the program’s execution, carefully keeping track of important events, especially focusing on decision points and function choices. This project is a big step forward in truly grasping how programs behave, which is crucial for making smart improvements to the code.</p>
 <h2 id="Key-Points-Detection"><a href="#Key-Points-Detection" class="headerlink" title="Key Points Detection"></a>Key Points Detection</h2><p>Let’s dive into a C program (let’s call it “fileX”) to see how Key Points Detection works in capturing branch and function pointer traces. The program has a function pointer and a loop, which can lead to different behaviors.</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Line <span class="number">1</span>: <span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">Line <span class="number">2</span>:     <span class="type">void</span> (*fun_ptr)(<span class="type">int</span>) = &amp;fun;</span><br><span class="line">Line <span class="number">3</span>:     <span class="type">int</span> c = (*fun_ptr)(<span class="number">10</span>);</span><br><span class="line">Line <span class="number">4</span>:     </span><br><span class="line">Line <span class="number">5</span>:     <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">Line <span class="number">6</span>:          c = c + <span class="number">1</span>;</span><br><span class="line">Line <span class="number">7</span>:     &#125;</span><br><span class="line">Line <span class="number">8</span>:     <span class="keyword">return</span> c;</span><br><span class="line">Line <span class="number">9</span>: &#125;</span><br></pre></td></tr></table></figure>
@@ -232,12 +235,13 @@
 
 <h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>By successfully capturing and recording critical runtime factors including conditional branching points and function pointer calls, our profiling tool provides valuable insights into program executions. The generated Branch-Pointer Trace and associated dictionary offer a comprehensive overview of control flow dynamics, laying the groundwork for in-depth program analysis.</p>
 <p>Looking ahead, the next phase of this project involves the implementation of a static analysis tool. This tool will build upon the existing codebase, aiming to automatically identify the inputs to a C program that specifically determine its behavior at key points. Focusing on conditional branching and function pointer calls, our goal is to streamline the identification process, facilitating a more automated and efficient understanding of program behaviors. </p>
+<p><img src="https://s2.loli.net/2024/01/06/shgorHTIQfRYJW3.png" alt="Frame 1 _3_.png"></p>
 <hr>
 <p>References:</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://www.cs.cornell.edu/%7Easampson/blog/llvm.html">LLVM for Grad Students</a></li>
 </ul>
-<p>🔍 Check out my code in <a target="_blank" rel="noopener" href="https://github.com/Beking0912/llvm-pass-skeleton"><strong>github</strong></a>.<br>📮 If find any errors, please feel free to discuss and correct them: <a href="mailto:&#98;&#115;&#x75;&#53;&#x40;&#110;&#99;&#x73;&#x75;&#46;&#101;&#x64;&#117;">&#98;&#115;&#x75;&#53;&#x40;&#110;&#99;&#x73;&#x75;&#46;&#101;&#x64;&#117;</a>.</p>
+<p>🔍 Check out my code in <a target="_blank" rel="noopener" href="https://github.com/Beking0912/llvm-pass-skeleton"><strong>github</strong></a>.<br>📮 If find any errors, please feel free to discuss and correct them: <a href="mailto:&#98;&#115;&#117;&#53;&#x40;&#110;&#99;&#x73;&#x75;&#x2e;&#101;&#x64;&#117;">&#98;&#115;&#117;&#53;&#x40;&#110;&#99;&#x73;&#x75;&#x2e;&#101;&#x64;&#117;</a>.</p>
 
   </div>
 </article>
