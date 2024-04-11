@@ -1080,6 +1080,9 @@ body {
 .project-list .project-item {
   margin-bottom: 5px;
 }
+.project-list .project-item a {
+  font-weight: bold;
+}
 .project-list .project-item p {
   display: inline;
 }
