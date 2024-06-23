@@ -185,41 +185,6 @@
   </url>
   
   <url>
-    <loc>https://beking0912.github.io/tags/Journey/</loc>
-    <lastmod>2024-06-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beking0912.github.io/tags/Seattle/</loc>
-    <lastmod>2024-06-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beking0912.github.io/tags/TypeScript/</loc>
-    <lastmod>2024-06-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beking0912.github.io/tags/Rollup/</loc>
-    <lastmod>2024-06-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://beking0912.github.io/tags/npm/</loc>
-    <lastmod>2024-06-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://beking0912.github.io/tags/Nuxt/</loc>
     <lastmod>2024-06-23</lastmod>
     <changefreq>weekly</changefreq>
@@ -242,6 +207,41 @@
   
   <url>
     <loc>https://beking0912.github.io/tags/Firebase/</loc>
+    <lastmod>2024-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beking0912.github.io/tags/TypeScript/</loc>
+    <lastmod>2024-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beking0912.github.io/tags/Journey/</loc>
+    <lastmod>2024-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beking0912.github.io/tags/Seattle/</loc>
+    <lastmod>2024-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beking0912.github.io/tags/Rollup/</loc>
+    <lastmod>2024-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://beking0912.github.io/tags/npm/</loc>
     <lastmod>2024-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -292,7 +292,7 @@
   </url>
   
   <url>
-    <loc>https://beking0912.github.io/categories/Journey/</loc>
+    <loc>https://beking0912.github.io/categories/Coding/Migration/</loc>
     <lastmod>2024-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -306,7 +306,7 @@
   </url>
   
   <url>
-    <loc>https://beking0912.github.io/categories/Coding/Migration/</loc>
+    <loc>https://beking0912.github.io/categories/Journey/</loc>
     <lastmod>2024-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
